@@ -11,7 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <style>
         /* General Styles */
         body {
@@ -184,12 +185,14 @@
             flex-wrap: wrap;
         }
 
-        .service-box {
-            background: #007bff;
+        .service-box,
+        .project-item {
+            background: #1F83C5;
             color: white;
             padding: 20px;
             width: 200px;
             border-radius: 8px;
+            margin: 10px;
         }
 
         .gallery-grid {
@@ -210,9 +213,10 @@
         }
 
         .contact {
-            background: #333;
+            background: #002040;
             color: white;
             padding: 30px;
+            font-family: Arial, sans-serif;
         }
 
         .home-icon {
@@ -227,6 +231,23 @@
             text-align: center;
             cursor: pointer;
         }
+
+        .project-item {
+            display: inline-block;
+            margin: 10px;
+            padding: 20px;
+            background: #004080;
+            color: white;
+            border-radius: 10px;
+            width: 200px;
+        }
+
+        /* .services,
+        .projects,
+        .partners,
+        .contact {
+            padding: 50px 20px;
+        } */
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -355,7 +376,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#partners">Our Partners</a></li>
+                <li><a href="#partners">Partners</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -383,38 +404,40 @@
         <div class="slide">
             <img src="images/slide1.jpg" alt="Image 1">
             <div class="slide-text">
-                <h2>S4 AUTOMATION SINGAPORE PTE LTD</h2>
-                <p>Marine Navigation & Communication Specialists</p>
+                <h2>Automation Engineering</h2>
+                <p>Reliable Marine Solutions</p>
             </div>
         </div>
         <div class="slide">
             <img src="images/slide2.jpg" alt="Image 2">
             <div class="slide-text">
-                <h2>S4 AUTOMATION SINGAPORE PTE LTD</h2>
+                <h2>Navigation Tech</h2>
                 <p>Marine Navigation & Communication Specialists</p>
             </div>
         </div>
         <div class="slide">
             <img src="images/slide3.jpg" alt="Image 3">
             <div class="slide-text">
-                <h2>S4 AUTOMATION SINGAPORE PTE LTD</h2>
-                <p>Marine Navigation & Communication Specialists</p>
+                <h2>Ship Maintenance</h2>
+                <p>Ship Maintenance & Repair</p>
             </div>
         </div>
     </section>
 
     <section id="about" class="about">
-        <h2>About CCE</h2>
-        <p>CCE specializes in the sales, installation, and servicing of marine navigation and communication electronics.</p>
+        <h2>About</h2>
+        <p>Specializes in the engin control system, installation, and servicing of marine navigation and communication
+            electronics.
+        </p>
     </section>
 
     <section id="services" class="services">
-        <h2>What Do We Do</h2>
+        <h2>Our Services</h2>
         <div class="service-grid">
-            <div class="service-box">Upgrades & Retrofits</div>
-            <div class="service-box">Consultation</div>
-            <div class="service-box">Sales & Service</div>
-            <div class="service-box">Annual VDR & Radio Surveys</div>
+            <div class="service-box">Navigation Systems</div>
+            <div class="service-box">Marine Electronics</div>
+            <div class="service-box">Equipment Repair</div>
+            <div class="service-box">Reliable Marine Solutions</div>
         </div>
     </section>
 
@@ -437,22 +460,29 @@
         </div>
     </section>
 
+    <!-- <section id="projects" class="projects">
+        <h2>Recent Projects</h2>
+        <div class="project-item">Offshore Drilling Support</div>
+        <div class="project-item">Port Security System</div>
+    </section> -->
+
     <section id="projects" class="projects">
-        <h2>Latest Projects</h2>
+        <h2>Recent Projects</h2>
         <div class="project-item">
             <h3>Project 1</h3>
-            <p>Description of the project...</p>
+            <p>Click here to download</p>
         </div>
         <div class="project-item">
             <h3>Project 2</h3>
-            <p>Description of the project...</p>
+            <p>Click here to download</p>
         </div>
+
     </section>
 
     <section id="contact" class="contact">
-        <h2>Contact CCE</h2>
-        <p>Email: contact@cce.com</p>
-        <p>Phone: +61 400 123 456</p>
+        <h2>Contact Us</h2>
+        <p>Email: service@s4automation.net</p>
+        <p>Phone: +65-97552990</p>
     </section>
 
     <a href="#" class="home-icon">
@@ -485,7 +515,7 @@
                 autoplayTimeout: 5000,
                 autoplayHoverPause: true,
                 nav: false,
-                dots:true,
+                dots: true,
                 responsive: {
                     0: {
                         items: 1
