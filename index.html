@@ -10,7 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <style>
         /* General Styles */
         body {
@@ -20,20 +21,17 @@
             text-align: center;
         }
 
-
         /* Header */
         header {
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
-            /* transition: all 0.2s ease-in-out; */
             z-index: 1000;
             display: flex;
             justify-content: space-around;
             align-items: center;
             background-color: #fff;
-            /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
             padding: 10px 0;
         }
 
@@ -47,7 +45,6 @@
         header h2 {
             color: #2086C7;
             font-size: large;
-            /* font-style: italic; */
         }
 
         .logo {
@@ -83,7 +80,6 @@
             font-size: 14px;
             border-radius: 5px;
             transition: background-color 0.3s ease;
-            /* text-align: center; */
         }
 
         .nav-menu li a:hover {
@@ -154,19 +150,7 @@
             cursor: pointer;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-        /* banner section */
-
+        /* banner section - Owl Carousel */
         .banner-slider {
             position: relative;
             width: 100%;
@@ -174,24 +158,10 @@
             top: 82px;
         }
 
-        .slide {
-            position: absolute;
-            width: 100%;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-        }
-
         .slide img {
             width: 100%;
             height: 600px;
             object-fit: cover;
-            /* object-fit: contain; */
-            /* opacity: 0.7; */
-        }
-
-        .slide.active {
-            opacity: 1;
-            position: relative;
         }
 
         .slide-text {
@@ -204,47 +174,9 @@
             padding: 20px;
             background: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
-
         }
-
-        .nav-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            cursor: pointer;
-            z-index: 2;
-        }
-
-        .prev {
-            left: 10px;
-        }
-
-        .next {
-            right: 10px;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
 
         /* Sections */
-        /* section {
-    padding: 60px 20px;
-} */
-
-        /* Services */
         .service-grid {
             display: flex;
             justify-content: center;
@@ -260,7 +192,6 @@
             border-radius: 8px;
         }
 
-        /* Gallery */
         .gallery-grid {
             display: flex;
             flex-wrap: wrap;
@@ -273,21 +204,17 @@
             object-fit: cover;
         }
 
-        /* Partners */
         .partner-logos img {
             width: 100px;
             margin: 10px;
         }
 
-        /* Contact */
         .contact {
             background: #333;
             color: white;
             padding: 30px;
         }
 
-
-        /* Home Button */
         .home-icon {
             position: fixed;
             bottom: 20px;
@@ -301,36 +228,8 @@
             cursor: pointer;
         }
 
-
-
-
-
-
-
-
-
-
-
-
         /* Responsive Design */
         @media (max-width: 768px) {
-            /* Adjust Header */
-
-            /* header {
-                top: 0px;
-                height: 100px;
-                z-index: -1;
-                margin: auto;
-                text-align: center;
-                padding: 0;
-            } */
-
-
-            /* shrink */
-            /* header.shrink {
-                padding-top: 7px;
-            } */
-
             header.shrink .logo img {
                 height: 35px;
                 margin-top: 7px;
@@ -354,8 +253,6 @@
                 margin: 10px 0;
             }
 
-
-
             .logo {
                 height: 50px;
                 margin-left: 5px;
@@ -364,7 +261,6 @@
             .logo img {
                 height: 100%;
             }
-
 
             .nav-menu {
                 display: none;
@@ -381,10 +277,6 @@
                 width: 25px;
                 margin: 3px;
             }
-
-
-
-            /* Make Banner Text Smaller */
 
             .banner-slider {
                 top: 51px;
@@ -407,8 +299,6 @@
                 font-size: 0.5em;
             }
 
-
-            /* Stack Service Boxes */
             .service-grid {
                 flex-direction: column;
                 align-items: center;
@@ -418,7 +308,6 @@
                 width: 90%;
             }
 
-            /* Adjust Gallery */
             .gallery-grid {
                 flex-direction: column;
                 align-items: center;
@@ -429,7 +318,6 @@
                 height: auto;
             }
 
-            /* Make Partner Logos Stack */
             .partner-logos {
                 display: flex;
                 flex-direction: column;
@@ -440,13 +328,11 @@
                 width: 80%;
             }
 
-            /* Adjust Project Items */
             .project-item {
                 width: 90%;
                 margin: 10px auto;
             }
 
-            /* Home Button */
             .home-icon {
                 bottom: 10px;
                 right: 10px;
@@ -459,8 +345,6 @@
 </head>
 
 <body>
-
-    <!-- Header Section -->
     <header>
         <div class="logo">
             <a href="#"><img src="images/logo.png" alt="Your Logo" loading="lazy"></a>
@@ -483,7 +367,6 @@
         </div>
     </header>
 
-    <!-- hambarger nav menu for mobile responsive -->
     <div class="mobile-nav" id="mobileNav">
         <span class="close-menu" onclick="toggleMenu()">✖</span>
         <ul>
@@ -496,66 +379,35 @@
         </ul>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- banner section -->
-    <section class="banner-slider">
-        <div class="slide active">
-            <img src="images/slide-1.jpg" alt="Image 1">
+    <section class="banner-slider owl-carousel owl-theme">
+        <div class="slide">
+            <img src="images/slide1.jpg" alt="Image 1">
             <div class="slide-text">
                 <h2>S4 AUTOMATION SINGAPORE PTE LTD</h2>
                 <p>Marine Navigation & Communication Specialists</p>
             </div>
         </div>
         <div class="slide">
-            <img src="images/slide-2.jpg" alt="Image 2">
+            <img src="images/slide2.jpg" alt="Image 2">
             <div class="slide-text">
                 <h2>S4 AUTOMATION SINGAPORE PTE LTD</h2>
                 <p>Marine Navigation & Communication Specialists</p>
             </div>
         </div>
         <div class="slide">
-            <img src="images/slide-3.jpg" alt="Image 3">
+            <img src="images/slide3.jpg" alt="Image 3">
             <div class="slide-text">
                 <h2>S4 AUTOMATION SINGAPORE PTE LTD</h2>
                 <p>Marine Navigation & Communication Specialists</p>
             </div>
         </div>
-        <!-- <button class="nav-button prev">&#10094;</button>
-        <button class="nav-button next">&#10095;</button> -->
     </section>
 
-
-
-
-
-
-
-
-
-
-
-    <!-- About Section -->
     <section id="about" class="about">
         <h2>About CCE</h2>
-        <p>CCE specializes in the sales, installation, and servicing of marine navigation and communication electronics.
-        </p>
+        <p>CCE specializes in the sales, installation, and servicing of marine navigation and communication electronics.</p>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="services">
         <h2>What Do We Do</h2>
         <div class="service-grid">
@@ -566,7 +418,6 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
     <section id="gallery" class="gallery">
         <h2>Gallery</h2>
         <div class="gallery-grid">
@@ -577,7 +428,6 @@
         </div>
     </section>
 
-    <!-- Partners Section -->
     <section id="partners" class="partners">
         <h2>Our Partners</h2>
         <div class="partner-logos">
@@ -587,7 +437,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="projects">
         <h2>Latest Projects</h2>
         <div class="project-item">
@@ -600,24 +449,20 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2>Contact CCE</h2>
         <p>Email: contact@cce.com</p>
         <p>Phone: +61 400 123 456</p>
     </section>
 
-
-    <!-- Home Icon Button -->
     <a href="#" class="home-icon">
         <i class="fas fa-home"></i>
     </a>
 
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script>
         // header
-
         function toggleMenu() {
             document.getElementById("mobileNav").classList.toggle("active");
         }
@@ -631,70 +476,30 @@
             }
         });
 
-
-
-        // Smooth Scrolling for Navigation Links
-        // document.querySelectorAll("nav ul li a").forEach(anchor => {
-        //     anchor.addEventListener("click", function (event) {
-        //         event.preventDefault();
-        //         const targetId = this.getAttribute("href").substring(1);
-        //         document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
-        //     });
-        // });
-
-
-
-
-
-
-
-        // banner section
-        const slides = document.querySelectorAll('.slide');
-        const prevButton = document.querySelector('.prev');
-        const nextButton = document.querySelector('.next');
-        let currentSlide = 0;
-        let intervalId;
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
+        // Owl Carousel
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                items: 1,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                nav: false,
+                dots:true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
             });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        function startSlider() {
-            intervalId = setInterval(nextSlide, 5000);
-        }
-
-        function stopSlider() {
-            clearInterval(intervalId);
-        }
-
-        nextButton.addEventListener('click', () => {
-            stopSlider();
-            nextSlide();
-            startSlider();
         });
-
-        prevButton.addEventListener('click', () => {
-            stopSlider();
-            prevSlide();
-            startSlider();
-        });
-
-        startSlider();
     </script>
-
-    <!-- <script src="script.js"></script> -->
 </body>
 
 </html>
