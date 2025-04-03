@@ -45,7 +45,8 @@
 
         header h2 {
             color: #2086C7;
-            font-size: large;
+            font-size: larger;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         .logo {
@@ -63,17 +64,17 @@
             margin-top: 21px;
         }
 
-        .nav-menu {
+        .header-nav {
             list-style: none;
             display: flex;
             padding: 0;
         }
 
-        .nav-menu li {
+        .header-nav li {
             margin: 0 10px;
         }
 
-        .nav-menu li a {
+        .header-nav li a {
             color: #333;
             text-decoration: none;
             padding: 10px 15px;
@@ -83,7 +84,7 @@
             transition: background-color 0.3s ease;
         }
 
-        .nav-menu li a:hover {
+        .header-nav li a:hover {
             background-color: rgba(180, 180, 180, 0.5);
         }
 
@@ -187,6 +188,7 @@
 
         .service-box,
         .project-item {
+            display: inline-block;
             background: #1F83C5;
             color: white;
             padding: 20px;
@@ -195,15 +197,17 @@
             margin: 10px;
         }
 
+
         .gallery-grid {
             display: flex;
+            justify-content: center;
             flex-wrap: wrap;
             gap: 10px;
         }
 
         .gallery-grid img {
-            width: 100px;
-            height: 100px;
+            width: 10%;
+            height: auto;
             object-fit: cover;
         }
 
@@ -232,7 +236,7 @@
             cursor: pointer;
         }
 
-        .project-item {
+        /* .project-item {
             display: inline-block;
             margin: 10px;
             padding: 20px;
@@ -240,17 +244,29 @@
             color: white;
             border-radius: 10px;
             width: 200px;
-        }
+        } */
 
-        /* .services,
-        .projects,
+        .about,
+        .services,
+        .gallery,
         .partners,
+        .projects,
         .contact {
             padding: 50px 20px;
-        } */
+        }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+
+            .logo {
+                height: 50px;
+                margin-left: 5px;
+            }
+
+            .logo img {
+                height: 100%;
+            }
+
             header.shrink .logo img {
                 height: 35px;
                 margin-top: 7px;
@@ -265,26 +281,14 @@
                 display: none;
             }
 
-            nav ul {
+            .header-nav {
                 flex-direction: column;
                 padding: 0;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-            }
-
-            .logo {
-                height: 50px;
-                margin-left: 5px;
-            }
-
-            .logo img {
-                height: 100%;
-            }
-
-            .nav-menu {
                 display: none;
+            }
+
+            .header-nav li {
+                margin: 10px 0;
             }
 
             .menu-toggle {
@@ -362,6 +366,18 @@
                 font-size: 15px;
             }
         }
+
+        @media (min-width: 768px) and (max-width: 1080px) {
+            .header-nav li {
+                margin: 0;
+                padding: 0;
+            }
+
+            .header-nav li a {
+                margin: 0;
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 
@@ -372,12 +388,14 @@
         </div>
         <h2>S4 AUTOMATION <span class="d-none">SINGAPORE</span></h2>
         <nav>
-            <ul class="nav-menu">
+            <ul class="header-nav">
+                <li><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#partners">Partners</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -391,11 +409,13 @@
     <div class="mobile-nav" id="mobileNav">
         <span class="close-menu" onclick="toggleMenu()">✖</span>
         <ul>
+            <li><a href="#" onclick="toggleMenu()">Home</a></li>
             <li><a href="#about" onclick="toggleMenu()">About</a></li>
             <li><a href="#services" onclick="toggleMenu()">Services</a></li>
             <li><a href="#gallery" onclick="toggleMenu()">Gallery</a></li>
             <li><a href="#partners" onclick="toggleMenu()">Our Partners</a></li>
             <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="#portfolio" onclick="toggleMenu()">Portfolio</a></li>
             <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </ul>
     </div>
@@ -404,8 +424,8 @@
         <div class="slide">
             <img src="images/slide1.jpg" alt="Image 1">
             <div class="slide-text">
-                <h2>Automation Engineering</h2>
-                <p>Reliable Marine Solutions</p>
+                <h2>Marine Automation Engineering</h2>
+                <p>Reliable Control System Solutions</p>
             </div>
         </div>
         <div class="slide">
@@ -420,6 +440,13 @@
             <div class="slide-text">
                 <h2>Ship Maintenance</h2>
                 <p>Ship Maintenance & Repair</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="images/slide4.jpg" alt="Image 3">
+            <div class="slide-text">
+                <h2>Marine Electronics</h2>
+                <p>Automation & Control System</p>
             </div>
         </div>
     </section>
@@ -444,19 +471,24 @@
     <section id="gallery" class="gallery">
         <h2>Gallery</h2>
         <div class="gallery-grid">
-            <img src="images/gallery1.jpg" alt="Gallery Image">
-            <img src="images/gallery2.jpg" alt="Gallery Image">
-            <img src="images/gallery3.jpg" alt="Gallery Image">
-            <img src="images/gallery4.jpg" alt="Gallery Image">
+            <img src="images/gallery1.webp" alt="Gallery Image">
+            <img src="images/gallery2.webp" alt="Gallery Image">
+            <img src="images/gallery3.webp" alt="Gallery Image">
+            <img src="images/gallery4.webp" alt="Gallery Image">
+            <img src="images/gallery5.webp" alt="Gallery Image">
+            <img src="images/gallery6.webp" alt="Gallery Image">
+            <img src="images/gallery7.jpg" alt="Gallery Image">
+            <img src="images/gallery8.jpg" alt="Gallery Image">
+            <img src="images/gallery9.jpg" alt="Gallery Image">
+            <img src="images/gallery10.jpg" alt="Gallery Image">
         </div>
     </section>
 
     <section id="partners" class="partners">
         <h2>Our Partners</h2>
         <div class="partner-logos">
-            <img src="images/partner1.png" alt="Partner 1">
-            <img src="images/partner2.png" alt="Partner 2">
-            <img src="images/partner3.png" alt="Partner 3">
+            <img src="images/partner1.jpeg" alt="Partner 1">
+            <img src="images/partner2.jpeg" alt="Partner 2">
         </div>
     </section>
 
@@ -467,20 +499,21 @@
     </section> -->
 
     <section id="projects" class="projects">
-        <h2>Recent Projects</h2>
+        <h2>Recent Projects & Portfolio</h2>
         <div class="project-item">
-            <h3>Project 1</h3>
-            <p>Click here to download</p>
+            <h3>Last Project</h3>
         </div>
-        <div class="project-item">
-            <h3>Project 2</h3>
-            <p>Click here to download</p>
+        <div id="portfolio" class="project-item">
+            <h3>Portfolio</h3>
         </div>
+    </section>
 
     </section>
 
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
+        <p>Shimul K N</p>
+        <p>Marine Automation & Control System</p>
         <p>Email: service@s4automation.net</p>
         <p>Phone: +65-97552990</p>
     </section>
