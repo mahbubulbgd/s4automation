@@ -216,12 +216,20 @@
             margin: 10px;
         }
 
-        .contact {
+        footer {
             background: #002040;
             color: white;
-            padding: 30px;
+            padding: 30px 30px 10px 30px;
             font-family: Arial, sans-serif;
         }
+
+        .footer-copyright {
+            font-style: italic;
+            font-size: small;
+            /* padding-top: 5px; */
+        }
+
+
 
         .home-icon {
             position: fixed;
@@ -254,6 +262,15 @@
         .contact {
             padding: 50px 20px;
         }
+
+        .footer-text h4 {
+            font-weight: 500;
+        }
+        .footer-icon {
+            list-style: none;
+        }
+
+
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -480,7 +497,6 @@
             <img src="images/gallery7.jpg" alt="Gallery Image">
             <img src="images/gallery8.jpg" alt="Gallery Image">
             <img src="images/gallery9.jpg" alt="Gallery Image">
-            <img src="images/gallery10.jpg" alt="Gallery Image">
         </div>
     </section>
 
@@ -492,13 +508,9 @@
         </div>
     </section>
 
-    <!-- <section id="projects" class="projects">
-        <h2>Recent Projects</h2>
-        <div class="project-item">Offshore Drilling Support</div>
-        <div class="project-item">Port Security System</div>
-    </section> -->
 
-    <section id="projects" class="projects">
+
+    <!-- <section id="projects" class="projects">
         <h2>Recent Projects & Portfolio</h2>
         <div class="project-item">
             <h3>Last Project</h3>
@@ -506,21 +518,64 @@
         <div id="portfolio" class="project-item">
             <h3>Portfolio</h3>
         </div>
+    </section> -->
+
+
+    <section class="map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.718351683439!2d103.70451349999999!3d1.3454302999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da0f61da22d131%3A0x31e32b40e23c2499!2sS4%20Automation%20Singapore%20Pte.%20Ltd.!5e0!3m2!1sen!2sbd!4v1743757108260!5m2!1sen!2sbd"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
-    </section>
 
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <p>Shimul K N</p>
-        <p>Marine Automation & Control System</p>
-        <p>Email: service@s4automation.net</p>
-        <p>Phone: +65-97552990</p>
-    </section>
+
+    <footer>
+        <div id="contact" class="contact">
+            <div class="footer-text">
+                <h2>Contact Us</h2>
+                <h4>S4 AUTOMATION SINGAPORE PTE LTD.</h4>
+                <p>Shimul K N</p>
+                <p>Marine Automation & Control System</p>
+                <p>Email: service@s4automation.net</p>
+                <p>Phone: +65-97552990</p>
+            </div>
+            <nav>
+                <ul class="footer-icon">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </nav>
+        </div>
+        <hr>
+        <p class="footer-copyright">Copyright © S4 Automation Singapore Pte. Ltd.. All rights reserved.</p>
+    </footer>
 
     <a href="#" class="home-icon">
         <i class="fas fa-home"></i>
     </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
