@@ -266,6 +266,7 @@
         .footer-text h4 {
             font-weight: 500;
         }
+
         .footer-icon {
             list-style: none;
         }
@@ -382,7 +383,35 @@
                 padding: 10px;
                 font-size: 15px;
             }
+
+
+
+
+
+            .service-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                /* 2 columns, equal width */
+                grid-template-rows: auto auto;
+                /* 2 rows, auto height */
+                gap: 10px;
+                /* Optional: adds space between grid items */
+            }
+
+            .service-box {
+                /* Your existing service-box styles */
+                /* background: #007bff; */
+                color: white;
+                padding: 10px;
+                border-radius: 8px;
+                text-align: center;
+                /* Center the text */
+                margin: auto;
+                font-size: medium;
+            }
         }
+
+
 
         @media (min-width: 768px) and (max-width: 1080px) {
             .header-nav li {
@@ -490,7 +519,7 @@
         <div class="gallery-grid">
             <img src="images/gallery1.webp" alt="Gallery Image">
             <img src="images/gallery2.webp" alt="Gallery Image">
-            <img src="images/gallery3.webp" alt="Gallery Image">
+            <img src="images/gallery3.jpg" alt="Gallery Image">
             <img src="images/gallery4.webp" alt="Gallery Image">
             <img src="images/gallery5.webp" alt="Gallery Image">
             <img src="images/gallery6.webp" alt="Gallery Image">
