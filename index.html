@@ -182,6 +182,7 @@
         .service-grid {
             display: flex;
             justify-content: center;
+            align-content: center;
             gap: 20px;
             flex-wrap: wrap;
         }
@@ -216,21 +217,6 @@
             margin: 10px;
         }
 
-        footer {
-            background: #002040;
-            color: white;
-            padding: 30px 30px 10px 30px;
-            font-family: Arial, sans-serif;
-        }
-
-        .footer-copyright {
-            font-style: italic;
-            font-size: small;
-            /* padding-top: 5px; */
-        }
-
-
-
         .home-icon {
             position: fixed;
             bottom: 20px;
@@ -260,7 +246,20 @@
         .partners,
         .projects,
         .contact {
-            padding: 50px 20px;
+            padding: 50px;
+        }
+
+        footer {
+            background: #002040;
+            color: #ffffffe3;
+            padding: 30px 30px 10px 30px;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-copyright {
+            font-style: italic;
+            font-size: x-small;
+            /* padding-top: 5px; */
         }
 
         .footer-text h4 {
@@ -351,6 +350,30 @@
                 width: 90%;
             }
 
+            .service-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                /* 2 columns, equal width */
+                grid-template-rows: auto auto;
+                /* 2 rows, auto height */
+                gap: 10px;
+            }
+
+            .service-box {
+                color: white;
+                padding: 10px;
+                border-radius: 8px;
+                text-align: center;
+                margin: auto;
+                font-size: medium;
+                text-align: center;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+            }
+
             .gallery-grid {
                 flex-direction: column;
                 align-items: center;
@@ -384,30 +407,8 @@
                 font-size: 15px;
             }
 
-
-
-
-
-            .service-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                /* 2 columns, equal width */
-                grid-template-rows: auto auto;
-                /* 2 rows, auto height */
-                gap: 10px;
-                /* Optional: adds space between grid items */
-            }
-
-            .service-box {
-                /* Your existing service-box styles */
-                /* background: #007bff; */
-                color: white;
-                padding: 10px;
-                border-radius: 8px;
-                text-align: center;
-                /* Center the text */
-                margin: auto;
-                font-size: medium;
+            .contact {
+                font-size: smaller;
             }
         }
 
@@ -553,7 +554,7 @@
     <section class="map">
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.718351683439!2d103.70451349999999!3d1.3454302999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da0f61da22d131%3A0x31e32b40e23c2499!2sS4%20Automation%20Singapore%20Pte.%20Ltd.!5e0!3m2!1sen!2sbd!4v1743757108260!5m2!1sen!2sbd"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
@@ -578,7 +579,7 @@
             </nav>
         </div>
         <hr>
-        <p class="footer-copyright">Copyright © S4 Automation Singapore Pte. Ltd.. All rights reserved.</p>
+        <p class="footer-copyright">Copyright © S4 Automation Singapore Pte. Ltd. All rights reserved.</p>
     </footer>
 
     <a href="#" class="home-icon">
