@@ -158,6 +158,7 @@
             width: 100%;
             overflow: hidden;
             top: 82px;
+            margin-bottom: 50px;
         }
 
         .slide img {
@@ -178,24 +179,41 @@
             border-radius: 10px;
         }
 
+
+
+
+
+
+
+
+
+
         /* Sections */
-        .service-grid {
+        .service-content {
             display: flex;
+            align-items: center;
             justify-content: center;
-            align-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
         }
 
-        .service-box,
-        .project-item {
-            display: inline-block;
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* 2 columns, equal width */
+            grid-template-rows: auto auto;
+            /* 2 rows, auto height */
+            gap: 50px 70px;
+            /* row-gap: 50px; */
+            /* column-gap: 70px; */
+        }
+
+        .service-box {
+            /* display: inline-block; */
             background: #1F83C5;
             color: white;
             padding: 20px;
-            width: 200px;
+            /* width: 200px; */
             border-radius: 8px;
-            margin: 10px;
+            /* margin: 0 10px; */
         }
 
 
@@ -213,8 +231,9 @@
         }
 
         .partner-logos img {
-            width: 100px;
-            margin: 10px;
+            width: 200px;
+            margin: 50px;
+            border-radius: 10px;
         }
 
         .home-icon {
@@ -240,19 +259,12 @@
             width: 200px;
         } */
 
-        .about,
-        .services,
-        .gallery,
-        .partners,
-        .projects,
-        .contact {
-            padding: 50px;
-        }
+
 
         footer {
             background: #002040;
             color: #ffffffe3;
-            padding: 30px 30px 10px 30px;
+            padding: 100px 30px 10px 30px;
             font-family: Arial, sans-serif;
         }
 
@@ -269,6 +281,32 @@
         .footer-icon {
             list-style: none;
         }
+
+        .about,
+        .service,
+        .gallery,
+        .partner,
+        .project,
+        .contact,
+        .map {
+            padding-top: 100px;
+        }
+
+
+
+        .about-content,
+        .service-content,
+        .gallery-content,
+        .partner-content,
+        .project-content,
+        .contact-content {
+            padding-top: 70px;
+        }
+
+
+
+
+
 
 
 
@@ -341,63 +379,69 @@
                 font-size: 0.5em;
             }
 
+            .about,
+            .service,
+            .gallery,
+            .partner,
+            .project,
+            .contact,
+            .map {
+                padding-top: 50px;
+            }
+
+            .about-content,
+            .service-content,
+            .gallery-content,
+            .partner-content,
+            .project-content,
+            .contact-content {
+                padding: 30px 15px 0;
+                /* margin-top: 30px; */
+                /* margin: auto 10px; */
+                /* margin: auto; */
+            }
+
             .service-grid {
-                flex-direction: column;
-                align-items: center;
+                /* width: 90%; */
+                column-gap: 20px;
+                row-gap: 20px;
             }
 
             .service-box {
-                width: 90%;
-            }
-
-            .service-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                /* 2 columns, equal width */
-                grid-template-rows: auto auto;
-                /* 2 rows, auto height */
-                gap: 10px;
-            }
-
-            .service-box {
-                color: white;
-                padding: 10px;
-                border-radius: 8px;
-                text-align: center;
-                margin: auto;
+                /* padding: 10px; */
                 font-size: medium;
-                text-align: center;
-                height: 40px;
+                color: #ffffffd9;
+                height: 20px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-
             }
 
-            .gallery-grid {
+            /* .gallery-grid {
                 flex-direction: column;
                 align-items: center;
-            }
+            } */
 
             .gallery-grid img {
-                width: 90%;
+                width: 100%;
                 height: auto;
             }
 
-            .partner-logos {
+            /* .partner-logos {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-            }
+                justify-content: space-around;
+            } */
 
             .partner-logos img {
-                width: 80%;
+                height: 50%;
             }
 
-            .project-item {
+            /* .project-item {
                 width: 90%;
                 margin: 10px auto;
-            }
+            } */
 
             .home-icon {
                 bottom: 10px;
@@ -438,10 +482,10 @@
             <ul class="header-nav">
                 <li><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#service">Services</a></li>
                 <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#partners">Partners</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#partner">partner</a></li>
+                <li><a href="#project">project</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -458,14 +502,23 @@
         <ul>
             <li><a href="#" onclick="toggleMenu()">Home</a></li>
             <li><a href="#about" onclick="toggleMenu()">About</a></li>
-            <li><a href="#services" onclick="toggleMenu()">Services</a></li>
+            <li><a href="#service" onclick="toggleMenu()">Services</a></li>
             <li><a href="#gallery" onclick="toggleMenu()">Gallery</a></li>
-            <li><a href="#partners" onclick="toggleMenu()">Our Partners</a></li>
-            <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="#partner" onclick="toggleMenu()">Our partner</a></li>
+            <li><a href="#project" onclick="toggleMenu()">project</a></li>
             <li><a href="#portfolio" onclick="toggleMenu()">Portfolio</a></li>
             <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </ul>
     </div>
+
+
+
+
+
+
+
+
+
 
     <section class="banner-slider owl-carousel owl-theme">
         <div class="slide">
@@ -498,26 +551,58 @@
         </div>
     </section>
 
+
+
+
+
+
+
+
+
+
     <section id="about" class="about">
         <h2>About</h2>
-        <p>Specializes in the engin control system, installation, and servicing of marine navigation and communication
-            electronics.
-        </p>
-    </section>
-
-    <section id="services" class="services">
-        <h2>Our Services</h2>
-        <div class="service-grid">
-            <div class="service-box">Navigation Systems</div>
-            <div class="service-box">Marine Electronics</div>
-            <div class="service-box">Equipment Repair</div>
-            <div class="service-box">Reliable Marine Solutions</div>
+        <div class="about-content">
+            <p>Specializes in the engin control system, installation, and servicing of marine navigation and
+                communication
+                electronics.
+            </p>
         </div>
     </section>
 
+
+
+
+
+
+
+
+
+
+    <section id="service" class="service">
+        <h2>Our Services</h2>
+        <div class="service-content">
+            <div class="service-grid">
+                <div class=" service-box">Navigation Systems</div>
+                <div class="service-box">Marine Electronics</div>
+                <div class="service-box">Equipment Repair</div>
+                <div class="service-box">Reliable Marine Solutions</div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
     <section id="gallery" class="gallery">
         <h2>Gallery</h2>
-        <div class="gallery-grid">
+        <div class="gallery-grid gallery-content">
             <img src="images/gallery1.webp" alt="Gallery Image">
             <img src="images/gallery2.webp" alt="Gallery Image">
             <img src="images/gallery3.jpg" alt="Gallery Image">
@@ -530,9 +615,18 @@
         </div>
     </section>
 
-    <section id="partners" class="partners">
-        <h2>Our Partners</h2>
-        <div class="partner-logos">
+
+
+
+
+
+
+
+
+
+    <section id="partner" class="partner">
+        <h2>Our partner</h2>
+        <div class="partner-logos partner-content">
             <img src="images/partner1.jpeg" alt="Partner 1">
             <img src="images/partner2.jpeg" alt="Partner 2">
         </div>
@@ -540,15 +634,11 @@
 
 
 
-    <!-- <section id="projects" class="projects">
-        <h2>Recent Projects & Portfolio</h2>
-        <div class="project-item">
-            <h3>Last Project</h3>
-        </div>
-        <div id="portfolio" class="project-item">
-            <h3>Portfolio</h3>
-        </div>
-    </section> -->
+
+
+
+
+
 
 
     <section class="map">
@@ -560,43 +650,40 @@
 
 
 
-    <footer>
-        <div id="contact" class="contact">
+
+
+
+
+
+
+
+    <footer id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-content">
             <div class="footer-text">
-                <h2>Contact Us</h2>
                 <h4>S4 AUTOMATION SINGAPORE PTE LTD.</h4>
                 <p>Shimul K N</p>
                 <p>Marine Automation & Control System</p>
                 <p>Email: service@s4automation.net</p>
                 <p>Phone: +65-97552990</p>
             </div>
-            <nav>
+            <!-- <nav>
                 <ul class="footer-icon">
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li><a href=""></a>Facebook</li>
+                    <li><a href=""></a>Linkdin</li>
+                    <li><a href=""></a>Email</li>
                 </ul>
-            </nav>
+            </nav> -->
         </div>
         <hr>
-        <p class="footer-copyright">Copyright © S4 Automation Singapore Pte. Ltd. All rights reserved.</p>
+        <p class="footer-copyright">© S4 Automation Singapore Pte. Ltd. 2025</p>
     </footer>
+
+
 
     <a href="#" class="home-icon">
         <i class="fas fa-home"></i>
     </a>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
