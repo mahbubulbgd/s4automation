@@ -6,21 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S4 AUTOMATION SINGAPORE PTE LTD</title>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
     <style>
         /* General Styles */
         body {
-            font-family: "Raleway", sans-serif;
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
             text-align: center;
+            overflow-x: hidden;
+            font-family: "Archivo", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 16px;
+            line-height: 24px;
         }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: rgb(34, 34, 33);
+            margin: 0;
+        }
+
+        p {
+            color: rgb(84, 84, 84);
+        }
+
 
         /* Header */
         header {
@@ -36,6 +60,11 @@
             padding: 10px 0;
         }
 
+        header a {
+            text-decoration: none;
+            /* text-align: start; */
+        }
+
         header.shrink {
             background-color: rgba(220, 220, 220, 0.947);
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -46,7 +75,8 @@
         header h2 {
             color: #2086C7;
             font-size: larger;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            /* min-width: 500px; */
         }
 
         .logo {
@@ -96,7 +126,7 @@
 
         .menu-toggle div {
             width: 30px;
-            height: 4px;
+            height: 1px;
             background-color: #333;
             margin: 5px;
             transition: all 0.3s ease-in-out;
@@ -132,25 +162,54 @@
         }
 
         .mobile-nav a {
-            color: white;
+            color: rgba(255, 255, 255, 0.91);
             text-decoration: none;
-            font-size: 1.5em;
+            font-size: 1.3em;
             padding: 10px 20px;
             transition: color 0.3s ease-in-out;
+            font-weight: 300;
         }
 
         .mobile-nav a:hover {
             color: #f4a261;
         }
 
-        .close-menu {
+
+        .close-button {
             position: absolute;
             top: 20px;
             right: 30px;
-            font-size: 2em;
-            color: white;
+            width: 30px;
+            height: 30px;
             cursor: pointer;
         }
+
+        .close-button::before,
+        .close-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 24px;
+            height: 1px;
+            background-color: white;
+            transform-origin: center;
+        }
+
+        .close-button::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .close-button::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+
+
+
+
+
+
 
         /* banner section - Owl Carousel */
         .banner-slider {
@@ -158,16 +217,16 @@
             width: 100%;
             overflow: hidden;
             top: 82px;
-            margin-bottom: 50px;
+            /* margin-bottom: 50px; */
         }
 
         .slide img {
             width: 100%;
             height: 600px;
-            object-fit: cover;
+            /* object-fit: cover; */
         }
 
-        .slide-text {
+        /* .slide-text {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -177,22 +236,42 @@
             padding: 20px;
             background: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
+            width: 100%;
+            height: 100%;
+        } */
+
+
+        .slide-text h2 {
+            color: white;
+        }
+
+        /* about */
+        .about {
+            background: rgba(255, 192, 203, 0.268);
+            padding: 150px 0 50px 0;
+        }
+
+        .about-container {
+            font-weight: 400;
+            padding: 20px 100px;
+            text-align: justify;
         }
 
 
 
 
 
+        /* service */
+        .service {
+            padding: 50px 0;
+            background: rgba(135, 207, 235, 0.338);
+        }
 
-
-
-
-
-        /* Sections */
-        .service-content {
+        .service-container {
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 50px 0;
         }
 
         .service-grid {
@@ -217,61 +296,221 @@
         }
 
 
-        .gallery-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
+
+
+
+        /* gallery */
+        .gallery-section {
+            background-color: #111;
+            color: white;
+            font-family: sans-serif;
+            overflow-x: hidden;
+            padding: 5px 0px 50px 0;
         }
 
-        .gallery-grid img {
-            width: 10%;
-            height: auto;
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 20px;
+        }
+
+        .toggle-view {
+            background: #333;
+            color: white;
+            border: 1px solid #666;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .gallery-wrapper {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            transition: height 0.3s ease;
+        }
+
+        .gallery-container {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            height: 100%;
+            cursor: grab;
+        }
+
+        .gallery {
+            display: flex;
+            gap: 10px;
+            transition: transform 0.3s ease;
+            padding: 5px 0;
+        }
+
+        .gallery img {
+            height: 100%;
+            max-height: 250px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            cursor: zoom-in;
             object-fit: cover;
         }
 
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            padding-bottom: 5px;
+            z-index: 2;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            backdrop-filter: blur(5px);
+            opacity: 0.7;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: none;
+            /* Remove this ↓ */
+        }
+
+        .lightbox .arrow:hover {
+            background: rgba(189, 189, 189, 0.303);
+            opacity: 1;
+        }
+
+        .arrow-left {
+            left: 10px;
+        }
+
+        .arrow-right {
+            right: 10px;
+        }
+
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 15px white;
+            cursor: zoom-out;
+        }
+
+        .lightbox .arrow {
+            position: absolute;
+            top: 50%;
+            font-size: 1.5rem;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            cursor: pointer;
+            z-index: 10000;
+            display: block;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+
+        .lightbox .arrow-left {
+            left: 20px;
+        }
+
+        .lightbox .arrow-right {
+            right: 20px;
+        }
+
+        /* Grid View */
+        .grid-view .gallery-container {
+            white-space: normal;
+            cursor: default;
+            height: auto;
+        }
+
+        .grid-view .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 10px;
+        }
+
+        .grid-view .gallery img {
+            width: 100%;
+            height: 200px;
+            max-height: none;
+        }
+
+        .grid-view .arrow {
+            display: none;
+        }
+
+
+
+
+
+        /* partner */
+        .partner {
+            padding: 50px 0px;
+            background: #D3F8E2;
+        }
+
+        .partner-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 20px 200px;
+        }
+
+
+
         .partner-logos img {
             width: 200px;
-            margin: 50px;
-            border-radius: 10px;
+            border-radius: 5px;
         }
 
-        .home-icon {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #2086C7;
-            color: white;
-            padding: 15px;
-            border-radius: 50%;
-            font-size: 24px;
-            text-align: center;
-            cursor: pointer;
-        }
-
-        /* .project-item {
-            display: inline-block;
-            margin: 10px;
-            padding: 20px;
-            background: #004080;
-            color: white;
-            border-radius: 10px;
-            width: 200px;
-        } */
 
 
 
-        footer {
+        /* footer */
+        .contact {
             background: #002040;
-            color: #ffffffe3;
-            padding: 100px 30px 10px 30px;
-            font-family: Arial, sans-serif;
+            color: #ffffffda;
+            padding: 100px 0px 5px 0px;
+        }
+
+        .contact h2,
+        h4 {
+            color: #ffffffda;
+        }
+
+        .contact-container {
+            max-width: 90%;
+            margin: auto;
+            padding: 50px;
         }
 
         .footer-copyright {
             font-style: italic;
-            font-size: x-small;
-            /* padding-top: 5px; */
+            font-size: 12px;
+            padding: 10px;
+            font-weight: 300;
         }
 
         .footer-text h4 {
@@ -282,28 +521,20 @@
             list-style: none;
         }
 
-        .about,
-        .service,
-        .gallery,
-        .partner,
-        .project,
-        .contact,
-        .map {
-            padding-top: 100px;
+        /* common */
+        .home-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #2087c78a;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 24px;
+            text-align: center;
+            cursor: pointer;
+            z-index: 100;
         }
-
-
-
-        .about-content,
-        .service-content,
-        .gallery-content,
-        .partner-content,
-        .project-content,
-        .contact-content {
-            padding-top: 70px;
-        }
-
-
 
 
 
@@ -311,6 +542,19 @@
 
 
         /* Responsive Design */
+        @media (min-width: 768px) and (max-width: 1080px) {
+            .header-nav li {
+                margin: 0;
+                padding: 0;
+            }
+
+            .header-nav li a {
+                margin: 0;
+                padding: 10px;
+            }
+        }
+
+
         @media (max-width: 768px) {
 
             .logo {
@@ -330,10 +574,13 @@
             header h2 {
                 font-size: medium;
                 margin: auto;
+                margin-left: 15px;
             }
 
-            .d-none {
-                display: none;
+            header.shrink h2 {
+                /* font-size: small; */
+                line-height: normal;
+                margin-left: 30px;
             }
 
             .header-nav {
@@ -348,7 +595,7 @@
 
             .menu-toggle {
                 display: flex;
-                margin-right: 5px;
+                /* margin-right: 5px; */
             }
 
             .menu-toggle div {
@@ -379,26 +626,24 @@
                 font-size: 0.5em;
             }
 
-            .about,
-            .service,
-            .gallery,
-            .partner,
-            .project,
-            .contact,
-            .map {
-                padding-top: 50px;
+            .about {
+                padding: 70px 0px 20px 0px;
+
             }
 
-            .about-content,
-            .service-content,
-            .gallery-content,
-            .partner-content,
-            .project-content,
-            .contact-content {
-                padding: 30px 15px 0;
-                /* margin-top: 30px; */
-                /* margin: auto 10px; */
-                /* margin: auto; */
+            .service {
+                padding: 25px 0px;
+                margin: 0;
+            }
+
+            .service-container {
+                padding: 25px 10px;
+            }
+
+            .about-container {
+                padding: 0 20px;
+                font-size: medium;
+                font-weight: 300;
             }
 
             .service-grid {
@@ -417,73 +662,111 @@
                 justify-content: center;
             }
 
-            /* .gallery-grid {
-                flex-direction: column;
-                align-items: center;
-            } */
 
-            .gallery-grid img {
-                width: 100%;
-                height: auto;
+            /* gallery */
+            .toggle-view {
+                padding: 8px 16px;
+                font-size: small;
+                margin: auto;
             }
 
-            /* .partner-logos {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-around;
-            } */
+            .lightbox .arrow {
+                font-size: 1rem;
+                /* font-size: 20px; */
+                width: 30px;
+                height: 30px;
+                color: #ffffff;
+                background: #85858580;
+            }
+
+
+            /* partner */
+            .partner {
+                padding: 25px 0px;
+                margin: 0;
+            }
 
             .partner-logos img {
-                height: 50%;
+                width: 150px;
             }
 
-            /* .project-item {
-                width: 90%;
-                margin: 10px auto;
-            } */
+            .partner-container {
+                padding: 25px 10px;
+            }
+
+            .map {
+                margin-top: 25px;
+            }
+
+
+            /* footer */
+            .contact {
+                padding: 70px 0 10px 0;
+                font-size: smaller;
+            }
+
+            .contact-container {
+                padding: 20px 5px;
+            }
 
             .home-icon {
                 bottom: 10px;
                 right: 10px;
                 background: #2087c7a3;
                 padding: 10px;
-                font-size: 15px;
-            }
-
-            .contact {
-                font-size: smaller;
+                font-size: 20px;
             }
         }
 
 
 
-        @media (min-width: 768px) and (max-width: 1080px) {
-            .header-nav li {
-                margin: 0;
-                padding: 0;
+
+        @media (max-width: 480px) {
+            header span {
+                display: block;
             }
 
-            .header-nav li a {
-                margin: 0;
-                padding: 10px;
+            /* .gallery-container {
+                gap: 6px;
+                padding: 8px;
+            } */
+
+            /* .gallery-container img {
+                height: clamp(40px, 30vw, 80px);
+                min-width: clamp(80px, 35vw, 120px);
+            } */
+
+            /* .nav-button {
+                width: 28px;
+                height: 28px;
+                font-size: 18px;
+            } */
+
+            header.shrink h2 .d-none {
+                /* font-size: small; */
+                line-height: normal;
+                display: none;
             }
         }
     </style>
 </head>
 
 <body>
+
+    <!-- header -->
     <header>
         <div class="logo">
             <a href="#"><img src="images/logo.png" alt="Your Logo" loading="lazy"></a>
         </div>
-        <h2>S4 AUTOMATION <span class="d-none">SINGAPORE</span></h2>
+        <a href="#">
+            <h2>S4 AUTOMATION <span class="d-none">SINGAPORE PTE LTD</span></h2>
+        </a>
         <nav>
             <ul class="header-nav">
                 <li><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#service">Services</a></li>
-                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#gallery-section">Gallery</a></li>
                 <li><a href="#partner">partner</a></li>
                 <li><a href="#project">project</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
@@ -498,12 +781,14 @@
     </header>
 
     <div class="mobile-nav" id="mobileNav">
-        <span class="close-menu" onclick="toggleMenu()">✖</span>
+        <!-- <span class="close-menu" onclick="toggleMenu()">✖</span> -->
+        <div class="close-button" onclick="toggleMenu()"></div>
+
         <ul>
             <li><a href="#" onclick="toggleMenu()">Home</a></li>
             <li><a href="#about" onclick="toggleMenu()">About</a></li>
             <li><a href="#service" onclick="toggleMenu()">Services</a></li>
-            <li><a href="#gallery" onclick="toggleMenu()">Gallery</a></li>
+            <li><a href="#gallery-section" onclick="toggleMenu()">Gallery</a></li>
             <li><a href="#partner" onclick="toggleMenu()">Our partner</a></li>
             <li><a href="#project" onclick="toggleMenu()">project</a></li>
             <li><a href="#portfolio" onclick="toggleMenu()">Portfolio</a></li>
@@ -519,35 +804,42 @@
 
 
 
-
+    <!-- banner -->
     <section class="banner-slider owl-carousel owl-theme">
         <div class="slide">
             <img src="images/slide1.jpg" alt="Image 1">
-            <div class="slide-text">
+            <!-- <div class="slide-text">
                 <h2>Marine Automation Engineering</h2>
                 <p>Reliable Control System Solutions</p>
-            </div>
+            </div> -->
         </div>
         <div class="slide">
             <img src="images/slide2.jpg" alt="Image 2">
-            <div class="slide-text">
+            <!-- <div class="slide-text">
                 <h2>Navigation Tech</h2>
                 <p>Marine Navigation & Communication Specialists</p>
-            </div>
+            </div> -->
         </div>
         <div class="slide">
             <img src="images/slide3.jpg" alt="Image 3">
-            <div class="slide-text">
+            <!-- <div class="slide-text">
                 <h2>Ship Maintenance</h2>
                 <p>Ship Maintenance & Repair</p>
-            </div>
+            </div> -->
         </div>
         <div class="slide">
             <img src="images/slide4.jpg" alt="Image 3">
-            <div class="slide-text">
+            <!-- <div class="slide-text">
                 <h2>Marine Electronics</h2>
                 <p>Automation & Control System</p>
-            </div>
+            </div> -->
+        </div>
+        <div class="slide">
+            <img src="images/slide5.jpg" alt="Image 3">
+            <!-- <div class="slide-text">
+                <h2>Marine Electronics</h2>
+                <p>Automation & Control System</p>
+            </div> -->
         </div>
     </section>
 
@@ -559,13 +851,21 @@
 
 
 
-
+    <!-- about -->
     <section id="about" class="about">
         <h2>About</h2>
-        <div class="about-content">
+        <div class="about-container">
             <p>Specializes in the engin control system, installation, and servicing of marine navigation and
                 communication
                 electronics.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nobis recusandae dolore similique
+                officia aut, natus, deleniti fugit voluptates eum corporis magni quis maiores quam molestias, impedit
+                vitae. Aliquid pariatur fugiat, unde ea ut, reiciendis temporibus praesentium voluptatibus laboriosam ad
+                provident deleniti eveniet, adipisci rem iusto quisquam nemo minima vero soluta nesciunt laborum quos
+                molestiae. Voluptas suscipit, quam adipisci voluptatibus ex unde commodi illo. Nulla itaque, illum odit
+                quam minus architecto necessitatibus temporibus non molestias consequatur consectetur nemo reiciendis.
+                Iusto ea eius aliquid rerum fugit quidem rem neque soluta mollitia ratione vitae recusandae, enim harum
+                ut quaerat omnis et minus.
             </p>
         </div>
     </section>
@@ -575,13 +875,10 @@
 
 
 
-
-
-
-
+    <!-- service -->
     <section id="service" class="service">
         <h2>Our Services</h2>
-        <div class="service-content">
+        <div class="service-container">
             <div class="service-grid">
                 <div class=" service-box">Navigation Systems</div>
                 <div class="service-box">Marine Electronics</div>
@@ -595,24 +892,40 @@
 
 
 
-
-
-
-
-
-    <section id="gallery" class="gallery">
-        <h2>Gallery</h2>
-        <div class="gallery-grid gallery-content">
-            <img src="images/gallery1.webp" alt="Gallery Image">
-            <img src="images/gallery2.webp" alt="Gallery Image">
-            <img src="images/gallery3.jpg" alt="Gallery Image">
-            <img src="images/gallery4.webp" alt="Gallery Image">
-            <img src="images/gallery5.webp" alt="Gallery Image">
-            <img src="images/gallery6.webp" alt="Gallery Image">
-            <img src="images/gallery7.jpg" alt="Gallery Image">
-            <img src="images/gallery8.jpg" alt="Gallery Image">
-            <img src="images/gallery9.jpg" alt="Gallery Image">
+    <!-- gallery -->
+    <section class="gallery-section" id="gallery-section">
+        <div class="top-bar">
+            <button class="toggle-view" id="toggleView">Gallery Switch to Grid View</button>
         </div>
+
+        <div class="gallery-wrapper" id="galleryWrapper">
+            <button class="arrow arrow-left">&lsaquo;</button>
+            <div class="gallery-container" id="gallery-container">
+                <div class="gallery" id="gallery">
+                    <img src="images/gallery1.webp" alt="Image 1" loading="lazy">
+                    <img src="images/gallery2.webp" alt="Image 2" loading="lazy">
+                    <img src="images/gallery3.jpg" alt="Image 3" loading="lazy">
+                    <img src="images/gallery4.webp" alt="Image 4" loading="lazy">
+                    <img src="images/gallery5.webp" alt="Image 5" loading="lazy">
+                    <img src="images/gallery6.webp" alt="Image 6" loading="lazy">
+                    <img src="images/gallery7.jpg" alt="Image 7" loading="lazy">
+                    <img src="images/gallery8.jpg" alt="Image 8" loading="lazy">
+                    <img src="images/gallery9.jpg" alt="Image 9" loading="lazy">
+                    <img src="images/gallery10.webp" alt="Image 10" loading="lazy">
+                    <img src="images/gallery11.jpg" alt="Image 11" loading="lazy">
+                    <img src="images/gallery12.png" alt="Image 12" loading="lazy">
+                    <img src="images/gallery13-min.png" alt="Image 13" loading="lazy">
+                    <img src="images/gallery14.jpg" alt="Image 14" loading="lazy">
+                    <img src="images/gallery15.jpg" alt="Image 15" loading="lazy">
+                    <img src="images/gallery16.jpg" alt="Image 16" loading="lazy">
+                    <img src="images/gallery17.jpg" alt="Image 18" loading="lazy">
+                    <img src="images/gallery18.jpg" alt="Image 19" loading="lazy">
+                    <img src="images/gallery19.jpg" alt="Image 20" loading="lazy">
+                </div>
+            </div>
+            <button class="arrow arrow-right">&rsaquo;</button>
+        </div>
+
     </section>
 
 
@@ -622,13 +935,12 @@
 
 
 
-
-
+    <!-- partner -->
     <section id="partner" class="partner">
         <h2>Our partner</h2>
-        <div class="partner-logos partner-content">
-            <img src="images/partner1.jpeg" alt="Partner 1">
-            <img src="images/partner2.jpeg" alt="Partner 2">
+        <div class="partner-logos partner-container">
+            <img src="images/partner1.jpg" alt="Partner 1">
+            <img src="images/partner2.jpg" alt="Partner 2">
         </div>
     </section>
 
@@ -640,7 +952,7 @@
 
 
 
-
+    <!-- map -->
     <section class="map">
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.718351683439!2d103.70451349999999!3d1.3454302999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da0f61da22d131%3A0x31e32b40e23c2499!2sS4%20Automation%20Singapore%20Pte.%20Ltd.!5e0!3m2!1sen!2sbd!4v1743757108260!5m2!1sen!2sbd"
@@ -656,13 +968,12 @@
 
 
 
-
+    <!-- footer -->
     <footer id="contact" class="contact">
         <h2>Contact Us</h2>
-        <div class="contact-content">
+        <div class="contact-container">
             <div class="footer-text">
-                <h4>S4 AUTOMATION SINGAPORE PTE LTD.</h4>
-                <p>Shimul K N</p>
+                <h4>S4 AUTOMATION SINGAPORE PTE LTD</h4>
                 <p>Marine Automation & Control System</p>
                 <p>Email: service@s4automation.net</p>
                 <p>Phone: +65-97552990</p>
@@ -692,10 +1003,10 @@
 
 
 
-
-
+    <!-- javascript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
     <script>
         // header
         function toggleMenu() {
@@ -710,6 +1021,7 @@
                 header.classList.remove("shrink");
             }
         });
+
 
         // Owl Carousel
         $(document).ready(function () {
@@ -733,6 +1045,184 @@
                     }
                 }
             });
+        });
+
+
+
+        // gallery
+        const container = document.getElementById('gallery-container');
+        const gallery = document.getElementById('gallery');
+        const arrowLeft = document.querySelector('.arrow-left');
+        const arrowRight = document.querySelector('.arrow-right');
+        const images = [...gallery.querySelectorAll('img')];
+        const toggleBtn = document.getElementById('toggleView');
+        const wrapper = document.getElementById('galleryWrapper');
+
+        let isGridView = false;
+
+        toggleBtn.addEventListener('click', () => {
+            isGridView = !isGridView;
+            wrapper.classList.toggle('grid-view');
+            toggleBtn.textContent = isGridView ? 'Switch to Scroll View' : 'Gallery Switch to Grid View';
+        });
+
+        // Drag to Scroll
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        let isDragging = false;
+
+        container.addEventListener('mousedown', (e) => {
+            if (isGridView) return;
+            isDown = true;
+            isDragging = false;
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+            container.style.cursor = 'grabbing';
+        });
+
+        container.addEventListener('mousemove', (e) => {
+            if (!isDown || isGridView) return;
+            isDragging = true;
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            container.scrollLeft = scrollLeft - walk;
+        });
+
+        container.addEventListener('mouseup', () => {
+            isDown = false;
+            container.style.cursor = 'grab';
+        });
+
+        container.addEventListener('mouseleave', () => {
+            isDown = false;
+            container.style.cursor = 'grab';
+        });
+
+        // Touch Scroll
+        container.addEventListener('touchstart', (e) => {
+            if (isGridView) return;
+            isDown = true;
+            startX = e.touches[0].pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+        });
+
+        container.addEventListener('touchmove', (e) => {
+            if (!isDown || isGridView) return;
+            const x = e.touches[0].pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            container.scrollLeft = scrollLeft - walk;
+        });
+
+        container.addEventListener('touchend', () => {
+            isDown = false;
+        });
+
+        // Lightbox with Carousel
+        let currentIndex = 0;
+
+        gallery.addEventListener('click', (e) => {
+            if (e.target.tagName === 'IMG' && !isDragging) {
+                currentIndex = images.indexOf(e.target);
+                openLightbox(currentIndex);
+            }
+        });
+
+        function openLightbox(index) {
+            const overlay = document.createElement('div');
+            overlay.classList.add('lightbox');
+
+            const img = document.createElement('img');
+            img.src = images[index].src;
+            overlay.appendChild(img);
+
+            const leftBtn = document.createElement('button');
+            leftBtn.innerHTML = '&#10094;';
+            leftBtn.className = 'arrow arrow-left';
+            overlay.appendChild(leftBtn);
+
+            const rightBtn = document.createElement('button');
+            rightBtn.innerHTML = '&#10095;';
+            rightBtn.className = 'arrow arrow-right';
+            overlay.appendChild(rightBtn);
+
+            function updateImage() {
+                img.src = images[currentIndex].src;
+            }
+
+            leftBtn.onclick = () => {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateImage();
+            };
+
+            rightBtn.onclick = () => {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateImage();
+            };
+
+            let startTouchX = 0;
+            overlay.addEventListener('touchstart', (e) => {
+                startTouchX = e.touches[0].clientX;
+            });
+
+            overlay.addEventListener('touchend', (e) => {
+                const endX = e.changedTouches[0].clientX;
+                const diff = endX - startTouchX;
+                if (diff > 50) leftBtn.click();
+                else if (diff < -50) rightBtn.click();
+            });
+
+            overlay.addEventListener('mousedown', (e) => {
+                dragStartX = e.clientX;
+                dragging = true;
+            });
+
+            overlay.addEventListener('mouseup', (e) => {
+                if (!dragging) return;
+                const diff = e.clientX - dragStartX;
+                if (diff > 50) leftBtn.click();
+                else if (diff < -50) rightBtn.click();
+                dragging = false;
+            });
+
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay || e.target === img) overlay.remove();
+            });
+
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') overlay.remove();
+                if (e.key === 'ArrowLeft') leftBtn.click();
+                if (e.key === 'ArrowRight') rightBtn.click();
+            }, { once: true });
+
+            document.body.appendChild(overlay);
+        }
+
+        // Auto Scroll
+        let scrollSpeed = 0.5;
+        let autoScrollActive = true;
+
+        function autoScroll() {
+            if (autoScrollActive && !isDown && !isGridView) {
+                container.scrollLeft += scrollSpeed;
+                if (container.scrollLeft >= gallery.scrollWidth - container.clientWidth) {
+                    container.scrollLeft = 0;
+                }
+            }
+            requestAnimationFrame(autoScroll);
+        }
+
+        container.addEventListener('mouseenter', () => autoScrollActive = false);
+        container.addEventListener('mouseleave', () => autoScrollActive = true);
+        autoScroll();
+
+        // Navigation Arrows
+        arrowLeft.addEventListener('click', () => {
+            container.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+
+        arrowRight.addEventListener('click', () => {
+            container.scrollBy({ left: 300, behavior: 'smooth' });
         });
     </script>
 </body>
