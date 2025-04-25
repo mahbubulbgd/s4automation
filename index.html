@@ -37,12 +37,13 @@
         h4,
         h5,
         h6 {
-            color: rgb(34, 34, 33);
-            margin: 0;
+            /* color: rgb(34, 34, 33); */
+            color: #003366;
         }
 
         p {
-            color: rgb(84, 84, 84);
+            /* color: rgb(84, 84, 84); */
+            color: #555;
         }
 
 
@@ -208,9 +209,6 @@
 
 
 
-
-
-
         /* banner section - Owl Carousel */
         .banner-slider {
             position: relative;
@@ -226,24 +224,12 @@
             object-fit: cover;
         }
 
-        /* .slide-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            width: 100%;
-            height: 100%;
-        } */
-
-
         .slide-text h2 {
             color: white;
         }
+
+
+
 
         /* about */
         .about {
@@ -253,59 +239,104 @@
 
         .about-container {
             font-weight: 400;
-            padding: 20px 100px;
+            padding: 10px 0px;
             text-align: justify;
+            max-width: 1200px;
+            margin: auto;
         }
-
-
 
 
 
         /* service */
-        .service {
-            padding: 50px 0;
-            background: rgba(135, 207, 235, 0.338);
-        }
+        /* .service-wrapper {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5faff;
+            text-align: center;
+        } */
 
         .service-container {
-            display: flex;
+            padding: 40px 20px;
+        }
+
+        /* .service-container h2 {
+            font-size: 2.5rem; 
+            margin-bottom: 30px;
+            color: #003366;
+        } */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            padding-bottom: 40px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin: 15px 0 10px;
+            color: #003366;
+        }
+
+        .service-card p {
+            padding: 0 15px 20px;
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* lightbox-two Styling */
+        .lightbox-two {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
             align-items: center;
             justify-content: center;
-            padding: 50px 0;
         }
 
-        .service-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            /* 2 columns, equal width */
-            grid-template-rows: auto auto;
-            /* 2 rows, auto height */
-            gap: 50px 70px;
-            /* row-gap: 50px; */
-            /* column-gap: 70px; */
-        }
-
-        .service-box {
-            /* display: inline-block; */
-            background: #1F83C5;
-            color: white;
-            padding: 20px;
-            /* width: 200px; */
+        .lightbox-two img {
+            max-width: 80%;
             border-radius: 8px;
-            /* margin: 0 10px; */
         }
-
 
 
 
 
         /* gallery */
         .gallery-section {
-            background-color: #111;
+            /* background-color: #111; */
             color: white;
             font-family: sans-serif;
             overflow-x: hidden;
-            padding: 30px 0px 100px 0;
+            padding: 25px 0px 100px 0;
         }
 
         .top-bar {
@@ -363,7 +394,7 @@
             color: white;
             background: rgba(0, 0, 0, 0.5);
             border: none;
-            padding-bottom: 5px;
+            /* padding-bottom: 5px; */
             z-index: 2;
             cursor: pointer;
             border-radius: 50%;
@@ -464,21 +495,54 @@
 
 
 
-
         /* partner */
-        .partner {
-            padding: 50px 0px;
-            background: #D3F8E2;
-        }
-
         .partner-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            padding: 20px 200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+            height: 60vh;
+            /* padding: 10px; */
         }
 
+        .title-section {
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+            background-color: #EED484;
+            /* padding: 20px; */
+            padding: 60px;
+            text-align: left;
+        }
 
+        .title-section h2 {
+            margin-top: 0px;
+        }
+
+        .image1 {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+            background-color: #cfcfcf8a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image2 {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+            background-color: #cfcfcf8a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image1 img {
+            width: 40%;
+        }
+
+        .image2 img {
+            width: 40%;
+        }
 
         .partner-logos img {
             width: 200px;
@@ -498,6 +562,10 @@
         .contact h2,
         h4 {
             color: #ffffffda;
+        }
+
+        .contact p {
+            color: #d0d0d0da;
         }
 
         .contact-container {
@@ -578,7 +646,6 @@
             }
 
             header.shrink h2 {
-                /* font-size: small; */
                 line-height: normal;
                 margin-left: 30px;
             }
@@ -595,7 +662,6 @@
 
             .menu-toggle {
                 display: flex;
-                /* margin-right: 5px; */
             }
 
             .menu-toggle div {
@@ -631,71 +697,69 @@
 
             }
 
-            .service {
-                padding: 25px 0px;
-                margin: 0;
-            }
-
-            .service-container {
-                padding: 25px 10px;
-            }
-
             .about-container {
                 padding: 0 20px;
                 font-size: medium;
                 font-weight: 300;
             }
 
-            .service-grid {
-                /* width: 90%; */
-                column-gap: 20px;
-                row-gap: 20px;
+            /* service */
+            .services-grid {
+                padding: 10px 0;
             }
-
-            .service-box {
-                /* padding: 10px; */
-                font-size: medium;
-                color: #ffffffd9;
-                height: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
 
             /* gallery */
+            .gallery-section {
+                padding-bottom: 0;
+            }
+
             .toggle-view {
                 padding: 8px 16px;
                 font-size: small;
             }
 
             .lightbox .arrow {
-                font-size: 1rem;
+                font-size: 1.2rem;
                 /* font-size: 20px; */
-                width: 30px;
-                height: 30px;
+                width: 32px;
+                height: 32px;
                 color: #ffffff;
                 background: #85858580;
             }
 
 
+
             /* partner */
-            .partner {
-                padding: 25px 0px;
-                margin: 0;
-            }
-
-            .partner-logos img {
-                width: 150px;
-            }
-
             .partner-container {
-                padding: 25px 10px;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                height: 100%;
+                gap: 10px;
             }
 
-            /* .map {
-                margin-top: 25px;
-            } */
+            .title-section {
+                grid-column: 1 / 2;
+                grid-row: 1 / 2;
+                padding: 50px 10px 10px 10px;
+            }
+
+            .title-section h2 {
+                text-align: center;
+            }
+
+            .image1 {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+                background: #ffffff;
+            }
+
+            .image2 {
+                grid-column: 1 / 2;
+                grid-row: 3 / 4;
+                padding-bottom: 30px;
+                background: #ffffff;
+            }
+
 
 
             /* footer */
@@ -719,27 +783,10 @@
 
 
 
-
         @media (max-width: 480px) {
             header span {
                 display: block;
             }
-
-            /* .gallery-container {
-                gap: 6px;
-                padding: 8px;
-            } */
-
-            /* .gallery-container img {
-                height: clamp(40px, 30vw, 80px);
-                min-width: clamp(80px, 35vw, 120px);
-            } */
-
-            /* .nav-button {
-                width: 28px;
-                height: 28px;
-                font-size: 18px;
-            } */
 
             header.shrink h2 .d-none {
                 /* font-size: small; */
@@ -766,7 +813,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#service">Services</a></li>
                 <li><a href="#gallery-section">Gallery</a></li>
-                <!-- <li><a href="#partner">partner</a></li> -->
+                <li><a href="#partner">partner</a></li>
                 <!-- <li><a href="#project">project</a></li> -->
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -789,7 +836,7 @@
             <li><a href="#service" onclick="toggleMenu()">Services</a></li>
             <li><a href="#gallery-section" onclick="toggleMenu()">Gallery</a></li>
             <li><a href="#partner" onclick="toggleMenu()">Our partner</a></li>
-            <li><a href="#project" onclick="toggleMenu()">project</a></li>
+            <!-- <li><a href="#project" onclick="toggleMenu()">project</a></li> -->
             <li><a href="#portfolio" onclick="toggleMenu()">Portfolio</a></li>
             <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </ul>
@@ -875,7 +922,7 @@
 
 
     <!-- service -->
-    <section id="service" class="service">
+    <!-- <section id="service" class="service">
         <h2>Our Services</h2>
         <div class="service-container">
             <div class="service-grid">
@@ -885,7 +932,41 @@
                 <div class="service-box">Reliable Marine Solutions</div>
             </div>
         </div>
+    </section> -->
+
+    <section class="service-wrapper" id="service">
+        <div class="service-container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="./images/navigation-Systems.jpg" alt="Navigation Systems">
+                    <h3>Navigation Systems</h3>
+                    <p>Advanced GPS and chartplotter integration for precise and safe marine travel.</p>
+                </div>
+                <div class="service-card">
+                    <img src="./images/marine-electronics.jpg" alt="Marine Electronics">
+                    <h3>Marine Electronics</h3>
+                    <p>We install and service cutting-edge marine electronics for communication and safety.</p>
+                </div>
+                <div class="service-card">
+                    <img src="./images/gallery9.jpg" alt="Equipment Repair">
+                    <h3>Equipment Repair</h3>
+                    <p>Reliable and fast repair services to get your equipment back in action.</p>
+                </div>
+                <div class="service-card">
+                    <img src="./images/reliable-marine.jpg" alt="Reliable Marine Solutions">
+                    <h3>Reliable Marine Solutions</h3>
+                    <p>Custom marine solutions tailored to your vessel’s unique needs and environment.</p>
+                </div>
+            </div>
+        </div>
+        <div class="lightbox-two">
+            <img src="" alt="Expanded Image">
+        </div>
     </section>
+
+
+
 
 
 
@@ -935,13 +1016,38 @@
 
 
     <!-- partner -->
-    <section id="partner" class="partner">
+    <!-- <section id="partner" class="partner">
         <h2>Our partner</h2>
         <div class="partner-logos partner-container">
             <img src="images/partner1.jpg" alt="Partner 1">
             <img src="images/partner2.jpg" alt="Partner 2">
         </div>
-    </section>
+    </section> -->
+    <div class="partner-container" id="partner">
+        <div class="title-section">
+            <h2>Our Partners</h2>
+            <h3>SERVICING OF SAM ELECTRONICES GMBH & LYNGSO MARINE A/S AUTOMATION PRODUCTS</h3>
+            <ul>
+                <li>Alarm monitoring and control system
+                    (GEAMAR 1201SL, UCS2100, MCS2200, NACOS PLATINUM)</li>
+                <li>Main engine manoeuvring system (BMS40M, DMS2100, DMS2100i)</li>
+                <li>Main engine governor system (EGS40M, EGS40M-D, EGS2000, EGS2100, EGS2200)</li>
+                <li>Main engine safety system (ESS40M, EPS2100, DPS2100)</li>
+                <li>Propulsion Control System (PCS2200)</li>
+                <li>Main engine telegraph system (STORK KWANT & STEIN SOHN)</li>
+                <li>Generator power management (GPM 500)</li>
+            </ul>
+        </div>
+
+        <div class="image1">
+            <img src="images/partner1.jpg" alt="Partner 1">
+        </div>
+        <div class="image2">
+            <img src="images/partner2.jpg" alt="Partner 2">
+        </div>
+        <!-- <div class="image1">image1</div> -->
+        <!-- <div class="image2">image2</div> -->
+    </div>
 
 
 
@@ -976,6 +1082,19 @@
                 <p>Marine Automation & Control System</p>
                 <p>Email: service@s4automation.net</p>
                 <p>Phone: +65-97552990</p>
+                <!-- <p>
+                    SHIMUL K N
+                    AUTOMATION ENGINEER
+                    S4 AUTOMATION SINGAPORE PTE LTD (UEN No.: 202342419N)
+                    JURONG WEST STREET 64, BLK 677B #02-295
+                    SINGAPORE
+                    642677
+                    Singapore
+                    Whatsapp: +6597552990
+                    shimulkn@yahoo.com
+                    service@s4automation.net
+                    www.s4automation.net
+                </p> -->
             </div>
             <!-- <nav>
                 <ul class="footer-icon">
@@ -986,7 +1105,7 @@
             </nav> -->
         </div>
         <hr>
-        <p class="footer-copyright">© S4 Automation Singapore Pte. Ltd. 2025</p>
+        <p class="footer-copyright">Copyright &copy; 2025 S4automation Singapore Pte Ltd. All rights reserved.</p>
     </footer>
 
 
@@ -1222,6 +1341,19 @@
 
         arrowRight.addEventListener('click', () => {
             container.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+
+        // service
+        // Lightbox-two feature for image preview
+        document.querySelectorAll('.service-card img').forEach(img => {
+            img.addEventListener('click', function () {
+                document.querySelector('.lightbox-two img').src = this.src;
+                document.querySelector('.lightbox-two').style.display = 'flex';
+            });
+        });
+
+        document.querySelector('.lightbox-two').addEventListener('click', function () {
+            this.style.display = 'none';
         });
     </script>
 </body>
