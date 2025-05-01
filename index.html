@@ -14,6 +14,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
 
     <style>
         /* General Styles */
@@ -42,7 +46,6 @@
         }
 
         p {
-            /* color: rgb(84, 84, 84); */
             color: #555;
         }
 
@@ -233,18 +236,32 @@
 
         /* about */
         .about {
-            background: rgba(255, 192, 203, 0.268);
             padding: 150px 0 50px 0;
+        }
+
+        .about-wrapper {
+            background: linear-gradient(rgba(159, 207, 255, 0.876), rgba(255, 255, 255, 0.743)), url('./images/about.jpg');
+            /* background-position: center; */
+            background-position: 40% 50%;
+            object-fit: contain;
+            background-repeat: no-repeat;
+            max-width: 1200px;
+            margin: auto;
+            padding: 50px 0;
         }
 
         .about-container {
             font-weight: 400;
             padding: 10px 0px;
             text-align: justify;
-            max-width: 1200px;
             margin: auto;
+            max-width: 1100px;
         }
 
+        .about-container p {
+            color: #001428e2;
+
+        }
 
 
         /* service */
@@ -263,7 +280,7 @@
         /* .service-container h2 {
             font-size: 2.5rem; 
             margin-bottom: 30px;
-            color: #003366;
+            color: rgb(0, 51, 102);
         } */
 
         .services-grid {
@@ -330,10 +347,170 @@
 
 
 
+        /* service-map-section */
+        /* color: var(--primary-color); */
+        :root {
+            --primary-color: #005f87;
+            --secondary-color: #00a8e8;
+            --accent-color: #ff7e00;
+            --light-bg: #f8f9fa;
+            --dark-text: #2c3e50;
+            --light-text: #f8f9fa;
+        }
+
+        .service-map-wrapper {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--light-bg);
+        }
+
+        .service-map-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .title-with-map {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .title-with-map h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        #service-map-section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        #map-container {
+            width: 100%;
+            height: 500px;
+            border-radius: 6px;
+            overflow: hidden;
+            /* margin: 1rem 0; */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+        }
+
+        #controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            /* margin: 1rem 0; */
+            margin-top: 15px;
+        }
+
+        #controls button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+        }
+
+        #controls button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        #controls button i {
+            font-size: 1rem;
+        }
+
+        #services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            /* gap: 1rem; */
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            /* margin: 2rem 0 0; */
+        }
+
+        #services-list li {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            /* padding: 1rem; */
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            gap: 0.5rem;
+        }
+
+        #services-list li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary-color);
+        }
+
+        #services-list li i {
+            color: var(--accent-color);
+        }
+
+        #services-list li.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        #services-list li.active i {
+            color: white;
+        }
+
+
+        /* Leaflet customizations */
+        .leaflet-popup-content {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .leaflet-popup-content-wrapper {
+            border-radius: 6px;
+        }
+
+        .custom-icon {
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .singapore-icon {
+            background-color: var(--primary-color);
+            width: 24px !important;
+            height: 24px !important;
+            margin-left: -12px !important;
+            margin-top: -12px !important;
+        }
+
+
+
+
+
         /* gallery */
         .gallery-section {
-            /* background-color: #111; */
-            color: white;
+            /* color: white; */
+            background-color: #111;
             font-family: sans-serif;
             overflow-x: hidden;
             padding: 25px 0px 100px 0;
@@ -552,41 +729,140 @@
 
 
 
-        /* footer */
-        .contact {
-            background: #002040;
-            color: #ffffffda;
-            padding: 100px 0px 5px 0px;
+        /* Footer Styles */
+        .footer {
+            position: relative;
+            /* background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'); */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/contact-us.gif');
+            background-size: cover;
+            background-position: center;
+            /* background-position: 50% 50%; */
+            /* background-repeat: no-repeat; */
+            /* color: white; */
+            color: #ffffffbd;
+            padding: 4rem 2rem;
+            text-align: left;
+            padding: 100px 0 25px 0;
         }
 
-        .contact h2,
-        h4 {
-            color: #ffffffda;
+        .footer h2,
+        .footer h3 {
+            color: #ffffffea;
         }
 
-        .contact p {
-            color: #d0d0d0da;
+        .footer p {
+            color: #ffffffbd;
         }
 
-        .contact-container {
-            max-width: 90%;
-            margin: auto;
-            padding: 50px;
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* background: linear-gradient(135deg, rgba(106, 27, 154, 0.8) 0%, rgba(49, 27, 146, 0.8) 100%); */
+            background: linear-gradient(135deg, rgba(27, 71, 154, 0.5) 0%, rgba(27, 85, 146, 0.5) 100%);
+            z-index: 1;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* .footer-logo {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        } */
+
+        .footer-logo img {
+            height: 80px;
+            border-radius: 5px;
+        }
+
+        .footer-text {
+            line-height: 1.6;
+            /* margin-bottom: 1.5rem; */
+            opacity: 0.9;
+        }
+
+        .footer-text a {
+            color: #ffffffbd;
+            text-decoration: none;
+        }
+
+        .footer-heading {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: #fff;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #ffffffbd;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0.8;
         }
 
         .footer-copyright {
             font-style: italic;
-            font-size: 12px;
-            padding: 10px;
-            font-weight: 300;
+            font-size: small;
         }
 
-        .footer-text h4 {
-            font-weight: 500;
-        }
-
-        .footer-icon {
-            list-style: none;
+        .footer-copyright a {
+            color: #ffffffbd;
         }
 
         /* common */
@@ -703,14 +979,33 @@
                 font-weight: 300;
             }
 
+
             /* service */
             .services-grid {
                 padding: 10px 0;
             }
 
+            /* service-map */
+            .service-map-wrapper {
+                background: #fff;
+            }
+
+            #service-map-section {
+                padding: 0;
+            }
+
+            #map-container {
+                height: 400px;
+            }
+
+            #services-list {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+
             /* gallery */
             .gallery-section {
-                padding-bottom: 0;
+                padding-bottom: 50px;
             }
 
             .toggle-view {
@@ -726,7 +1021,6 @@
                 color: #ffffff;
                 background: #85858580;
             }
-
 
 
             /* partner */
@@ -763,21 +1057,13 @@
 
 
             /* footer */
-            .contact {
-                padding: 70px 0 10px 0;
-                font-size: smaller;
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .contact-container {
-                padding: 20px 5px;
-            }
-
-            .home-icon {
-                bottom: 10px;
-                right: 10px;
-                background: #2087c7a3;
-                padding: 10px;
-                font-size: 20px;
+            .footer {
+                padding: 3rem 1.5rem;
             }
         }
 
@@ -792,6 +1078,25 @@
                 /* font-size: small; */
                 line-height: normal;
                 display: none;
+            }
+
+            /* service-map */
+            #map-container {
+                height: 300px;
+            }
+
+            #controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #controls button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            #services-list {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -899,20 +1204,18 @@
 
     <!-- about -->
     <section id="about" class="about">
-        <h2>About</h2>
-        <div class="about-container">
-            <p>Specializes in the engin control system, installation, and servicing of marine navigation and
-                communication
-                electronics.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nobis recusandae dolore similique
-                officia aut, natus, deleniti fugit voluptates eum corporis magni quis maiores quam molestias, impedit
-                vitae. Aliquid pariatur fugiat, unde ea ut, reiciendis temporibus praesentium voluptatibus laboriosam ad
-                provident deleniti eveniet, adipisci rem iusto quisquam nemo minima vero soluta nesciunt laborum quos
-                molestiae. Voluptas suscipit, quam adipisci voluptatibus ex unde commodi illo. Nulla itaque, illum odit
-                quam minus architecto necessitatibus temporibus non molestias consequatur consectetur nemo reiciendis.
-                Iusto ea eius aliquid rerum fugit quidem rem neque soluta mollitia ratione vitae recusandae, enim harum
-                ut quaerat omnis et minus.
-            </p>
+        <div class="about-wrapper">
+            <h2>About</h2>
+            <div class="about-container">
+                <p>We are a leading provider of marine automation solutions, dedicated to improving the safety, efficiency, and performance of maritime operations. Specializing in the servicing, installation, and optimization of marine engine control systems, we ensure vessels operate at peak reliability.
+                </p>
+                <p>
+                    Our expertise extends to marine navigation and communication electronics, offering full-spectrum support—from hardware and software to complex network systems. As marine automation engineers, we diagnose and resolve critical control system issues with precision and speed.
+                </p>
+                <p>
+                    Driven by innovation and a commitment to excellence, we deliver dependable engineering solutions and responsive service. Our goal is to be your trusted partner, keeping your fleet running safely, smoothly, and efficiently through expert technical support and cutting-edge automation technology.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -922,18 +1225,6 @@
 
 
     <!-- service -->
-    <!-- <section id="service" class="service">
-        <h2>Our Services</h2>
-        <div class="service-container">
-            <div class="service-grid">
-                <div class=" service-box">Navigation Systems</div>
-                <div class="service-box">Marine Electronics</div>
-                <div class="service-box">Equipment Repair</div>
-                <div class="service-box">Reliable Marine Solutions</div>
-            </div>
-        </div>
-    </section> -->
-
     <section class="service-wrapper" id="service">
         <div class="service-container">
             <h2>Our Services</h2>
@@ -965,7 +1256,39 @@
         </div>
     </section>
 
+    <!-- service-map-section -->
+    <div class="service-map-wrapper">
+        <main class="service-map-container">
+            <section class="title-with-map">
+                <h2>Our Global Service Network</h2>
+                <p>Global marine solutions from Singapore. Serving clients across major ports worldwide</p>
+            </section>
 
+            <section id="service-map-section">
+
+                <div id="map-container"></div>
+
+                <div id="controls">
+                    <button onclick="resetMapView()"><i class="fas fa-globe-asia"></i> Reset View</button>
+                </div>
+
+                <ul id="services-list">
+
+                    <li data-country="Singapore"><i class="fas fa-anchor"></i> Singapore</li>
+                    <li data-country="Malaysia"><i class="fas fa-anchor"></i> Malaysia</li>
+                    <li data-country="Australia"><i class="fas fa-anchor"></i> Australia</li>
+                    <li data-country="New Zealand"><i class="fas fa-anchor"></i> New Zealand</li>
+                    <li data-country="India"><i class="fas fa-anchor"></i> India</li>
+                    <li data-country="Vietnam"><i class="fas fa-anchor"></i> Vietnam</li>
+                    <li data-country="Thailand"><i class="fas fa-anchor"></i> Thailand</li>
+                    <li data-country="Hong Kong"><i class="fas fa-anchor"></i> Hong Kong</li>
+                    <li data-country="Indonesia"><i class="fas fa-anchor"></i> Indonesia</li>
+                    <li data-country="Sri Lanka"><i class="fas fa-anchor"></i> Sri Lanka</li>
+                    <li data-country="Bangladesh"><i class="fas fa-anchor"></i> Bangladesh</li>
+                </ul>
+            </section>
+        </main>
+    </div>
 
 
 
@@ -1013,16 +1336,7 @@
 
 
 
-
-
     <!-- partner -->
-    <!-- <section id="partner" class="partner">
-        <h2>Our partner</h2>
-        <div class="partner-logos partner-container">
-            <img src="images/partner1.jpg" alt="Partner 1">
-            <img src="images/partner2.jpg" alt="Partner 2">
-        </div>
-    </section> -->
     <div class="partner-container" id="partner">
         <div class="title-section">
             <h2>Our Partners</h2>
@@ -1055,8 +1369,6 @@
 
 
 
-
-
     <!-- map -->
     <section class="map">
         <iframe
@@ -1072,42 +1384,50 @@
 
 
 
-
     <!-- footer -->
-    <footer id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <div class="contact-container">
-            <div class="footer-text">
-                <h4>S4 AUTOMATION SINGAPORE PTE LTD</h4>
-                <p>Marine Automation & Control System</p>
-                <p>Email: service@s4automation.net</p>
-                <p>Phone: +65-97552990</p>
-                <!-- <p>
-                    SHIMUL K N
-                    AUTOMATION ENGINEER
-                    S4 AUTOMATION SINGAPORE PTE LTD (UEN No.: 202342419N)
-                    JURONG WEST STREET 64, BLK 677B #02-295
-                    SINGAPORE
-                    642677
-                    Singapore
-                    Whatsapp: +6597552990
-                    shimulkn@yahoo.com
-                    service@s4automation.net
-                    www.s4automation.net
-                </p> -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="./images/logo.png" alt="">
+                    <h2>S4 AUTOMATION SINGAPORE PTE LTD</h2>
+                    <h3>Marine Automation & Control System</h3>
+                </div>
+                <p class="footer-text">
+                    We are a leading provider of marine automation solutions, dedicated to enhancing the efficiency and
+                    safety of maritime operations.
+                </p>
             </div>
-            <!-- <nav>
-                <ul class="footer-icon">
-                    <li><a href=""></a>Facebook</li>
-                    <li><a href=""></a>Linkdin</li>
-                    <li><a href=""></a>Email</li>
-                </ul>
-            </nav> -->
-        </div>
-        <hr>
-        <p class="footer-copyright">Copyright &copy; 2025 S4automation Singapore Pte Ltd. All rights reserved.</p>
-    </footer>
 
+            <div class="footer-column">
+                <h3 class="footer-heading">Connect With Us</h3>
+                <div class="footer-text">
+                    <p>Email: <a href="mailto:service@s4automation.net">service@s4automation.net</a></p>
+                    <p>Phone: +65-97552990</p>
+                    <p>Address: Jurong West Street 64, BLK 677B #02-295, SINGAPORE 642677</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://wa.me/+6597552990" class="social-link" target="_blank" aria-label="WhatsApp"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/in/shimul-k-n-5345236b" class="social-link" target="_blank"
+                        aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:service@s4automation.net" class="social-link" target="_blank" aria-label="Email"><i
+                            class="fa-solid fa-envelope"></i></a>
+
+                    <!-- <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> -->
+                    <!-- <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a> -->
+                    <!-- <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a> -->
+                    <!-- <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copyright">Copyright &copy; 2025 S4 Automation Singapore Pte Ltd. All rights reserved. | <a
+                    href="#">Privacy Policy</a> | <a href="#">Terms of
+                    Service</a></p>
+        </div>
+    </footer>
 
 
     <a href="#" class="home-icon">
@@ -1355,6 +1675,189 @@
         document.querySelector('.lightbox-two').addEventListener('click', function () {
             this.style.display = 'none';
         });
+
+
+
+
+
+        // service-map-section
+        const map = L.map('map-container', {
+            center: [10, 100],
+            zoom: 3,
+            minZoom: 3,
+            maxZoom: 10,
+            noWrap: true
+        });
+
+        // Add tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            noWrap: true
+        }).addTo(map);
+
+        // Country coordinates with major ports
+        const locations = {
+            'Singapore': {
+                coords: [1.3521, 103.8198],
+                ports: ['Port of Singapore', 'Jurong Port', 'Tuas Port']
+            },
+            'Malaysia': {
+                coords: [4.2105, 101.9758],
+                ports: ['Port Klang', 'Port of Tanjung Pelepas', 'Penang Port']
+            },
+            'Australia': {
+                coords: [-25.2744, 133.7751],
+                ports: ['Port of Melbourne', 'Port of Brisbane', 'Port of Sydney']
+            },
+            'New Zealand': {
+                coords: [-40.9006, 174.886],
+                ports: ['Port of Auckland', 'Port of Tauranga', 'Port of Wellington']
+            },
+            'India': {
+                coords: [20.5937, 78.9629],
+                ports: ['Jawaharlal Nehru Port', 'Port of Chennai', 'Port of Mumbai']
+            },
+            'Vietnam': {
+                coords: [14.0583, 108.2772],
+                ports: ['Port of Ho Chi Minh', 'Port of Hai Phong', 'Port of Da Nang']
+            },
+            'Thailand': {
+                coords: [15.87, 100.9925],
+                ports: ['Port of Bangkok', 'Laem Chabang Port', 'Port of Songkhla']
+            },
+            'Hong Kong': {
+                coords: [22.3193, 114.1722],
+                ports: ['Port of Hong Kong', 'Kwai Tsing Container Terminals']
+            },
+            'Indonesia': {
+                coords: [-0.7893, 113.9213],
+                ports: ['Port of Jakarta', 'Port of Surabaya', 'Port of Belawan']
+            },
+            'Sri Lanka': {
+                coords: [7.8731, 80.7718],
+                ports: ['Port of Colombo', 'Port of Galle', 'Port of Hambantota']
+            },
+            'Bangladesh': {
+                coords: [23.685, 90.3563],
+                ports: ['Port of Chittagong', 'Port of Mongla', 'Port of Dhaka']
+            }
+        };
+
+        const markers = {};
+        const routes = [];
+        const countryBorderLayer = L.layerGroup().addTo(map);
+        const singaporeCoords = locations['Singapore'].coords;
+
+        // Custom icon for Singapore
+        const singaporeIcon = L.divIcon({
+            className: 'custom-icon singapore-icon',
+            iconSize: [24, 24]
+        });
+
+        // Create markers for each country
+        Object.entries(locations).forEach(([country, data]) => {
+            const icon = country === 'Singapore' ? singaporeIcon : new L.Icon.Default();
+
+            const marker = L.marker(data.coords, {
+                icon: icon,
+                riseOnHover: true
+            }).addTo(map);
+
+            // Create popup with ports information
+            let popupContent = `<strong>${country}</strong>`;
+            if (data.ports && data.ports.length) {
+                popupContent += `<br><small>Major Ports:</small><ul style="margin:5px 0 0;padding-left:15px;">`;
+                data.ports.forEach(port => {
+                    popupContent += `<li>${port}</li>`;
+                });
+                popupContent += `</ul>`;
+            }
+
+            marker.bindPopup(popupContent);
+            markers[country] = marker;
+
+            // Create routes from Singapore to other countries
+            if (country !== 'Singapore') {
+                const line = L.polyline([singaporeCoords, data.coords], {
+                    color: '#00a8e8',
+                    weight: 2,
+                    opacity: 0.7,
+                    dashArray: '5, 5'
+                }).addTo(map);
+                routes.push(line);
+            }
+        });
+
+        // Reset map view to default
+        function resetMapView() {
+            map.setView([10, 100], 4, { animate: true });
+            clearHighlights();
+            document.querySelectorAll('#services-list li').forEach(li => li.classList.remove('active'));
+        }
+
+        // Clear all highlights
+        function clearHighlights() {
+            Object.entries(markers).forEach(([country, marker]) => {
+                marker.setIcon(country === 'Singapore' ? singaporeIcon : new L.Icon.Default());
+            });
+            countryBorderLayer.clearLayers();
+        }
+
+        // Highlight a specific country
+        function highlightCountry(countryName) {
+            clearHighlights();
+
+            const marker = markers[countryName];
+            if (marker) {
+                // Create a custom highlighted icon
+                const highlightIcon = L.divIcon({
+                    className: 'custom-icon',
+                    html: `<div style="background-color:#ff7e00;width:100%;height:100%;border-radius:50%;border:2px solid white;"></div>`,
+                    iconSize: [24, 24],
+                    iconAnchor: [12, 12]
+                });
+
+                marker.setIcon(highlightIcon);
+                map.setView(marker.getLatLng(), 4, { animate: true });
+                marker.openPopup();
+
+                // Try to fetch country border (may not work for all countries due to CORS)
+                const geoJsonUrl = `https://nominatim.openstreetmap.org/search?country=${encodeURIComponent(countryName)}&format=geojson&polygon_geojson=1`;
+                fetch(geoJsonUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.features && data.features.length) {
+                            L.geoJSON(data, {
+                                style: {
+                                    color: '#005f87',
+                                    weight: 2,
+                                    opacity: 1,
+                                    fillColor: 'transparent',
+                                    fillOpacity: 0
+                                }
+                            }).addTo(countryBorderLayer);
+                        }
+                    })
+                    .catch(error => console.error('Error fetching border:', error));
+            }
+        }
+
+        // Add click event listeners to country list items
+        document.querySelectorAll('#services-list li').forEach(item => {
+            item.addEventListener('click', function () {
+                document.querySelectorAll('#services-list li').forEach(li => li.classList.remove('active'));
+                this.classList.add('active');
+
+                const country = this.getAttribute('data-country');
+                highlightCountry(country);
+            });
+        });
+
+        // Initialize with Singapore highlighted
+        setTimeout(() => {
+            document.querySelector('[data-country="Singapore"]').classList.add('active');
+            highlightCountry('Singapore');
+        }, 500);
     </script>
 </body>
 
