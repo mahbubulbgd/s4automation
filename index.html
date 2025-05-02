@@ -168,10 +168,10 @@
         .mobile-nav a {
             color: rgba(255, 255, 255, 0.91);
             text-decoration: none;
-            font-size: 1.3em;
+            font-size: 1.4em;
             padding: 10px 20px;
             transition: color 0.3s ease-in-out;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         .mobile-nav a:hover {
@@ -359,17 +359,18 @@
         }
 
         .service-map-wrapper {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--dark-text);
+            /* margin: 0; */
+            /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+            /* color: var(--dark-text); */
             line-height: 1.6;
             background-color: var(--light-bg);
+            padding: 40px 0px 100px;
         }
 
         .service-map-container {
             max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            margin: auto;
+            /* padding: 2rem 0 4rem; */
         }
 
         .title-with-map {
@@ -378,17 +379,17 @@
         }
 
         .title-with-map h2 {
-            color: var(--primary-color);
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+            /* color: var(--primary-color); */
+            /* font-size: 2rem; */
+            margin: 0.5rem 0;
         }
 
         #service-map-section {
             background: white;
             border-radius: 8px;
-            padding: 1.5rem;
+            padding: 2rem;
             box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
+            /* margin-bottom: 4rem; */
         }
 
         #map-container {
@@ -495,7 +496,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
-        .singapore-icon {
+        30px .singapore-icon {
             background-color: var(--primary-color);
             width: 24px !important;
             height: 24px !important;
@@ -509,11 +510,11 @@
 
         /* gallery */
         .gallery-section {
-            /* color: white; */
-            background-color: #111;
+            /* background-color: #111; */
+            color: white;
             font-family: sans-serif;
             overflow-x: hidden;
-            padding: 25px 0px 100px 0;
+            padding: 30px 20px 100px;
         }
 
         .top-bar {
@@ -526,10 +527,10 @@
             background: #333;
             color: white;
             border: 1px solid #666;
-            padding: 8px 16px;
+            padding: 10px 16px;
             cursor: pointer;
             border-radius: 5px;
-            font-size: 14px;
+            font-size: 1.2rem;
         }
 
         .gallery-wrapper {
@@ -678,8 +679,11 @@
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
             gap: 10px;
-            height: 60vh;
-            /* padding: 10px; */
+            /* height: 60vh; */
+            /* padding-left: 20px;
+            padding-right: 20px;
+            margin-bottom: 100px; */
+            padding: 0 20px 100px;
         }
 
         .title-section {
@@ -987,11 +991,13 @@
 
             /* service-map */
             .service-map-wrapper {
-                background: #fff;
+                /* background: red; */
+                line-height: normal;
+                padding-bottom: 50px;
             }
 
             #service-map-section {
-                padding: 0;
+                padding: 20px;
             }
 
             #map-container {
@@ -1006,11 +1012,13 @@
             /* gallery */
             .gallery-section {
                 padding-bottom: 50px;
+                padding-left: 0;
+                padding-right: 0;
             }
 
             .toggle-view {
                 padding: 8px 16px;
-                font-size: small;
+                font-size: medium;
             }
 
             .lightbox .arrow {
@@ -1029,6 +1037,7 @@
                 grid-template-rows: auto;
                 height: 100%;
                 gap: 10px;
+                padding: 0;
             }
 
             .title-section {
@@ -1207,13 +1216,19 @@
         <div class="about-wrapper">
             <h2>About</h2>
             <div class="about-container">
-                <p>We are a leading provider of marine automation solutions, dedicated to improving the safety, efficiency, and performance of maritime operations. Specializing in the servicing, installation, and optimization of marine engine control systems, we ensure vessels operate at peak reliability.
+                <p>We are a leading provider of marine automation solutions, dedicated to improving the safety,
+                    efficiency, and performance of maritime operations. Specializing in the servicing, installation, and
+                    optimization of marine engine control systems, we ensure vessels operate at peak reliability.
                 </p>
                 <p>
-                    Our expertise extends to marine navigation and communication electronics, offering full-spectrum support—from hardware and software to complex network systems. As marine automation engineers, we diagnose and resolve critical control system issues with precision and speed.
+                    Our expertise extends to marine navigation and communication electronics, offering full-spectrum
+                    support—from hardware and software to complex network systems. As marine automation engineers, we
+                    diagnose and resolve critical control system issues with precision and speed.
                 </p>
                 <p>
-                    Driven by innovation and a commitment to excellence, we deliver dependable engineering solutions and responsive service. Our goal is to be your trusted partner, keeping your fleet running safely, smoothly, and efficiently through expert technical support and cutting-edge automation technology.
+                    Driven by innovation and a commitment to excellence, we deliver dependable engineering solutions and
+                    responsive service. Our goal is to be your trusted partner, keeping your fleet running safely,
+                    smoothly, and efficiently through expert technical support and cutting-edge automation technology.
                 </p>
             </div>
         </div>
@@ -1276,15 +1291,15 @@
 
                     <li data-country="Singapore"><i class="fas fa-anchor"></i> Singapore</li>
                     <li data-country="Malaysia"><i class="fas fa-anchor"></i> Malaysia</li>
-                    <li data-country="Australia"><i class="fas fa-anchor"></i> Australia</li>
-                    <li data-country="New Zealand"><i class="fas fa-anchor"></i> New Zealand</li>
-                    <li data-country="India"><i class="fas fa-anchor"></i> India</li>
-                    <li data-country="Vietnam"><i class="fas fa-anchor"></i> Vietnam</li>
                     <li data-country="Thailand"><i class="fas fa-anchor"></i> Thailand</li>
-                    <li data-country="Hong Kong"><i class="fas fa-anchor"></i> Hong Kong</li>
                     <li data-country="Indonesia"><i class="fas fa-anchor"></i> Indonesia</li>
                     <li data-country="Sri Lanka"><i class="fas fa-anchor"></i> Sri Lanka</li>
+                    <li data-country="India"><i class="fas fa-anchor"></i> India</li>
                     <li data-country="Bangladesh"><i class="fas fa-anchor"></i> Bangladesh</li>
+                    <li data-country="Vietnam"><i class="fas fa-anchor"></i> Vietnam</li>
+                    <li data-country="Hong Kong"><i class="fas fa-anchor"></i> Hong Kong</li>
+                    <li data-country="Australia"><i class="fas fa-anchor"></i> Australia</li>
+                    <li data-country="New Zealand"><i class="fas fa-anchor"></i> New Zealand</li>
                 </ul>
             </section>
         </main>
@@ -1684,7 +1699,7 @@
         const map = L.map('map-container', {
             center: [10, 100],
             zoom: 3,
-            minZoom: 3,
+            minZoom: 2,
             maxZoom: 10,
             noWrap: true
         });
@@ -1715,7 +1730,7 @@
             },
             'India': {
                 coords: [20.5937, 78.9629],
-                ports: ['Jawaharlal Nehru Port', 'Port of Chennai', 'Port of Mumbai']
+                ports: ['port of Kerala', 'Port of Chennai', 'Port of Mumbai']
             },
             'Vietnam': {
                 coords: [14.0583, 108.2772],
@@ -1739,7 +1754,7 @@
             },
             'Bangladesh': {
                 coords: [23.685, 90.3563],
-                ports: ['Port of Chittagong', 'Port of Mongla', 'Port of Dhaka']
+                ports: ['Port of Chittagong', 'Port of Mongla']
             }
         };
 
@@ -1818,7 +1833,7 @@
                 });
 
                 marker.setIcon(highlightIcon);
-                map.setView(marker.getLatLng(), 4, { animate: true });
+                map.setView(marker.getLatLng(), 5, { animate: true });
                 marker.openPopup();
 
                 // Try to fetch country border (may not work for all countries due to CORS)
