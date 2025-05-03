@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shimul K N - Marine Automation Expert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --accent: #e74c3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 0;
+        }
+
+        header a {
+            text-decoration: none;
+            /* text-align: start; */
+        }
+
+        header h2 {
+            color: #2086C7;
+            font-size: x-large;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            /* min-width: 500px; */
+        }
+
+        header.shrink {
+            background-color: rgba(220, 220, 220, 0.947);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            height: 40px;
+            padding: 0;
+        }
+
+
+        header.shrink h2 {
+            font-size: 1.2rem;
+        }
+
+        .logo {
+            height: 80px;
+        }
+
+        .logo img {
+            height: 100%;
+            border-radius: 5px;
+            transition: height 0.2s ease-out;
+        }
+
+        header.shrink .logo img {
+            height: 36px;
+            margin-top: 21px;
+        }
+
+        .header-nav {
+            list-style: none;
+            display: flex;
+            padding: 0;
+        }
+
+        .header-nav li {
+            margin: 0 10px;
+        }
+
+        .header-nav li a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: 600;
+            font-size: medium;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-nav li a:hover {
+            background-color: rgba(180, 180, 180, 0.5);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle div {
+            width: 30px;
+            height: 1px;
+            background-color: #333;
+            margin: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: left 0.3s ease-in-out;
+            z-index: 1000;
+        }
+
+        .mobile-nav.active {
+            left: 0;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .mobile-nav li {
+            margin: 20px 0;
+        }
+
+        .mobile-nav a {
+            color: rgba(255, 255, 255, 0.81);
+            text-decoration: none;
+            font-size: 1.4em;
+            padding: 10px 20px;
+            transition: color 0.3s ease-in-out;
+            font-weight: 400;
+        }
+
+        .mobile-nav a:hover {
+            color: #f4a261;
+        }
+
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .close-button::before,
+        .close-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 24px;
+            height: 1px;
+            background-color: white;
+            transform-origin: center;
+        }
+
+        .close-button::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .close-button::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+
+
+
+
+
+        /* portfolio */
+        .portfolio {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            margin-top: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .portfolio-wrapper {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            /* font-size: 1.5rem; */
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            color: var(--secondary);
+        }
+
+        /* Main Content */
+        main {
+            padding: 50px 0;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            display: inline-block;
+            font-size: 2rem;
+            color: var(--primary);
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section */
+        .about-portfolio-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .about-portfolio-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .skills {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background-color: var(--secondary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 3px solid var(--secondary);
+            border-radius: 50%;
+            left: -40px;
+            top: 20px;
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+
+        .duration {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .education-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .education-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .degree {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .institution {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+
+            /* header */
+            .logo {
+                height: 50px;
+                margin-left: 5px;
+            }
+
+            .logo img {
+                height: 100%;
+            }
+
+            header.shrink .logo img {
+                height: 35px;
+                margin-top: 7px;
+            }
+
+            header h2 {
+                font-size: large;
+                margin: auto;
+                margin-left: 15px;
+            }
+
+            header.shrink h2 {
+                line-height: normal;
+                margin-left: 30px;
+            }
+
+            .header-nav {
+                flex-direction: column;
+                padding: 0;
+                display: none;
+            }
+
+            .header-nav li {
+                margin: 10px 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu-toggle div {
+                font-size: 10px;
+                height: 3px;
+                width: 25px;
+                margin: 3px;
+            }
+
+
+
+
+            /* portfolio */
+            .timeline {
+                padding-left: 30px;
+            }
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .timeline-item::before {
+                left: -25px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            /* header */
+            header span {
+                display: block;
+            }
+
+            header.shrink h2 .d-none {
+                /* font-size: small; */
+                line-height: normal;
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Your Logo" loading="lazy"></a>
+        </div>
+        <a href="index.html">
+            <h2>S4 AUTOMATION <span class="d-none">SINGAPORE PTE LTD</span></h2>
+        </a>
+        <nav>
+            <ul class="header-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#service">Services</a></li>
+                <li><a href="index.html#gallery-section">Gallery</a></li>
+                <li><a href="index.html#partner">partner</a></li>
+                <!-- <li><a href="#project">project</a></li> -->
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <!-- <span class="close-menu" onclick="toggleMenu()">✖</span> -->
+        <div class="close-button" onclick="toggleMenu()"></div>
+
+        <ul>
+            <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+            <li><a href="index.html#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="index.html#service" onclick="toggleMenu()">Services</a></li>
+            <li><a href="index.html#gallery-section" onclick="toggleMenu()">Gallery</a></li>
+            <li><a href="index.html#partner" onclick="toggleMenu()">Our partner</a></li>
+            <!-- <li><a href="#project" onclick="toggleMenu()">project</a></li> -->
+            <li><a href="portfolio.html" onclick="toggleMenu()">Portfolio</a></li>
+            <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
+        </ul>
+    </div>
+
+
+
+
+
+    <!-- portfolio -->
+    <div class="portfolio">
+        <section class="portfolio-wrapper">
+            <div class="container portfolio-content">
+                <img src="images/profile-photo.jpeg" alt="Shimul K N" class="profile-img">
+                <h1>Shimul K N</h1>
+                <p class="tagline">Marine Automation & Control System Specialist</p>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Singapore, Singapore</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.s4automation.net" target="_blank">s4automation.net</a>
+
+                    <!-- <a href="https://www.linkedin.com/in/shimul-k-n-5345236b" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a> -->
+                    <!-- Add more social links as needed -->
+                </div>
+            </div>
+        </section>
+
+        <main class="container">
+            <!-- About Section -->
+            <section id="about-portfolio">
+                <div class="section-title">
+                    <h2>About Me</h2>
+                </div>
+                <div class="about-portfolio-content">
+                    <div class="about-portfolio-text">
+                        <p>Experienced Marine Automation professional with over 25 years in the industry, specializing
+                            in
+                            commissioning, inspection, and instrumentation. Founder of S4 Automation Singapore with
+                            extensive experience in marine control systems and electrical engineering.</p>
+                    </div>
+                    <div class="skills">
+                        <h3>Top Skills</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Commissioning</span>
+                            <span class="skill-tag">Inspection</span>
+                            <span class="skill-tag">Instrumentation</span>
+                            <span class="skill-tag">Marine Automation</span>
+                            <span class="skill-tag">Control Systems</span>
+                            <span class="skill-tag">Electrical Engineering</span>
+                        </div>
+                        <h3 style="margin-top: 20px;">Languages</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">English</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience">
+                <div class="section-title">
+                    <h2>Professional Experience</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3 class="job-title">Founder & Automation Engineer</h3>
+                        <p class="company">S4 AUTOMATION SINGAPORE PTE LTD</p>
+                        <p class="duration">November 2023 - Present (1 year 6 months) · Singapore</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3 class="job-title">Senior Service Engineer</h3>
+                        <p class="company">Wärtsilä ANCS</p>
+                        <p class="duration">June 2015 - October 2023 (8 years 5 months) · Singapore</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3 class="job-title">Service Engineer</h3>
+                        <p class="company">L3 Marine Systems</p>
+                        <p class="duration">September 2011 - May 2015 (3 years 9 months) · Singapore</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3 class="job-title">Electrical Supervisor</h3>
+                        <p class="company">DRYDOCKS WORLD-SINGAPORE PTE LTD</p>
+                        <p class="duration">July 2007 - August 2011 (4 years 2 months) · Singapore</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3 class="job-title">Project Engineer</h3>
+                        <p class="company">OCEAN ELECTRICAL PTE LTD</p>
+                        <p class="duration">July 2005 - June 2007 (2 years) · Singapore</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3 class="job-title">Project Supervisor</h3>
+                        <p class="company">JURONG MACHINERY & AUTOMATION PTE LTD (A Subsidiary of SembCorp Marine Ltd)
+                        </p>
+                        <p class="duration">July 1998 - May 2005 (6 years 11 months) · Singapore</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education">
+                <div class="section-title">
+                    <h2>Education</h2>
+                </div>
+                <div class="education-grid">
+                    <div class="education-card">
+                        <div class="education-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="degree">Electrical & Electronics Engineering</h3>
+                        <p class="institution">Singapore Polytechnic</p>
+                    </div>
+
+                    <div class="education-card">
+                        <div class="education-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3 class="degree">Higher Nitec in Electronics Engineering</h3>
+                        <p class="institution">Institute of Technical Education</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact">
+                <div class="section-title">
+                    <h2>Get In Touch</h2>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <!-- <i class="fab fa-linkedin"></i> -->
+                        </div>
+                        <a href="https://www.s4automation.net" target="_blank">s4automation.net</a>
+                        <!-- <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <a href="https://www.linkedin.com/in/shimul-k-n-5345236b"
+                            target="_blank">LinkedIn 
+                        </a> -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Shimul K N. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // header
+        function toggleMenu() {
+            document.getElementById("mobileNav").classList.toggle("active");
+        }
+
+        window.addEventListener("scroll", function () {
+            const header = document.querySelector("header");
+            if (window.scrollY > 50) {
+                header.classList.add("shrink");
+            } else {
+                header.classList.remove("shrink");
+            }
+        });
+    </script>
+</body>
+
+</html>
