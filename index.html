@@ -52,15 +52,12 @@
 
 
         /* General Styles */
-        * {
-            box-sizing: border-box;
-            font-optical-sizing: auto;
-        }
-
         body {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: "Archivo", sans-serif;
+            font-optical-sizing: auto;
             overflow-x: hidden;
             text-align: center;
         }
@@ -123,7 +120,11 @@
         .hdr h1 {
             color: var(--primary);
             font-size: 28px;
+        }
+
+        .hdr-4 {
             font-family: Arial, Helvetica, sans-serif;
+
         }
 
         .hdr.shrink {
@@ -840,6 +841,10 @@
             border-radius: 5px;
         }
 
+        .footer-logo h2 {
+            font-size: 26px;
+        }
+
         .footer-text {
             line-height: 1.6;
             /* margin-bottom: 1.5rem; */
@@ -852,15 +857,12 @@
         }
 
         .footer-heading {
-            /* font-size: 1.5rem; */
+            font-size: 28px;
             margin-bottom: 1.5rem;
             position: relative;
             padding-bottom: 0.5rem;
         }
 
-        .footer-heading {
-            font-size: 24px;
-        }
 
         .footer-heading::after {
             content: '';
@@ -1247,7 +1249,7 @@
             <a href="#"><img src="images/logo.png" alt="Your Logo" loading="lazy"></a>
         </div>
         <a href="#">
-            <h1>S4 AUTOMATION <span class="hdr-d-none">SINGAPORE PTE LTD</span></h1>
+            <h1>S<span class="hdr-4">4</span> AUTOMATION <span class="hdr-d-none">SINGAPORE PTE LTD</span></h1>
         </a>
         <nav>
             <ul class="hdr-nav">
