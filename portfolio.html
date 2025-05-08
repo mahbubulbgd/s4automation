@@ -11,23 +11,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --light: #ecf0f1;
-            --dark: #1a252f;
-            --accent: #e74c3c;
+        * {
+            box-sizing: border-box;
+            text-align: center;
+            font-optical-sizing: auto;
         }
 
-        * {
+        body {
+            font-family: "Archivo", sans-serif;
+            overflow-x: hidden;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: "Archivo", sans-serif;
         }
 
+        :root {
+            --secondary-color: #00a8e8;
+            --secondary: #3498db;
+            --primary: #1E80C3;
+            --button-bg: #005f87;
+            --h2-color: #003366;
+            --accent-color: #ff7e00;
+            --light: #ecf0f1;
+            --light-bg: #f8f9fa;
+            --light-text: #f8f9fa;
+            --dark-text: #2c3e50;
+            --dark: #1a252f;
+        }
+
+
+
         /* Header */
-        header {
+        .hdr {
             position: fixed;
             width: 100%;
             top: 0;
@@ -40,30 +54,34 @@
             padding: 10px 0;
         }
 
-        header a {
+        .hdr a {
             text-decoration: none;
         }
 
-        header h2 {
-            color: #2086C7;
-            font-size: 1.6rem;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        .hdr h1 {
+            color: var(--primary);
+            font-size: 28px;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
-        header.shrink {
+        .hdr.shrink {
             background-color: rgba(220, 220, 220, 0.947);
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             height: 40px;
-            padding: 0;
+            /* padding: 0; */
         }
 
 
-        header.shrink h2 {
-            font-size: 1.2rem;
+        .hdr.shrink h1 {
+            font-size: 19px;
+        }
+
+        .hdr.shrink li a {
+            font-size: 14px;
         }
 
         .logo {
-            height: 80px;
+            height: 90px;
         }
 
         .logo img {
@@ -72,32 +90,32 @@
             transition: height 0.2s ease-out;
         }
 
-        header.shrink .logo img {
+        .hdr.shrink .logo img {
             height: 36px;
-            margin-top: 21px;
+            margin-top: 26px;
         }
 
-        .header-nav {
+        .hdr-nav {
             list-style: none;
             display: flex;
             padding: 0;
         }
 
-        .header-nav li {
-            margin: 0 10px;
+        .hdr-nav li {
+            margin: 0 5px;
         }
 
-        .header-nav li a {
+        .hdr-nav li a {
             color: #333;
             text-decoration: none;
             padding: 10px 15px;
-            font-weight: 500;
-            font-size: 16px;
+            font-weight: 600;
+            font-size: 17px;
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
 
-        .header-nav li a:hover {
+        .hdr-nav li a:hover {
             background-color: rgba(180, 180, 180, 0.5);
         }
 
@@ -145,7 +163,7 @@
         }
 
         .mobile-nav a {
-            color: rgba(255, 255, 255, 0.81);
+            color: rgba(255, 255, 255, 0.909);
             text-decoration: none;
             font-size: 1.4em;
             padding: 10px 20px;
@@ -192,6 +210,7 @@
 
 
 
+
         /* portfolio */
         .portfolio {
             background-color: var(--light);
@@ -210,7 +229,7 @@
         .portfolio-wrapper {
             background: linear-gradient(135deg, var(--primary), var(--dark));
             color: white;
-            padding: 60px 0;
+            padding: 80px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -231,7 +250,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        h1 {
+        .portfolio-content h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
         }
@@ -477,48 +496,119 @@
             padding: 20px 0;
         }
 
+
+
+
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .portfolio {
+                margin-top: 0px;
+            }
+        }
+
+
+        @media (max-width: 1199px) {
+
+            /* Styles for landscape tablets / small laptops */
+            .hdr {
+                position: static;
+            }
+
+            .hdr h1 {
+                font-size: 26px;
+            }
+
+            .hdr-nav li {
+                margin: 0;
+                padding: 0;
+            }
+
+            .hdr-nav li a {
+                margin: 0;
+                padding: 10px;
+            }
+
+            .logo {
+                height: 85px;
+                /* margin-left: 5px; */
+            }
+
+        }
+
+
+        @media (max-width: 991px) {
+
+
+            .hdr h1 {
+                font-size: 19px;
+            }
+
+
+
+            .hdr-nav li a {
+                font-size: 15px;
+            }
+
+            .logo {
+                height: 75px;
+                /* margin-left: 5px; */
+            }
+        }
+
+
+
+
         /* Responsive Adjustments */
         @media (max-width: 768px) {
 
+            /* common */
+            h2 {
+                font-size: 22px;
+            }
+
             /* header */
+            .hdr {
+                position: fixed;
+            }
+
             .logo {
-                height: 50px;
-                margin-left: 5px;
+                height: 70px;
+                /* margin-left: 5px; */
             }
 
-            .logo img {
+            /* .logo img {
                 height: 100%;
-            }
+            } */
 
-            header.shrink .logo img {
+            .hdr.shrink .logo img {
                 height: 35px;
-                margin-top: 7px;
+                margin-top: 17px;
             }
 
-            header h2 {
-                font-size: 1.3rem;
+            .hdr h1 {
+                font-size: 24px;
                 margin: auto;
-                margin-left: 15px;
-                text-align: center;
-                max-width: 300px;
-                margin: 0;
-                padding: 0;
-
+                /* margin-left: 15px; */
             }
 
-            header.shrink h2 {
+            .hdr.shrink h1 {
+                font-size: 19px;
                 line-height: normal;
                 margin-left: 30px;
             }
 
-            .header-nav {
+            .hdr-nav {
                 flex-direction: column;
                 padding: 0;
                 display: none;
             }
 
-            .header-nav li {
+            .hdr-nav li {
                 margin: 10px 0;
+            }
+
+            .hdr-nav li a {
+                font-size: medium;
+                /* 16px */
             }
 
             .menu-toggle {
@@ -531,6 +621,7 @@
                 width: 25px;
                 margin: 3px;
             }
+
 
 
 
@@ -548,7 +639,7 @@
                 left: -25px;
             }
 
-            h1 {
+            .portfolio-content h1 {
                 font-size: 2rem;
             }
 
@@ -564,29 +655,45 @@
         @media (max-width: 480px) {
 
             /* header */
-            header span {
+            .hdr h1 {
+                font-size: 22px;
+            }
+
+            .hdr-d-none {
                 display: block;
             }
 
-            header.shrink h2 .d-none {
-                /* font-size: small; */
+            /* .hdr-d-none {
+                display: none;
+            } */
+
+            .hdr.shrink h1 {
+                font-size: 19px;
                 line-height: normal;
+            }
+
+            .hdr.shrink .hdr-d-none {
                 display: none;
             }
+
+            .logo {
+                height: 65px;
+            }
+
         }
     </style>
 </head>
 
 <body>
-    <header>
+    <header class="hdr">
         <div class="logo">
             <a href="index.html"><img src="images/logo.png" alt="Your Logo" loading="lazy"></a>
         </div>
         <a href="index.html">
-            <h2>S4 AUTOMATION <span class="d-none">SINGAPORE PTE LTD</span></h2>
+            <h1>S4 AUTOMATION <span class="hdr-d-none">SINGAPORE PTE LTD</span></h1>
         </a>
         <nav>
-            <ul class="header-nav">
+            <ul class="hdr-nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#service">Services</a></li>
@@ -795,7 +902,7 @@
 
         <footer>
             <div class="container">
-                <p>&copy; 2025 Shimul K N. All rights reserved.</p>
+                <p>&copy; 2025 S4 Automation Singapore Pte Ltd. All rights reserved.</p>
             </div>
         </footer>
 

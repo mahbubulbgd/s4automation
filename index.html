@@ -20,43 +20,90 @@
 
 
     <style>
+        /* note:
+        font-size: 
+        small(13px), 
+        medium(16px), 
+        large(18px), 
+        larger(19px), 
+        x-large(24px), 
+        xx-large(32px),
+        h1(32px),
+        h2(24px),
+        h3(19px),
+        0.5rem(8px),
+        1rem(16px),
+        1.1rem(18px),
+        1.2rem(19px),
+        1.3rem(21px),
+        1.4rem(22px),
+        1.5rem(24px),
+        1.6rem(26px),
+        1.7rem(27px),
+        1.8rem(29px),
+        1.9rem(30px)
+        2rem(32px);
+        2.5rem(40px);
+        p(16px),
+        a(16px), 
+        font-weight:
+        regular(400),
+        bold(700)*/
+
+
         /* General Styles */
         * {
-            font-family: "Archivo", sans-serif;
-
+            box-sizing: border-box;
+            text-align: center;
+            font-optical-sizing: auto;
         }
 
         body {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            text-align: center;
+            font-family: "Archivo", sans-serif;
             overflow-x: hidden;
-            font-optical-sizing: auto;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 16px;
-            line-height: 24px;
         }
 
-        h1,
+        :root {
+            --secondary-color: #00a8e8;
+            --secondary: #3498db;
+            --primary: #1E80C3;
+            --button-bg: #005f87;
+            --h2-color: #003366;
+            --accent-color: #ff7e00;
+            --light: #ecf0f1;
+            --light-bg: #f8f9fa;
+            --light-text: #f8f9fa;
+            --dark-text: #2c3e50;
+            --dark: #1a252f;
+        }
+
+
+
+
+
         h2,
         h3,
         h4,
         h5,
         h6 {
-            /* color: rgb(34, 34, 33); */
-            color: #003366;
+            color: var(--h2-color);
+        }
+
+        h2 {
+            font-size: 28px;
         }
 
         p {
             color: #555;
-            /* font-size: 0.95rem; */
+            line-height: 24px;
+            text-align: justify;
         }
 
 
         /* Header */
-        header {
+        .hdr {
             position: fixed;
             width: 100%;
             top: 0;
@@ -69,30 +116,34 @@
             padding: 10px 0;
         }
 
-        header a {
+        .hdr a {
             text-decoration: none;
         }
 
-        header h2 {
-            color: #2086C7;
-            font-size: 1.7rem;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        .hdr h1 {
+            color: var(--primary);
+            font-size: 28px;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
-        header.shrink {
+        .hdr.shrink {
             background-color: rgba(220, 220, 220, 0.947);
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             height: 40px;
-            padding: 0;
+            /* padding: 0; */
         }
 
 
-        header.shrink h2 {
-            font-size: 1.2rem;
+        .hdr.shrink h1 {
+            font-size: 19px;
+        }
+
+        .hdr.shrink li a {
+            font-size: 14px;
         }
 
         .logo {
-            height: 80px;
+            height: 90px;
         }
 
         .logo img {
@@ -101,32 +152,32 @@
             transition: height 0.2s ease-out;
         }
 
-        header.shrink .logo img {
+        .hdr.shrink .logo img {
             height: 36px;
-            margin-top: 21px;
+            margin-top: 26px;
         }
 
-        .header-nav {
+        .hdr-nav {
             list-style: none;
             display: flex;
             padding: 0;
         }
 
-        .header-nav li {
-            margin: 0 10px;
+        .hdr-nav li {
+            margin: 0 5px;
         }
 
-        .header-nav li a {
+        .hdr-nav li a {
             color: #333;
             text-decoration: none;
             padding: 10px 15px;
-            font-weight: 500;
-            font-size: 16px;
+            font-weight: 600;
+            font-size: 17px;
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
 
-        .header-nav li a:hover {
+        .hdr-nav li a:hover {
             background-color: rgba(180, 180, 180, 0.5);
         }
 
@@ -174,7 +225,7 @@
         }
 
         .mobile-nav a {
-            color: rgba(255, 255, 255, 0.81);
+            color: rgba(255, 255, 255, 0.909);
             text-decoration: none;
             font-size: 1.4em;
             padding: 10px 20px;
@@ -225,7 +276,7 @@
             position: relative;
             width: 100%;
             overflow: hidden;
-            top: 82px;
+            top: 90px;
             /* margin-bottom: 50px; */
         }
 
@@ -235,9 +286,9 @@
             object-fit: cover;
         }
 
-        .slide-text h2 {
+        /* .slide-text h2 {
             color: white;
-        }
+        } */
 
 
 
@@ -261,15 +312,11 @@
         .about-container {
             font-weight: 400;
             padding: 10px 0px;
-            text-align: justify;
             margin: auto;
             max-width: 1100px;
         }
 
-        .about-container p {
-            color: #001428e2;
 
-        }
 
 
         /* service */
@@ -356,20 +403,10 @@
 
 
         /* service-map-section */
-        /* color: var(--primary-color); */
-        :root {
-            --primary-color: #005f87;
-            --secondary-color: #00a8e8;
-            --accent-color: #ff7e00;
-            --light-bg: #f8f9fa;
-            --dark-text: #2c3e50;
-            --light-text: #f8f9fa;
-        }
-
         .service-map-wrapper {
             /* margin: 0; */
-            /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-            /* color: var(--dark-text); */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
             line-height: 1.6;
             background-color: var(--light-bg);
             padding: 40px 0px 100px;
@@ -381,7 +418,7 @@
             /* padding: 2rem 0 4rem; */
         }
 
-        ervice-map-section .title-with-map {
+        .service-map-section .title-with-map {
             text-align: center;
             padding: 0 15px 20px;
             /* margin-bottom: 2rem; */
@@ -389,7 +426,8 @@
         }
 
         .title-with-map h2 {
-            /* color: var(--primary-color); */
+            /* color: var(--button-bg
+); */
             /* font-size: 2rem; */
             margin: 0.5rem 0;
         }
@@ -397,7 +435,7 @@
         #service-map-section {
             background: white;
             border-radius: 8px;
-            padding: 0 1.5rem 2rem;
+            padding: 2rem;
             box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
             /* margin-bottom: 4rem; */
         }
@@ -425,7 +463,7 @@
             font-size: 1rem;
             border: none;
             border-radius: 4px;
-            background-color: var(--primary-color);
+            background-color: var(--button-bg);
             color: white;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -480,9 +518,9 @@
         }
 
         #services-list li.active {
-            background-color: var(--primary-color);
+            background-color: var(--button-bg);
             color: white;
-            border-color: var(--primary-color);
+            border-color: var(--button-bg);
         }
 
         #services-list li.active i {
@@ -507,7 +545,7 @@
         }
 
         .singapore-icon {
-            background-color: var(--primary-color);
+            background-color: var(--button-bg);
             width: 24px !important;
             height: 24px !important;
             margin-left: -12px !important;
@@ -534,13 +572,14 @@
         }
 
         .toggle-view {
-            background: #333;
+            /* background: #333; */
+            background: var(--button-bg);
             color: white;
             border: 1px solid #666;
             padding: 10px 16px;
             cursor: pointer;
             border-radius: 5px;
-            font-size: 1.2rem;
+            font-size: 18px;
         }
 
         .gallery-wrapper {
@@ -796,13 +835,6 @@
             flex-direction: column;
         }
 
-        /* .footer-logo {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            color: #fff;
-        } */
-
         .footer-logo img {
             height: 80px;
             border-radius: 5px;
@@ -897,58 +929,112 @@
 
 
 
+        @media (min-width: 992px) and (max-width: 1199px) {
 
+            /* Styles for landscape tablets / small laptops */
+            .hdr {
+                position: static;
+            }
 
-        /* Responsive Design */
-        @media (min-width: 768px) and (max-width: 1080px) {
-            .header-nav li {
+            .hdr h1 {
+                font-size: 26px;
+            }
+
+            .hdr-nav li {
                 margin: 0;
                 padding: 0;
             }
 
-            .header-nav li a {
+            .hdr-nav li a {
                 margin: 0;
                 padding: 10px;
+            }
+
+            .banner-slider {
+                top: 0;
+            }
+
+            .logo {
+                height: 85px;
+            }
+        }
+
+
+
+        /* Responsive Design */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .hdr {
+                position: static;
+            }
+
+            .hdr h1 {
+                font-size: 19px;
+            }
+
+            .hdr-nav li {
+                margin: 0;
+                padding: 0;
+            }
+
+            .hdr-nav li a {
+                margin: 0;
+                padding: 10px;
+                font-size: 15px;
+            }
+
+            .logo {
+                height: 80px;
+            }
+
+            .banner-slider {
+                top: 0;
             }
         }
 
 
         @media (max-width: 768px) {
 
+            /* common */
+            h2 {
+                font-size: 22px;
+            }
+
             /* header */
             .logo {
-                height: 50px;
-                margin-left: 5px;
+                height: 75px;
+                /* margin-left: 5px; */
             }
 
-            .logo img {
-                height: 100%;
-            }
-
-            header.shrink .logo img {
+            .hdr.shrink .logo img {
                 height: 35px;
-                margin-top: 7px;
+                margin-top: 17px;
             }
 
-            header h2 {
-                font-size: 1.3rem;
+            .hdr h1 {
+                font-size: 24px;
                 margin: auto;
-                margin-left: 15px;
+                /* margin-left: 15px; */
             }
 
-            header.shrink h2 {
+            .hdr.shrink h1 {
+                font-size: 19px;
                 line-height: normal;
                 margin-left: 30px;
             }
 
-            .header-nav {
+            .hdr-nav {
                 flex-direction: column;
                 padding: 0;
                 display: none;
             }
 
-            .header-nav li {
+            .hdr-nav li {
                 margin: 10px 0;
+            }
+
+            .hdr-nav li a {
+                font-size: medium;
+                /* 16px */
             }
 
             .menu-toggle {
@@ -966,7 +1052,7 @@
 
             /* banner */
             .banner-slider {
-                top: 51px;
+                top: 50px;
             }
 
             .slide img {
@@ -994,8 +1080,11 @@
             .about-container {
                 padding: 0 20px;
                 font-size: medium;
-                font-weight: 300;
             }
+
+            /* .about-container p {
+                font-size: 15px;
+            } */
 
 
             /* service */
@@ -1010,12 +1099,12 @@
                 padding-bottom: 50px;
             }
 
-            /* #service-map-section {
-                padding: 20px;
-            } */
+            #service-map-section {
+                padding: 1.5rem;
+            }
 
             #map-container {
-                height: 500px;
+                height: 400px;
             }
 
             #services-list {
@@ -1095,14 +1184,33 @@
         @media (max-width: 480px) {
 
             /* header */
-            header span {
+            .hdr h1 {
+                font-size: 22px;
+            }
+
+            .hdr span {
                 display: block;
             }
 
-            header.shrink h2 .d-none {
-                /* font-size: small; */
-                line-height: normal;
+            /* .hdr-d-none {
                 display: none;
+            } */
+
+            .hdr.shrink h1 {
+                font-size: 19px;
+                line-height: normal;
+            }
+
+            .hdr.shrink .hdr-d-none {
+                display: none;
+            }
+
+            .logo {
+                height: 70px;
+            }
+
+            .about-container p {
+                font-size: 15px;
             }
 
             /* service-map */
@@ -1130,20 +1238,20 @@
 <body>
 
     <!-- header -->
-    <header>
+    <header class="hdr">
         <div class="logo">
             <a href="#"><img src="images/logo.png" alt="Your Logo" loading="lazy"></a>
         </div>
         <a href="#">
-            <h2>S4 AUTOMATION <span class="d-none">SINGAPORE PTE LTD</span></h2>
+            <h1>S4 AUTOMATION <span class="hdr-d-none">SINGAPORE PTE LTD</span></h1>
         </a>
         <nav>
-            <ul class="header-nav">
+            <ul class="hdr-nav">
                 <li><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#service">Services</a></li>
                 <li><a href="#gallery-section">Gallery</a></li>
-                <li><a href="#partner">partner</a></li>
+                <li><a href="#partner">Partner</a></li>
                 <!-- <li><a href="#project">project</a></li> -->
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -1165,7 +1273,7 @@
             <li><a href="#about" onclick="toggleMenu()">About</a></li>
             <li><a href="#service" onclick="toggleMenu()">Services</a></li>
             <li><a href="#gallery-section" onclick="toggleMenu()">Gallery</a></li>
-            <li><a href="#partner" onclick="toggleMenu()">Our partner</a></li>
+            <li><a href="#partner" onclick="toggleMenu()">Partner</a></li>
             <!-- <li><a href="#project" onclick="toggleMenu()">project</a></li> -->
             <li><a href="portfolio.html" onclick="toggleMenu()">Portfolio</a></li>
             <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
@@ -1431,7 +1539,7 @@
             </div>
 
             <div class="footer-column">
-                <h3 class="footer-heading">Connect With Us</h3>
+                <h3 class="footer-heading">Connect Us</h3>
                 <div class="footer-text">
                     <p>Email: <a href="mailto:service@s4automation.net">service@s4automation.net</a></p>
                     <p>Phone: +65-97552990</p>
