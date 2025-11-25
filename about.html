@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - S4 Automation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/a2e0e6a5b3.js" crossorigin="anonymous"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #1E80C3;
+            --primary2: #1165a1e3;
+            --primary3: #002e4c;
+            --Secondary: #23b2e8;
+        }
+
+        /* Header */
+        .hdr {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 0;
+        }
+
+        .hdr a {
+            text-decoration: none;
+        }
+
+        .hdr h1 {
+            color: var(--primary);
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .hdr.shrink {
+            /* background-color: rgba(220, 220, 220, 0.947); */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            height: 40px;
+            padding: 0;
+        }
+
+
+        .hdr.shrink h1 {
+            font-size: 20px;
+        }
+
+        .hdr.shrink li a {
+            font-size: 15px;
+        }
+
+        .logo {
+            height: 90px;
+        }
+
+        .logo img {
+            height: 100%;
+            border-radius: 5px;
+            transition: height 0.2s ease-out;
+        }
+
+        .hdr.shrink .logo img {
+            height: 36px;
+            margin-top: 26px;
+        }
+
+        .hdr-nav {
+            list-style: none;
+            display: flex;
+            padding: 0;
+        }
+
+        .hdr-nav li {
+            margin: 0 5px;
+        }
+
+        .hdr-nav li a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: 600;
+            font-size: 17px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .hdr-nav li a:hover {
+            background-color: rgba(180, 180, 180, 0.5);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle div {
+            width: 30px;
+            height: 1px;
+            background-color: #333;
+            margin: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: left 0.3s ease-in-out;
+            z-index: 1000;
+        }
+
+        .mobile-nav.active {
+            left: 0;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .mobile-nav li {
+            margin: 20px 0;
+        }
+
+        .mobile-nav a {
+            color: rgba(255, 255, 255, 0.909);
+            text-decoration: none;
+            font-size: 1.4em;
+            padding: 10px 20px;
+            transition: color 0.3s ease-in-out;
+            font-weight: 400;
+        }
+
+        .mobile-nav a:hover {
+            color: #f4a261;
+        }
+
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .close-button::before,
+        .close-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 24px;
+            height: 1px;
+            background-color: white;
+            transform-origin: center;
+        }
+
+        .close-button::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .close-button::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+
+
+
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #0f1f3d 0%, #1e588a 50%, #0f1e3d 100%);
+            color: white;
+            padding: 150px 0 100px;
+            margin-top: 70px;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-section p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Section Styling */
+        .section-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary3) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Expertise Icons */
+        .expertise-icon {
+            transition: all 0.3s ease;
+        }
+
+        .expertise-card:hover .expertise-icon {
+            transform: scale(1.1);
+            background-color: var(--primary) !important;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #0f1f3d 0%, #1e588a 50%, #0f1e3d 100%);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Footer */
+        .marine-gradient {
+            background: linear-gradient(135deg, #0f1f3d 0%, #1e588a 50%, #0f1e3d 100%);
+        }
+
+        .footer-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            transform: translateX(5px);
+        }
+
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #60a5fa;
+            transition: width 0.3s ease;
+        }
+
+        .footer-link:hover::after {
+            width: 100%;
+        }
+
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (min-width: 992px) and (max-width: 1199px) {
+
+            /* Styles for landscape tablets / small laptops */
+            .hdr {
+                position: static;
+            }
+
+            .hdr h1 {
+                font-size: 26px;
+            }
+
+            .hdr-nav li {
+                margin: 0;
+                padding: 0;
+            }
+
+            .hdr-nav li a {
+                margin: 0;
+                padding: 10px;
+            }
+
+            .banner-slider {
+                top: 0;
+            }
+
+            .logo {
+                height: 85px;
+            }
+        }
+
+
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            .hdr {
+                position: static;
+            }
+
+            .hdr h1 {
+                font-size: 20px;
+            }
+
+            .hdr-nav li {
+                margin: 0;
+                padding: 0;
+            }
+
+            .hdr-nav li a {
+                margin: 0;
+                padding: 10px;
+                font-size: 15px;
+            }
+
+            .logo {
+                height: 80px;
+            }
+        }
+
+
+
+
+        @media (max-width: 768px) {
+
+            /* common */
+            h2 {
+                font-size: 22px;
+            }
+
+            /* header */
+            .logo {
+                height: 75px;
+                /* margin-left: 5px; */
+            }
+
+            .hdr.shrink .logo img {
+                height: 35px;
+                margin-top: 17px;
+            }
+
+            .hdr h1 {
+                font-size: 24px;
+                margin: auto;
+                /* margin-left: 15px; */
+            }
+
+            .hdr.shrink h1 {
+                font-size: 19px;
+                line-height: normal;
+                margin-left: 30px;
+            }
+
+            .hdr-nav {
+                flex-direction: column;
+                padding: 0;
+                display: none;
+            }
+
+            .hdr-nav li {
+                margin: 10px 0;
+            }
+
+            .hdr-nav li a {
+                font-size: medium;
+                /* 16px */
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu-toggle div {
+                font-size: 10px;
+                height: 3px;
+                width: 25px;
+                margin: 3px;
+            }
+        }
+
+
+
+        @media (max-width: 480px) {
+
+            /* header */
+            .hdr h1 {
+                font-size: 22px;
+            }
+
+            .hdr span {
+                display: block;
+            }
+
+            /* .hdr-d-none {
+                display: none;
+            } */
+
+            .hdr.shrink h1 {
+                font-size: 19px;
+                line-height: normal;
+            }
+
+            .hdr.shrink .hdr-d-none {
+                display: none;
+            }
+
+            .logo {
+                height: 70px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="hdr">
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="S4 Automation Logo" loading="lazy"></a>
+        </div>
+        <a href="index.html">
+            <h1>S4 AUTOMATION <span class="hdr-d-none">SINGAPORE PTE LTD</span></h1>
+        </a>
+        <nav>
+            <ul class="hdr-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html#gallery-section">Gallery</a></li>
+                <li><a href="index.html#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <div class="close-button" onclick="toggleMenu()"></div>
+        <ul>
+            <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+            <li><a href="about.html" class="active" onclick="toggleMenu()">About</a></li>
+            <li><a href="services.html" onclick="toggleMenu()">Services</a></li>
+            <li><a href="index.html#gallery-section" onclick="toggleMenu()">Gallery</a></li>
+            <li><a href="index.html#contact" onclick="toggleMenu()">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container mx-auto px-4">
+            <h1 class="animate-fade-in-up">About S4 Automation</h1>
+            <p class="animate-fade-in-up delay-100">Leading with expertise, reliability, and innovation in marine
+                automation, power, electrical, and electronic systems.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+
+                <!-- Who We Are -->
+                <div class="section-card p-8 md:p-12 mb-12 animate-fade-in-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 gradient-text">Who We Are</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        S4Automation Private Limited is a specialized marine automation servicing company based in
+                        Singapore, founded by experienced marine automation engineers with decades of hands-on
+                        expertise. We are dedicated to delivering comprehensive solutions in marine automation, control,
+                        and power systems.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Our team combines deep technical knowledge with practical maritime experience, ensuring that
+                        every solution we deliver is not only technically sound but also operationally effective in the
+                        demanding marine environment.
+                    </p>
+                </div>
+
+                <!-- Our Expertise -->
+                <div class="section-card p-8 md:p-12 mb-12 animate-fade-in-up delay-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 gradient-text">Our Expertise</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                        With many years of proven experience in the marine automation sector, we understand the critical
+                        nature of reliable, efficient, and cutting-edge automation systems aboard vessels. Our team
+                        specializes in:
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div
+                            class="expertise-card flex items-start space-x-4 p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-all duration-300">
+                            <div
+                                class="expertise-icon flex-shrink-0 w-12 h-12 bg-[#25b2eb] rounded-lg flex items-center justify-center">
+                                <i class="fas fa-microchip text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 mb-2">Marine Automation Systems</h3>
+                                <p class="text-gray-600 text-sm">Complete automation solutions for vessels of all types
+                                    and sizes</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="expertise-card flex items-start space-x-4 p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-all duration-300">
+                            <div
+                                class="expertise-icon flex-shrink-0 w-12 h-12 bg-[#25b2eb] rounded-lg flex items-center justify-center">
+                                <i class="fas fa-sliders-h text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 mb-2">Control Systems Engineering</h3>
+                                <p class="text-gray-600 text-sm">Advanced control system design, installation, and
+                                    optimization</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="expertise-card flex items-start space-x-4 p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-all duration-300">
+                            <div
+                                class="expertise-icon flex-shrink-0 w-12 h-12 bg-[#25b2eb] rounded-lg flex items-center justify-center">
+                                <i class="fas fa-bolt text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 mb-2">Power Management Systems</h3>
+                                <p class="text-gray-600 text-sm">Efficient power distribution and energy management
+                                    solutions</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="expertise-card flex items-start space-x-4 p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-all duration-300">
+                            <div
+                                class="expertise-icon flex-shrink-0 w-12 h-12 bg-[#25b2eb] rounded-lg flex items-center justify-center">
+                                <i class="fas fa-network-wired text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 mb-2">System Integration</h3>
+                                <p class="text-gray-600 text-sm">Seamless integration of automation components and
+                                    subsystems</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="expertise-card flex items-start space-x-4 p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-all duration-300">
+                            <div
+                                class="expertise-icon flex-shrink-0 w-12 h-12 bg-[#25b2eb] rounded-lg flex items-center justify-center">
+                                <i class="fas fa-tools text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 mb-2">Preventive Maintenance</h3>
+                                <p class="text-gray-600 text-sm">Scheduled servicing to ensure optimal system
+                                    performance</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="expertise-card flex items-start space-x-4 p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-all duration-300">
+                            <div
+                                class="expertise-icon flex-shrink-0 w-12 h-12 bg-[#25b2eb] rounded-lg flex items-center justify-center">
+                                <i class="fas fa-first-aid text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 mb-2">Emergency Repairs</h3>
+                                <p class="text-gray-600 text-sm">Rapid response troubleshooting and repair services</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Why Choose Us -->
+                <div
+                    class="bg-gradient-to-br from-[#1165a1e3] to-[#002e4c] rounded-2xl shadow-lg p-8 md:p-12 mb-12 text-white animate-fade-in-up delay-200">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Why Choose S4Automation</h2>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div
+                            class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-300 hover:transform hover:scale-105">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-user-tie text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Industry Experience</h3>
+                            <p class="text-blue-100">Our foundation is built on extensive practical experience in marine
+                                automation engineering, giving us deep insights into the unique challenges faced at sea.
+                            </p>
+                        </div>
+
+                        <div
+                            class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-300 hover:transform hover:scale-105">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-award text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Technical Excellence</h3>
+                            <p class="text-blue-100">We combine theoretical knowledge with real-world problem-solving
+                                skills to deliver solutions that work reliably in demanding marine environments.</p>
+                        </div>
+
+                        <div
+                            class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-300 hover:transform hover:scale-105">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-headset text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Customer-Focused Service</h3>
+                            <p class="text-blue-100">We understand that vessel downtime means lost revenue. Our
+                                responsive service ensures your operations remain uninterrupted.</p>
+                        </div>
+
+                        <div
+                            class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-300 hover:transform hover:scale-105">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Singapore-Based</h3>
+                            <p class="text-blue-100">Strategically located in one of the world's busiest maritime hubs,
+                                we provide quick access to clients throughout the region.</p>
+                        </div>
+
+                        <div
+                            class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-300 hover:transform hover:scale-105">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-cogs text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Comprehensive Solutions</h3>
+                            <p class="text-blue-100">From initial consultation to installation, commissioning, and
+                                ongoing support, we offer end-to-end automation services.</p>
+                        </div>
+
+                        <div
+                            class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-300 hover:transform hover:scale-105">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">24/7 Support</h3>
+                            <p class="text-blue-100">Marine operations don't stop, and neither do we. Our team is
+                                available around the clock for emergency support and critical repairs.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mission & Vision -->
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="section-card p-8 animate-fade-in-up delay-300">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-bullseye text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Mission</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            To be the trusted partner for marine automation solutions, ensuring vessels operate with
+                            maximum efficiency, safety, and reliability through innovative engineering and dedicated
+                            service.
+                        </p>
+                    </div>
+
+                    <div class="section-card p-8 animate-fade-in-up delay-400">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-eye text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Vision</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            To set new standards in marine automation services by combining technical expertise,
+                            responsive customer service, and commitment to continuous improvement in an ever-evolving
+                            maritime industry.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Industries We Serve -->
+                <div class="section-card p-8 md:p-12 mb-12 animate-fade-in-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8 gradient-text text-center">Industries
+                        We Serve</h2>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div
+                            class="text-center p-4 bg-gray-50 rounded-xl hover:bg-blue-50 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
+                            <div class="text-3xl mb-2">🚢</div>
+                            <p class="text-sm font-semibold text-gray-700">Commercial Shipping</p>
+                        </div>
+                        <div
+                            class="text-center p-4 bg-gray-50 rounded-xl hover:bg-blue-50 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
+                            <div class="text-3xl mb-2">⚓</div>
+                            <p class="text-sm font-semibold text-gray-700">Offshore Support Vessels</p>
+                        </div>
+                        <div
+                            class="text-center p-4 bg-gray-50 rounded-xl hover:bg-blue-50 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
+                            <div class="text-3xl mb-2">🚤</div>
+                            <p class="text-sm font-semibold text-gray-700">Tugboats & Harbor Craft</p>
+                        </div>
+                        <div
+                            class="text-center p-4 bg-gray-50 rounded-xl hover:bg-blue-50 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
+                            <div class="text-3xl mb-2">🛳️</div>
+                            <p class="text-sm font-semibold text-gray-700">Passenger Vessels</p>
+                        </div>
+                        <div
+                            class="text-center p-4 bg-gray-50 rounded-xl hover:bg-blue-50 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
+                            <div class="text-3xl mb-2">⚔️</div>
+                            <p class="text-sm font-semibold text-gray-700">Naval Vessels</p>
+                        </div>
+                        <div
+                            class="text-center p-4 bg-gray-50 rounded-xl hover:bg-blue-50 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
+                            <div class="text-3xl mb-2">🛥️</div>
+                            <p class="text-sm font-semibold text-gray-700">Yacht & Leisure Craft</p>
+                        </div>
+                        <div
+                            class="text-center p-4 bg-gray-50 rounded-xl hover:bg-blue-50 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
+                            <div class="text-3xl mb-2">🏭</div>
+                            <p class="text-sm font-semibold text-gray-700">Offshore Platforms</p>
+                        </div>
+                        <div
+                            class="text-center p-4 bg-gray-50 rounded-xl hover:bg-blue-50 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
+                            <div class="text-3xl mb-2">🔧</div>
+                            <p class="text-sm font-semibold text-gray-700">Marine Equipment</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div
+                    class="bg-gradient-to-r from-[#1165a1e3] to-[#002e4c] rounded-2xl shadow-2xl p-8 md:p-12 text-center text-white animate-fade-in-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Let's Work Together</h2>
+                    <p class="text-lg md:text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                        At S4Automation, we don't just service systems – we build lasting partnerships with our clients.
+                        Whether you need routine maintenance, emergency repairs, system upgrades, or completely new
+                        installations, our experienced team is ready to deliver solutions that exceed expectations.
+                    </p>
+                    <a href="index.html#contact"
+                        class="inline-block bg-white text-blue-600 hover:bg-blue-50 font-bold px-8 py-4 rounded-full text-lg transition transform hover:scale-105 shadow-lg">
+                        Contact Us Today
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="stat-item">
+                    <span class="stat-number" id="projectsCount">0</span>
+                    <p class="text-gray-300">Projects Completed</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <p class="text-gray-300">Support Available</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="yearsCount">0</span>
+                    <p class="text-gray-300">Years Experience</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="satisfactionCount">0</span>
+                    <p class="text-gray-300">Client Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="marine-gradient text-white pt-16 pb-8">
+        <h2 id="footer-heading" class="sr-only">Footer Information</h2>
+
+        <!-- Main Footer Content -->
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-cogs text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">S4 Automation</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed max-w-md">
+                        Specializing in marine automation, control systems, and power solutions. We deliver reliable,
+                        cutting-edge technology to keep your vessels operating at peak performance.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/shimul-k-n-5345236b" target="_blank" aria-label="LinkedIn"
+                            class="social-icon bg-[--primary] hover:bg-[#25b2eb] w-10 h-10 rounded-full flex items-center justify-center transition-all">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                        <a href="https://wa.me/+6597552990" target="_blank" aria-label="WhatsApp"
+                            class="social-icon bg-green-600 hover:bg-green-500 w-10 h-10 rounded-full flex items-center justify-center transition-all">
+                            <i class="fab fa-whatsapp text-white"></i>
+                        </a>
+                        <a href="mailto:service@s4automation.net" target="_blank" aria-label="Email"
+                            class="social-icon bg-[--primary] hover:bg-[--Secondary] w-10 h-10 rounded-full flex items-center justify-center transition-all">
+                            <i class="fas fa-envelope text-white"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6 pb-2 border-b border-blue-700 inline-block">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="footer-link text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-chevron-right text-blue-400 text-xs mr-2"></i>Home</a>
+                        </li>
+                        <li><a href="about.html" class="footer-link text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-chevron-right text-blue-400 text-xs mr-2"></i>About Us</a>
+                        </li>
+                        <li><a href="services.html"
+                                class="footer-link text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-chevron-right text-blue-400 text-xs mr-2"></i>Services</a>
+                        </li>
+                        <li><a href="index.html#gallery-section"
+                                class="footer-link text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-chevron-right text-blue-400 text-xs mr-2"></i>Gallery</a>
+                        </li>
+                        <li><a href="index.html#contact"
+                                class="footer-link text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-chevron-right text-blue-400 text-xs mr-2"></i>Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6 pb-2 border-b border-blue-700 inline-block">Contact Us</h4>
+                    <div class="space-y-5">
+                        <div class="flex items-start">
+                            <div class="bg-[--primary] p-2 rounded-lg mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt text-blue-200"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Office Address</p>
+                                <p class="text-gray-300 text-sm mt-1">
+                                    <a href="#" class="hover:text-blue-300 transition-colors">
+                                        Jurong West Street 64<br>
+                                        BLK 677B #02-295<br>
+                                        Singapore 642677
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="bg-[--primary] p-2 rounded-lg mr-4">
+                                <i class="fas fa-phone-alt text-blue-200"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Phone</p>
+                                <a href="tel:+6597552990"
+                                    class="text-gray-300 hover:text-blue-300 transition-colors text-sm">+65 9755
+                                    2990</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="bg-[--primary] p-2 rounded-lg mr-4">
+                                <i class="fas fa-envelope text-blue-200"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Email</p>
+                                <a href="mailto:service@s4automation.net"
+                                    class="text-gray-300 hover:text-blue-300 transition-colors text-sm">service@s4automation.net</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services Highlights -->
+            <div class="border-t border-blue-800 pt-10 mb-10">
+                <h4 class="text-lg font-semibold mb-6 text-center">Our Specializations</h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="bg-blue-900/30 p-4 rounded-lg hover:bg-blue-900/50 transition">
+                        <i class="fas fa-microchip text-blue-400 text-xl mb-2"></i>
+                        <p class="text-sm font-medium">Control Systems</p>
+                    </div>
+                    <div class="bg-blue-900/30 p-4 rounded-lg hover:bg-blue-900/50 transition">
+                        <i class="fas fa-bolt text-blue-400 text-xl mb-2"></i>
+                        <p class="text-sm font-medium">Power Solutions</p>
+                    </div>
+                    <div class="bg-blue-900/30 p-4 rounded-lg hover:bg-blue-900/50 transition">
+                        <i class="fas fa-ship text-blue-400 text-xl mb-2"></i>
+                        <p class="text-sm font-medium">Marine Automation</p>
+                    </div>
+                    <div class="bg-blue-900/30 p-4 rounded-lg hover:bg-blue-900/50 transition">
+                        <i class="fas fa-tools text-blue-400 text-xl mb-2"></i>
+                        <p class="text-sm font-medium">Maintenance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="border-t border-blue-800 pt-6">
+            <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <p class="text-gray-400 text-sm">
+                        &copy; <span id="current-year">2025</span> S4 Automation Singapore Pte Ltd. All Rights Reserved.
+                    </p>
+                </div>
+                <div class="flex items-center">
+                    <p class="text-gray-400 text-sm mr-2">Powered by</p>
+                    <span class="text-blue-300 font-semibold">S4 Automation Web Division</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header functionality
+        function toggleMenu() {
+            document.getElementById("mobileNav").classList.toggle("active");
+        }
+
+        window.addEventListener("scroll", function () {
+            const header = document.querySelector("header");
+            if (window.scrollY > 50) {
+                header.classList.add("shrink");
+            } else {
+                header.classList.remove("shrink");
+            }
+        });
+
+        // Auto-update year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Animated counters
+        function animateCounter(elementId, targetValue, duration) {
+            let current = 0;
+            const increment = targetValue / (duration / 16); // 60fps
+            const element = document.getElementById(elementId);
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < targetValue) {
+                    element.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = targetValue;
+                }
+            };
+
+            updateCounter();
+        }
+
+        // Start counters when stats section is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter('projectsCount', 100, 1500);
+                    animateCounter('yearsCount', 15, 1500);
+                    animateCounter('satisfactionCount', 98, 1500);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.querySelector('.stats-section'));
+    </script>
+</body>
+
+</html>

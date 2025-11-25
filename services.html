@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #1E80C3;
+            --primary2: #1165a1e3;
+            --primary3: #002e4c;
+        }
+
+        /* Header */
+        .hdr {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 0;
+        }
+
+        .hdr a {
+            text-decoration: none;
+        }
+
+        .hdr h1 {
+            color: var(--primary);
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .hdr.shrink {
+            /* background-color: rgba(220, 220, 220, 0.947); */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            height: 40px;
+            padding: 0;
+        }
+
+
+        .hdr.shrink h1 {
+            font-size: 20px;
+        }
+
+        .hdr.shrink li a {
+            font-size: 15px;
+        }
+
+        .logo {
+            height: 90px;
+        }
+
+        .logo img {
+            height: 100%;
+            border-radius: 5px;
+            transition: height 0.2s ease-out;
+        }
+
+        .hdr.shrink .logo img {
+            height: 36px;
+            margin-top: 26px;
+        }
+
+        .hdr-nav {
+            list-style: none;
+            display: flex;
+            padding: 0;
+        }
+
+        .hdr-nav li {
+            margin: 0 5px;
+        }
+
+        .hdr-nav li a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: 600;
+            font-size: 17px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .hdr-nav li a:hover {
+            background-color: rgba(180, 180, 180, 0.5);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle div {
+            width: 30px;
+            height: 1px;
+            background-color: #333;
+            margin: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: left 0.3s ease-in-out;
+            z-index: 1000;
+        }
+
+        .mobile-nav.active {
+            left: 0;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .mobile-nav li {
+            margin: 20px 0;
+        }
+
+        .mobile-nav a {
+            color: rgba(255, 255, 255, 0.909);
+            text-decoration: none;
+            font-size: 1.4em;
+            padding: 10px 20px;
+            transition: color 0.3s ease-in-out;
+            font-weight: 400;
+        }
+
+        .mobile-nav a:hover {
+            color: #f4a261;
+        }
+
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .close-button::before,
+        .close-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 24px;
+            height: 1px;
+            background-color: white;
+            transform-origin: center;
+        }
+
+        .close-button::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .close-button::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+
+
+        /* Responsive */
+        @media (min-width: 992px) and (max-width: 1199px) {
+
+            /* Styles for landscape tablets / small laptops */
+            .hdr {
+                position: static;
+            }
+
+            .hdr h1 {
+                font-size: 26px;
+            }
+
+            .hdr-nav li {
+                margin: 0;
+                padding: 0;
+            }
+
+            .hdr-nav li a {
+                margin: 0;
+                padding: 10px;
+            }
+
+            /* .banner-slider {
+                top: 0;
+            } */
+
+            .logo {
+                height: 85px;
+            }
+        }
+
+
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            .hdr {
+                position: static;
+            }
+
+            .hdr h1 {
+                font-size: 20px;
+            }
+
+            .hdr-nav li {
+                margin: 0;
+                padding: 0;
+            }
+
+            .hdr-nav li a {
+                margin: 0;
+                padding: 10px;
+                font-size: 15px;
+            }
+
+            .logo {
+                height: 80px;
+            }
+        }
+
+
+
+
+        @media (max-width: 768px) {
+
+            /* common */
+            h2 {
+                font-size: 22px;
+            }
+
+            /* header */
+            .logo {
+                height: 75px;
+                /* margin-left: 5px; */
+            }
+
+            .hdr.shrink .logo img {
+                height: 35px;
+                margin-top: 17px;
+            }
+
+            .hdr h1 {
+                font-size: 24px;
+                margin: auto;
+                /* margin-left: 15px; */
+            }
+
+            .hdr.shrink h1 {
+                font-size: 19px;
+                line-height: normal;
+                margin-left: 30px;
+            }
+
+            .hdr-nav {
+                flex-direction: column;
+                padding: 0;
+                display: none;
+            }
+
+            .hdr-nav li {
+                margin: 10px 0;
+            }
+
+            .hdr-nav li a {
+                font-size: medium;
+                /* 16px */
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu-toggle div {
+                font-size: 10px;
+                height: 3px;
+                width: 25px;
+                margin: 3px;
+            }
+        }
+
+
+
+        @media (max-width: 480px) {
+
+            /* header */
+            .hdr h1 {
+                font-size: 22px;
+            }
+
+            .hdr span {
+                display: block;
+            }
+
+            /* .hdr-d-none {
+                display: none;
+            } */
+
+            .hdr.shrink h1 {
+                font-size: 19px;
+                line-height: normal;
+            }
+
+            .hdr.shrink .hdr-d-none {
+                display: none;
+            }
+
+            .logo {
+                height: 70px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+
+
+
+
+        /* main section */
+        .marine-gradient {
+            background: linear-gradient(135deg, #0f1f3d 0%, #1e588a 50%, #0f1e3d 100%);
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        .brand-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary2);
+            transform: translateY(-3px);
+        }
+
+        .product-list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .product-list.open {
+            max-height: 500px;
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-button.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <body class="bg-gray-50"> -->
+    <!-- <body class="bg-gray-50 flex flex-col min-h-screen"></body> -->
+    <!-- Header -->
+    <header class="hdr">
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="S4 Automation Logo" loading="lazy"></a>
+        </div>
+        <a href="index.html">
+            <h1>S4 AUTOMATION <span class="hdr-d-none">SINGAPORE PTE LTD</span></h1>
+        </a>
+        <nav>
+            <ul class="hdr-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html#gallery-section">Gallery</a></li>
+                <li><a href="index.html#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <div class="close-button" onclick="toggleMenu()"></div>
+        <ul>
+            <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+            <li><a href="about.html" class="active" onclick="toggleMenu()">About</a></li>
+            <li><a href="services.html" onclick="toggleMenu()">Services</a></li>
+            <li><a href="index.html#gallery-section" onclick="toggleMenu()">Gallery</a></li>
+            <li><a href="index.html#contact" onclick="toggleMenu()">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="marine-gradient text-white py-20 pt-40">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in">Our Services</h1>
+            <div class="text-xl max-w-2xl mx-auto animate-fade-in">
+                <ul class="list-disc list-inside text-left text-white space-y-2">
+                    <li>Marine Automation Control System</li>
+                    <li>Marine Power System</li>
+                    <li>Marine Electrical and Electronics System</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Services Section -->
+    <section class="py-16" id="services">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Marine Professional Services</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    With years of specialized experience, S4Automation delivers comprehensive solutions for vessels and
+                    offshore installations in Singapore and beyond.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1: Automation and Control Systems -->
+                <div class="service-card bg-white shadow-lg border-l-4 border-blue-500">
+                    <div class="p-6">
+                        <div
+                            class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-4 service-icon">
+                            <i class="fas fa-cogs text-blue-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Automation & Control Systems</h3>
+                        <p class="text-gray-700 mb-4">
+                            Comprehensive automation solutions for marine vessels and offshore platforms, including PLC
+                            programming, SCADA systems, and integrated control solutions.
+                        </p>
+                        <ul class="text-gray-600 space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Vessel Control System Integration</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>PLC & DCS Programming & Configuration</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>SCADA & HMI Development</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Alarm & Monitoring Systems</span>
+                            </li>
+                        </ul>
+                        <button
+                            class="w-full bg-blue-100 text-blue-700 py-2 rounded-lg font-medium hover:bg-blue-200 transition-colors">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 2: Marine Power Systems -->
+                <div class="service-card bg-white shadow-lg border-l-4 border-green-500" id="power">
+                    <div class="p-6">
+                        <div
+                            class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4 service-icon">
+                            <i class="fas fa-bolt text-green-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Marine Power Systems</h3>
+                        <p class="text-gray-700 mb-4">
+                            Reliable power management and distribution solutions to ensure continuous operation of
+                            critical marine systems and equipment.
+                        </p>
+                        <ul class="text-gray-600 space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Power Management Systems (PMS)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Electrical System Design & Installation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Emergency Power Systems</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Load Analysis & Optimization</span>
+                            </li>
+                        </ul>
+                        <button
+                            class="w-full bg-green-100 text-green-700 py-2 rounded-lg font-medium hover:bg-green-200 transition-colors">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 3: Specialized Product Servicing -->
+                <div class="service-card bg-white shadow-lg border-l-4 border-amber-500">
+                    <div class="p-6">
+                        <div
+                            class="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center mb-4 service-icon">
+                            <i class="fas fa-microchip text-amber-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Specialized Product Servicing</h3>
+                        <p class="text-gray-700 mb-4">
+                            Expert servicing and maintenance for SAM Electronics GmbH & Lyngso Marine A/S automation
+                            products and systems.
+                        </p>
+
+                        <!-- Brands Section -->
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-gray-800 mb-3">Authorized Service Provider For:</h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="brand-card bg-gray-50 p-3 rounded-lg text-center border border-gray-200">
+                                    <i class="fas fa-industry text-blue-500 text-xl mb-2"></i>
+                                    <p class="text-sm font-medium">SAM Electronics</p>
+                                </div>
+                                <div class="brand-card bg-gray-50 p-3 rounded-lg text-center border border-gray-200">
+                                    <i class="fas fa-ship text-green-500 text-xl mb-2"></i>
+                                    <p class="text-sm font-medium">Lyngso Marine</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button
+                            class="w-full bg-amber-100 text-amber-700 py-2 rounded-lg font-medium hover:bg-amber-200 transition-colors toggle-button"
+                            data-target="product-list">
+                            View Products <i class="fas fa-chevron-down toggle-icon ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 4: Marine Electronics -->
+                <div class="service-card bg-white shadow-lg border-l-4 border-purple-500" id="electronics">
+                    <div class="p-6">
+                        <div
+                            class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mb-4 service-icon">
+                            <i class="fas fa-satellite-dish text-purple-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Marine Electronics</h3>
+                        <p class="text-gray-700 mb-4">
+                            Advanced electronic systems for navigation, communication, and vessel operations with a
+                            focus on reliability and compliance.
+                        </p>
+                        <ul class="text-gray-600 space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Navigation & Communication Systems</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Integrated Bridge Systems</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Radar & Sonar Systems</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Satellite Communication Setup</span>
+                            </li>
+                        </ul>
+                        <button
+                            class="w-full bg-purple-100 text-purple-700 py-2 rounded-lg font-medium hover:bg-purple-200 transition-colors">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 5: Equipment Repair -->
+                <div class="service-card bg-white shadow-lg border-l-4 border-red-500" id="equipment">
+                    <div class="p-6">
+                        <div
+                            class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-4 service-icon">
+                            <i class="fas fa-tools text-red-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Equipment Repair & Maintenance</h3>
+                        <p class="text-gray-700 mb-4">
+                            Professional repair, maintenance, and calibration services for marine automation equipment
+                            with rapid response times.
+                        </p>
+                        <ul class="text-gray-600 space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Emergency Troubleshooting & Repair</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Preventive Maintenance Programs</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>System Calibration & Testing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>24/7 Technical Support</span>
+                            </li>
+                        </ul>
+                        <button
+                            class="w-full bg-red-100 text-red-700 py-2 rounded-lg font-medium hover:bg-red-200 transition-colors">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 6: System Integration -->
+                <div class="service-card bg-white shadow-lg border-l-4 border-indigo-500">
+                    <div class="p-6">
+                        <div
+                            class="w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center mb-4 service-icon">
+                            <i class="fas fa-project-diagram text-indigo-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">System Integration</h3>
+                        <p class="text-gray-700 mb-4">
+                            Seamless integration of various marine systems and components to create unified, efficient
+                            vessel operations.
+                        </p>
+                        <ul class="text-gray-600 space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Multi-vendor System Integration</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Legacy System Modernization</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Data Network Design</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Interface Development</span>
+                            </li>
+                        </ul>
+                        <button
+                            class="w-full bg-indigo-100 text-indigo-700 py-2 rounded-lg font-medium hover:bg-indigo-200 transition-colors">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialized Products Section -->
+    <section class="py-16 bg-gray-100" id="specialized-products">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Specialized Product Servicing</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    We are authorized service providers for SAM Electronics GmbH & Lyngso Marine A/S automation products
+                </p>
+            </div>
+
+            <!-- Products List -->
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- SAM Electronics Products -->
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-industry text-blue-500 mr-2"></i>
+                                SAM Electronics GmbH
+                            </h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Alarm monitoring and control system (GEAMAR 1201SL, UCS2100, MCS2200, NACOS
+                                        PLATINUM)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Main engine manoeuvring system (BMS40M, DMS2100, DMS2100i)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Main engine governor system (EGS40M, EGS40M-D, EGS2000, EGS2100,
+                                        EGS2200)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Main engine safety system (ESS40M, EPS2100, DPS2100)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Propulsion Control System (PCS2200)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Main engine telegraph system (STORK KWANT & STEIN SOHN)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Generator power management (GPM 500)</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Lyngso Marine Products -->
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-ship text-green-500 mr-2"></i>
+                                Lyngso Marine A/S
+                            </h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Alarm monitoring and control systems</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Main engine control systems</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Power management systems</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Integrated automation systems</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Bridge control systems</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Safety and shutdown systems</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                        <div class="flex items-start">
+                            <i class="fas fa-info-circle text-blue-500 text-xl mr-3 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-blue-800 mb-1">Expert Service & Support</h4>
+                                <p class="text-blue-700 text-sm">
+                                    Our technicians are factory-trained and certified to service SAM Electronics and
+                                    Lyngso Marine products.
+                                    We provide comprehensive maintenance, troubleshooting, and repair services with
+                                    genuine parts and
+                                    manufacturer-approved procedures.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Process Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Service Process</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    We follow a systematic approach to ensure the highest quality service delivery for all our marine
+                    automation projects
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clipboard-list text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Assessment</h3>
+                    <p class="text-gray-600">Comprehensive evaluation of your automation needs and system requirements
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-pencil-alt text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Design</h3>
+                    <p class="text-gray-600">Customized solution design with detailed specifications and implementation
+                        plan</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-full bg-purple-100 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cogs text-purple-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Implementation</h3>
+                    <p class="text-gray-600">Professional installation, configuration, and integration of automation
+                        systems</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-headset text-red-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Support</h3>
+                    <p class="text-gray-600">Ongoing maintenance, troubleshooting, and 24/7 technical support services
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <!-- <section class="py-16 marine-gradient text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Need Expert Service for Your Marine Automation Systems?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Contact us today for professional servicing of SAM Electronics,
+                Lyngso Marine, and other automation systems.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="contact.html"
+                    class="bg-white text-blue-800 px-6 py-3 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors">
+                    Get In Touch
+                </a>
+                <a href="tel:+6597552990"
+                    class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-bold text-lg hover:bg-white hover:text-blue-800 transition-colors">
+                    Call Us: +65 9755 2990
+                </a>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer class="marine-gradient text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">S4 Automation Pte Ltd.</h3>
+                    <p class="text-gray-300 mb-4">
+                        Specializing in marine automation, control systems, and power solutions for the maritime
+                        industry.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/shimul-k-n-5345236b" target="_blank" aria-label="LinkedIn"
+                            class="social-icon bg-[--primary] hover:bg-[#25b2eb] w-10 h-10 rounded-full flex items-center justify-center transition-all">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                        <a href="https://wa.me/+6597552990" target="_blank" aria-label="WhatsApp"
+                            class="social-icon bg-green-600 hover:bg-green-500 w-10 h-10 rounded-full flex items-center justify-center transition-all">
+                            <i class="fab fa-whatsapp text-white"></i>
+                        </a>
+                        <a href="mailto:service@s4automation.net" target="_blank" aria-label="Email"
+                            class="social-icon bg-[--primary] hover:bg-blue-400 w-10 h-10 rounded-full flex items-center justify-center transition-all">
+                            <i class="fas fa-envelope text-white"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-white">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-white">Services</a></li>
+                        <li><a href="gallery.html" class="text-gray-300 hover:text-white">Gallery</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-gray-300 hover:text-white">Automation Systems</a></li>
+                        <li><a href="#power" class="text-gray-300 hover:text-white">Power Management</a></li>
+                        <li><a href="#electronics" class="text-gray-300 hover:text-white">Marine Electronics</a></li>
+                        <li><a href="#equipment" class="text-gray-300 hover:text-white">Equipment Repair</a></li>
+                        <li><a href="#specialized-products" class="text-gray-300 hover:text-white">SAM & Lyngso
+                                Servicing</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Info</h3>
+                    <div class="space-y-2">
+                        <p class="text-gray-300 flex items-start">
+                            <i class="fas fa-map-marker-alt mr-2 mt-1"></i>
+                            Jurong West Street 64, BLK 677B #02-295, SINGAPORE 642677
+                        </p>
+                        <p class="text-gray-300 flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            +65 9755 2990
+                        </p>
+                        <p class="text-gray-300 flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            service@s4automation.net
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-6 text-center">
+                <p class="text-gray-400">
+                    &copy; <span id="current-year">2025</span> S4 Automation Singapore Pte Ltd. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script>
+        // Header functionality
+        function toggleMenu() {
+            document.getElementById("mobileNav").classList.toggle("active");
+        }
+
+        window.addEventListener("scroll", function () {
+            const header = document.querySelector("header");
+            if (window.scrollY > 50) {
+                header.classList.add("shrink");
+            } else {
+                header.classList.remove("shrink");
+            }
+        });
+
+
+
+        // Back to top functionality
+        window.addEventListener('scroll', function () {
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Toggle product list functionality
+        document.querySelectorAll('.toggle-button').forEach(button => {
+            button.addEventListener('click', function () {
+                const target = this.getAttribute('data-target');
+                const productList = document.getElementById(target);
+
+                if (productList) {
+                    productList.classList.toggle('open');
+                    this.classList.toggle('active');
+                }
+            });
+        });
+
+        // Add animation to service cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .brand-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+
+        // Auto-update year
+        //<span id="current-year">2025</span>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

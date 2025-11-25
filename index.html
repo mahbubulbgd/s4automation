@@ -12,11 +12,18 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"> -->
+    <!-- <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet"> -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Make sure Font Awesome is loaded -->
+    <script src="https://kit.fontawesome.com/a2e0e6a5b3.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
 
 
     <style>
@@ -52,20 +59,32 @@
 
 
         /* General Styles */
-        body {
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Archivo", sans-serif;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            /* font-family: "Archivo", sans-serif; */
+            /* font-family: 'Poppins', sans-serif; */
             font-optical-sizing: auto;
             overflow-x: hidden;
             text-align: center;
+            color: #333;
+            background-color: #f8fafc;
         }
 
         :root {
-            --secondary-color: #00a8e8;
-            --secondary: #3498db;
             --primary: #1E80C3;
+            --secondary: #29b6f6;
+            --primary2: #1165a1e3;
+            --primary3: #002e4c;
             --button-bg: #005f87;
             --h2-color: #003366;
             --accent-color: #ff7e00;
@@ -76,10 +95,75 @@
             --dark: #1a252f;
         }
 
+        /* Button Styles*/
+        /* .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 26px;
+            background: linear-gradient(135deg, #4fc3f7, #29b6f6);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(41, 182, 246, 0.4);
+        } */
+
+        /* Button Styles */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #4fc3f7, #29b6f6);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(41, 182, 246, 0.4);
+            position: relative;
+            overflow: hidden;
+            opacity: 1;
+            transform: translateY(3px);
+        }
+
+        .btn-primary.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(41, 182, 246, 0.6);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary i {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover i {
+            transform: translateX(5px);
+        }
 
 
-
-
+        /* common styles */
         h2,
         h3,
         h4,
@@ -120,10 +204,11 @@
         .hdr h1 {
             color: var(--primary);
             font-size: 28px;
+            font-weight: 700;
         }
 
         .hdr.shrink {
-            background-color: rgba(220, 220, 220, 0.947);
+            /* background-color: rgba(220, 220, 220, 0.947); */
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             height: 40px;
             padding: 0;
@@ -290,110 +375,296 @@
 
 
         /* about */
-        .about {
-            padding: 150px 0 50px 0;
+        /* About Section */
+        .section-padding {
+            padding: 80px 24px;
+            background: #0f0f17;
+            color: white;
         }
 
-        .about-wrapper {
-            background: linear-gradient(rgba(159, 207, 255, 0.876), rgba(255, 255, 255, 0.743)), url('./images/about.jpg');
-            /* background-position: center; */
-            background-position: 40% 50%;
-            object-fit: contain;
-            background-repeat: no-repeat;
-            max-width: 1200px;
-            margin: auto;
-            padding: 50px 0;
-        }
-
-        .about-container {
-            font-weight: 400;
-            padding: 10px 0px;
-            margin: auto;
-            max-width: 1100px;
-        }
-
-
-
-
-        /* service */
-        /* .service-wrapper {
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5faff;
-            text-align: center;
-        } */
-
-        .service-container {
-            padding: 40px 20px;
-        }
-
-        /* .service-container h2 {
-            font-size: 2.5rem; 
-            margin-bottom: 30px;
-            color: rgb(0, 51, 102);
-        } */
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
+        .about-grid {
+            max-width: 1280px;
             margin: 0 auto;
-            padding-top: 30px;
-            padding-bottom: 40px;
+            display: grid;
+            gap: 40px;
+            align-items: center;
         }
 
-        .service-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .about-img {
+            width: 100%;
+            border-radius: 18px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            transition: transform 0.5s ease;
             cursor: pointer;
         }
 
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        .about-img:hover {
+            transform: scale(1.05);
         }
 
-        .service-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
+
+        .about-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            color: #4db3ff;
         }
 
-        .service-card h3 {
-            font-size: 1.2rem;
-            margin: 15px 0 10px;
-            color: #003366;
+        .about-text {
+            color: #cfd2d7;
+            margin-bottom: 16px;
+            line-height: 1.7;
         }
 
-        .service-card p {
-            padding: 0 15px 20px;
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.5;
+        .about-subtext {
+            color: #9da1a8;
+            margin-bottom: 24px;
         }
 
-        /* lightbox-two Styling */
-        .lightbox-two {
-            display: none;
-            position: fixed;
+
+
+
+
+
+
+        /* Services Section */
+        .services-section {
+            background: linear-gradient(135deg, #0f1f3d 0%, #1e588a 50%, #0f1e3d 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            line-height: 1.6;
+        }
+
+        .services-section::before {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            align-items: center;
-            justify-content: center;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path services-sectionaboutfill="%23000000" fill-opacity="0.1" d="M0,128L48,138.7C96,149,192,171,288,165.3C384,160,480,128,576,133.3C672,139,768,181,864,192C960,203,1056,181,1152,165.3C1248,149,1344,139,1392,133.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+            opacity: 0.3;
         }
 
-        .lightbox-two img {
-            max-width: 80%;
-            border-radius: 8px;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
         }
+
+        .services-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .services-subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 300;
+        }
+
+        /* Cards Section */
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 30px 25px;
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #4fc3f7, #29b6f6);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: #4fc3f7;
+            margin-bottom: 20px;
+            display: inline-block;
+            height: 80px;
+            width: 80px;
+            line-height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1);
+            background: rgba(79, 195, 247, 0.2);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .stat-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #4fc3f7;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Button Styles */
+        .services-btn {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #4fc3f7, #29b6f6);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(41, 182, 246, 0.4);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .services-btn.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .services-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .services-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(41, 182, 246, 0.6);
+        }
+
+        .services-btn:hover::before {
+            left: 100%;
+        }
+
+        .services-btn i {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .services-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+
+
+
+
 
 
 
@@ -401,7 +672,6 @@
         /* service-map-section */
         .service-map-wrapper {
             /* margin: 0; */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: var(--dark-text);
             line-height: 1.6;
             background-color: var(--light-bg);
@@ -422,9 +692,8 @@
         }
 
         .title-with-map h2 {
-            /* color: var(--button-bg
-); */
-            /* font-size: 2rem; */
+            /* color: var(--button-bg);
+            font-size: 2rem; */
             margin: 0.5rem 0;
         }
 
@@ -459,7 +728,7 @@
             font-size: 1rem;
             border: none;
             border-radius: 4px;
-            background-color: var(--button-bg);
+            background-color: var(--primary);
             color: white;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -470,8 +739,8 @@
         }
 
         #controls button:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-2px);
+            background-color: var(--secondary);
+            transform: translateY(-1px);
         }
 
         #controls button i {
@@ -503,10 +772,12 @@
             gap: 0.5rem;
         }
 
-        #services-list li:hover {
-            transform: translateY(-3px);
+
+        #services-list li.active:hover {
+            transform: translateY(-1px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-color: var(--secondary-color);
+            background-color: var(--secondary);
+            /* border-color: var(--primry); */
         }
 
         #services-list li i {
@@ -514,7 +785,7 @@
         }
 
         #services-list li.active {
-            background-color: var(--button-bg);
+            background-color: var(--primary);
             color: white;
             border-color: var(--button-bg);
         }
@@ -525,9 +796,9 @@
 
 
         /* Leaflet customizations */
-        .leaflet-popup-content {
+        /* .leaflet-popup-content {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        } */
 
         .leaflet-popup-content-wrapper {
             border-radius: 6px;
@@ -553,10 +824,13 @@
 
 
         /* gallery */
+        .marine-gradient {
+            background: linear-gradient(135deg, #0f1f3d 0%, #1e588a 50%, #0f1e3d 100%);
+        }
+
         .gallery-section {
-            background-color: #65b5cfa8;
+            /* background-color: #65b5cfa8; */
             color: white;
-            font-family: sans-serif;
             overflow-x: hidden;
             padding: 30px 20px 100px;
         }
@@ -569,13 +843,19 @@
 
         .toggle-view {
             /* background: #333; */
-            background: var(--button-bg);
+            background: var(--primary);
             color: white;
             border: 1px solid #666;
             padding: 10px 16px;
             cursor: pointer;
             border-radius: 5px;
             font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-view:hover {
+            transform: translateY(-1px);
+            background-color: var(--secondary);
         }
 
         .gallery-wrapper {
@@ -719,17 +999,17 @@
 
 
         /* partner */
-        .partner-container {
-            /* display: grid; */
-            /* grid-template-columns: 1fr 1fr; */
-            /* grid-template-rows: 1fr 1fr; */
-            gap: 10px;
-            /* height: 60vh; */
-            /* padding-left: 20px;
+        /* .partner-container { */
+        /* display: grid; */
+        /* grid-template-columns: 1fr 1fr; */
+        /* grid-template-rows: 1fr 1fr; */
+        /* gap: 10px; */
+        /* height: 60vh; */
+        /* padding-left: 20px;
             padding-right: 20px;
             margin-bottom: 100px; */
-            /* padding: 0 20px 4px; */
-        }
+        /* padding: 0 20px 4px; */
+        /* } */
 
         .title-section {
             grid-column: 1 / 2;
@@ -794,20 +1074,26 @@
             /* background-position: 50% 50%; */
             /* background-repeat: no-repeat; */
             /* color: white; */
-            color: #ffffffbd;
+            /* color: #ffffffd6; */
             padding: 4rem 2rem;
-            text-align: left;
-            padding: 100px 0 25px 0;
+            text-align: center;
+            padding-bottom: 25px;
+
         }
 
         .footer h2,
         .footer h3 {
-            color: #ffffffea;
+            color: #ffffffde;
+            line-height: 1.6;
         }
 
-        .footer p {
-            color: #ffffffbd;
+        .footer h3 {
+            font-weight: 500;
         }
+
+        /* .footer p {
+            color: #ffffffbd;
+        } */
 
         .footer::before {
             content: '';
@@ -828,7 +1114,8 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            gap: 4rem;
+            padding: 60px;
         }
 
         .footer-column {
@@ -836,9 +1123,22 @@
             flex-direction: column;
         }
 
+        /* .footer-column-one {
+            margin-bottom: 100px;
+        } */
+
+        .footer-column-two {
+            margin-top: 90px;
+        }
+
+        .footer-logo {
+            text-align: left;
+        }
+
         .footer-logo img {
-            height: 80px;
+            height: 70px;
             border-radius: 5px;
+            margin-bottom: 20px;
         }
 
         .footer-logo h2 {
@@ -848,19 +1148,27 @@
         .footer-text {
             line-height: 1.6;
             /* margin-bottom: 1.5rem; */
-            opacity: 0.9;
+            /* opacity: 0.9; */
+            margin-top: 40px;
+            font-weight: 400;
+            font-size: 14px;
+            color: #ffffffb3;
         }
 
-        .footer-text a {
-            color: #ffffffbd;
+        .footer-text a,
+        p {
+            font-size: 14px;
+            color: #ffffffb3;
             text-decoration: none;
+            line-height: 2;
         }
 
         .footer-heading {
             font-size: 28px;
-            margin-bottom: 1.5rem;
+            /* margin-bottom: 1.5rem; */
             position: relative;
-            padding-bottom: 0.5rem;
+            /* padding-bottom: 0.5rem; */
+            text-align: left;
         }
 
 
@@ -911,6 +1219,7 @@
         .footer-copyright {
             font-style: italic;
             font-size: small;
+            text-align: center;
         }
 
         .footer-copyright a {
@@ -934,7 +1243,7 @@
 
 
 
-
+        /* Responsive Design */
         @media (min-width: 992px) and (max-width: 1199px) {
 
             /* Styles for landscape tablets / small laptops */
@@ -963,11 +1272,21 @@
             .logo {
                 height: 85px;
             }
+
+            /* our services */
+            .cards-container {
+                gap: 20px;
+            }
+
+            .card {
+                max-width: 300px;
+                padding: 25px 20px;
+            }
         }
 
 
 
-        /* Responsive Design */
+
         @media (min-width: 768px) and (max-width: 991px) {
             .hdr {
                 position: static;
@@ -995,8 +1314,52 @@
             .banner-slider {
                 top: 0;
             }
+
+            /* our Services */
+            .services-title {
+                font-size: 2rem;
+            }
+
+            .services-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 40px;
+            }
+
+            .services-section {
+                padding: 60px 0;
+            }
+
+            .cards-container {
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 40px;
+            }
+
+            .card {
+                max-width: 100%;
+            }
+
+            .stats-container {
+                gap: 20px;
+                margin-top: 40px;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
         }
 
+        @media (min-width: 768px) {
+
+            /* about section */
+            .section-padding {
+                padding: 180px 80px 100px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
 
         @media (max-width: 768px) {
 
@@ -1055,7 +1418,6 @@
             }
 
 
-
             /* banner */
             .banner-slider {
                 top: 50px;
@@ -1078,19 +1440,6 @@
                 font-size: 0.5em;
             }
 
-            .about {
-                padding: 70px 0px 20px 0px;
-
-            }
-
-            .about-container {
-                padding: 0 20px;
-                font-size: medium;
-            }
-
-            /* .about-container p {
-                font-size: 15px;
-            } */
 
 
             /* service */
@@ -1237,6 +1586,44 @@
             #services-list {
                 grid-template-columns: 1fr;
             }
+
+            /* our services */
+            .services-title {
+                font-size: 1.8rem;
+            }
+
+            .services-subtitle {
+                font-size: 1rem;
+            }
+
+            .card {
+                padding: 20px 15px;
+            }
+
+            .card-icon {
+                font-size: 2.5rem;
+                height: 70px;
+                width: 70px;
+                line-height: 70px;
+                margin-bottom: 15px;
+            }
+
+            .card-title {
+                font-size: 1.3rem;
+            }
+
+            .services-btn {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
+
+            .stat-item {
+                padding: 10px;
+            }
+
+            .stat-number {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
@@ -1254,13 +1641,13 @@
         <nav>
             <ul class="hdr-nav">
                 <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#service">Services</a></li>
-                <li><a href="#gallery-section">Gallery</a></li>
-                <li><a href="#partner">Partner</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <!-- <li><a href="#partner">Partner</a></li> -->
                 <!-- <li><a href="#project">project</a></li> -->
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <!-- <li><a href="portfolio.html">Portfolio</a></li> -->
+                <li><a href="#contact">Contact Us</a></li>
             </ul>
         </nav>
         <div class="menu-toggle" onclick="toggleMenu()">
@@ -1276,13 +1663,13 @@
 
         <ul>
             <li><a href="#" onclick="toggleMenu()">Home</a></li>
-            <li><a href="#about" onclick="toggleMenu()">About</a></li>
-            <li><a href="#service" onclick="toggleMenu()">Services</a></li>
-            <li><a href="#gallery-section" onclick="toggleMenu()">Gallery</a></li>
-            <li><a href="#partner" onclick="toggleMenu()">Partner</a></li>
+            <li><a href="about.html" onclick="toggleMenu()">About</a></li>
+            <li><a href="services.html" onclick="toggleMenu()">Services</a></li>
+            <li><a href="gallery.html" onclick="toggleMenu()">Gallery</a></li>
+            <!-- <li><a href="#partner" onclick="toggleMenu()">Partner</a></li> -->
             <!-- <li><a href="#project" onclick="toggleMenu()">project</a></li> -->
-            <li><a href="portfolio.html" onclick="toggleMenu()">Portfolio</a></li>
-            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+            <!-- <li><a href="portfolio.html" onclick="toggleMenu()">Portfolio</a></li> -->
+            <li><a href="#contact" onclick="toggleMenu()">Contact Us</a></li>
         </ul>
     </div>
 
@@ -1342,26 +1729,60 @@
 
 
     <!-- about -->
-    <section id="about" class="about">
+    <!-- <section id="about" class="about">
         <div class="about-wrapper">
-            <h2>About</h2>
+            <h2>About Us</h2>
             <div class="about-container">
-                <p>We specialize in marine automation and product solutions that optimize operational efficiency and
-                    ensure the highest standards of maritime safety.
-                    Specializing in the servicing, installation, and
-                    optimization of marine engine control systems, we ensure vessels operate at peak reliability.
+                <p>About S4Automation Private Limited.</p>
+                <p>
+                    S4Automation Private Limited is a Singapore-based marine automation service provider specializing in
+                    advanced control and power system solutions for vessels and offshore platforms.
                 </p>
                 <p>
-                    Our expertise extends to marine navigation and communication electronics, offering full-spectrum
-                    support from hardware and software to complex network systems. As marine automation engineers, we
-                    diagnose and resolve critical control system issues with precision and speed.
-                </p>
-                <p>
-                    Driven by innovation and a commitment to excellence, we deliver dependable engineering solutions and
-                    responsive service. Our goal is to be your trusted partner, keeping your fleet running safely,
-                    smoothly, and efficiently through expert technical support and cutting-edge automation technology.
+                    Founded by an experienced Marine Automation Engineer with many years of hands-on expertise in the
+                    automation sector, our company is dedicated to enhancing the safety, reliability, and efficiency of
+                    maritime operations.
                 </p>
             </div>
+
+            <a href="about.html" target="_blank" rel="noopener noreferrer" class="link-btn">
+                For More Info <i class="fas fa-arrow-right"></i>
+            </a>
+
+
+        </div>
+    </section> -->
+
+    <!-- About Section -->
+    <section class="section-padding">
+        <div class="about-grid">
+
+            <!-- Image -->
+            <div class="relative">
+                <img src="./images/slide2.jpg" alt="Marine Automation" class="about-img" />
+            </div>
+
+            <!-- Text -->
+            <div>
+                <h2 class="about-title">About S4 Automation</h2>
+
+                <p class="about-text">
+                    S4 Automation Singapore Pte Ltd is a trusted marine service provider specializing in
+                    <strong>automation, control, power, electrical, and electronic systems</strong>.
+                    With years of experience, we deliver reliable and innovative solutions for vessels worldwide.
+                </p>
+
+                <p class="about-subtext">
+                    We ensure smooth vessel operations with advanced marine automation and power control systems,
+                    keeping your ship safe and efficient at sea.
+                </p>
+
+                <a href="about.html" target="_blank" class="btn-primary">
+                    Learn More <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                </a>
+
+            </div>
+
         </div>
     </section>
 
@@ -1370,44 +1791,85 @@
 
 
 
-    <!-- service -->
-    <section class="service-wrapper" id="service">
-        <div class="service-container">
-            <h2>Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <img src="./images/navigation-Systems.jpg" alt="Navigation Systems">
-                    <h3>Navigation Systems</h3>
-                    <p>Advanced GPS and chartplotter integration for precise and safe marine travel.</p>
+    <!-- Our Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h1 class="services-title">Our Services</h1>
+            <p class="services-subtitle">Providing marine automation, control, and power solutions for
+                vessels worldwide</p>
+
+            <!-- Cards Section -->
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="card-title">Automation Control Systems</h3>
+                    <p class="card-description">
+                        Advanced marine automation solutions for vessel control, monitoring, and optimization.
+                        We design and implement reliable systems that enhance operational efficiency and safety.
+                    </p>
                 </div>
-                <div class="service-card">
-                    <img src="./images/marine-electronics.jpg" alt="Marine Electronics">
-                    <h3>Marine Electronics</h3>
-                    <p>We install and service cutting-edge marine electronics for communication and safety.</p>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="card-title">Power Management</h3>
+                    <p class="card-description">
+                        Comprehensive marine power systems including distribution, management,
+                        and emergency power solutions. Our systems ensure uninterrupted vessel operations.
+                    </p>
                 </div>
-                <div class="service-card">
-                    <img src="./images/gallery9.jpg" alt="Equipment Repair">
-                    <h3>Equipment Repair</h3>
-                    <p>Reliable and fast repair services to get your equipment back in action.</p>
-                </div>
-                <div class="service-card">
-                    <img src="./images/reliable-marine.jpg" alt="Reliable Marine Solutions">
-                    <h3>Reliable Marine Solutions</h3>
-                    <p>Custom marine solutions tailored to your vessel’s unique needs and environment.</p>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="card-title">Electrical & Electronics</h3>
+                    <p class="card-description">
+                        Complete electrical and electronic system integration for modern vessels.
+                        From navigation systems to communication equipment, we provide end-to-end solutions.
+                    </p>
                 </div>
             </div>
-        </div>
-        <div class="lightbox-two">
-            <img src="" alt="Expanded Image">
+
+            <!-- Stats Section -->
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Clients Worldwide</span>
+                </div>
+            </div>
+
+            <!-- More Info Button -->
+            <a href="services.html" class="services-btn">
+                For More Info <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
     </section>
+
+
+
+
+
+
+
 
     <!-- service-map-section -->
     <div class="service-map-wrapper">
         <main class="service-map-container">
             <section class="title-with-map">
                 <h2>Our Global Service Network</h2>
-                <p>Global marine solutions from Singapore. Serving clients across major ports worldwide</p>
+                <h3>Singapore-based marine solutions serving clients across global ports.</h3>
             </section>
 
             <section id="service-map-section">
@@ -1431,6 +1893,10 @@
                     <li data-country="Hong Kong"><i class="fas fa-anchor"></i> Hong Kong</li>
                     <li data-country="Australia"><i class="fas fa-anchor"></i> Australia</li>
                     <li data-country="New Zealand"><i class="fas fa-anchor"></i> New Zealand</li>
+                    <li data-country="USA"
+                        class="flex items-center space-x-2 p-2 hover:bg-blue-50 cursor-pointer transition duration-150 rounded-md text-gray-700">
+                        <i class="fas fa-anchor text-blue-500"></i> <span>USA</span>
+                    </li>
                 </ul>
             </section>
         </main>
@@ -1442,7 +1908,7 @@
 
 
     <!-- gallery -->
-    <section class="gallery-section" id="gallery-section">
+    <section class="gallery-section marine-gradient" id="gallery-section">
         <div class="top-bar">
             <button class="toggle-view" id="toggleView">Gallery Switch to Grid View</button>
         </div>
@@ -1482,32 +1948,7 @@
 
 
 
-    <!-- partner -->
-    <div class="partner-container" id="partner">
-        <div class="title-section">
-            <h2>Our Partners</h2>
-            <h3>SERVICING OF SAM ELECTRONICES GMBH & LYNGSO MARINE A/S AUTOMATION PRODUCTS</h3>
-            <ul>
-                <li>Alarm monitoring and control system
-                    (GEAMAR 1201SL, UCS2100, MCS2200, NACOS PLATINUM)</li>
-                <li>Main engine manoeuvring system (BMS40M, DMS2100, DMS2100i)</li>
-                <li>Main engine governor system (EGS40M, EGS40M-D, EGS2000, EGS2100, EGS2200)</li>
-                <li>Main engine safety system (ESS40M, EPS2100, DPS2100)</li>
-                <li>Propulsion Control System (PCS2200)</li>
-                <li>Main engine telegraph system (STORK KWANT & STEIN SOHN)</li>
-                <li>Generator power management (GPM 500)</li>
-            </ul>
-        </div>
 
-        <!-- <div class="image1">
-            <img src="images/partner1.jpg" alt="Partner 1">
-        </div>
-        <div class="image2">
-            <img src="images/partner2.jpg" alt="Partner 2">
-        </div> -->
-        <!-- <div class="image1">image1</div> -->
-        <!-- <div class="image2">image2</div> -->
-    </div>
 
 
 
@@ -1533,24 +1974,27 @@
     <!-- footer -->
     <footer class="footer" id="contact">
         <div class="footer-content">
-            <div class="footer-column">
+            <div class="footer-column footer-column-one">
                 <div class="footer-logo">
                     <a href="#"><img src="./images/logo.png" alt=""></a>
-                    <h2>S4 AUTOMATION SINGAPORE PTE LTD</h2>
+                    <h2>S4 AUTOMATION SINGAPORE PTE LTD.</h2>
                     <h3>Marine Automation & Control System</h3>
+                    <h3>Marine Power System</h3>
                 </div>
                 <p class="footer-text">
-                    As a trusted provider of marine automation solutions, we are committed to optimizing the efficiency
-                    and safety of maritime operations, dedicated to enhancing the efficiency and
-                    safety of maritime operations.
+                    S4Automation Private Limited is a Singapore-based marine automation company specializing in
+                    automation, control and power system solutions. We combine decades of hands-on engineering
+                    experience with rigorous testing and fast, practical service — helping vessels and offshore assets
+                    run safer and more efficiently.
                 </p>
             </div>
 
-            <div class="footer-column">
-                <h3 class="footer-heading">Connect Us</h3>
+            <div class="footer-column footer-column-two">
+                <h3 class="footer-heading">Contact Us</h3>
                 <div class="footer-text">
                     <p>Email: <a href="mailto:service@s4automation.net">service@s4automation.net</a></p>
-                    <p>Phone: +65-97552990</p>
+                    <p>Phone: +65 97552990</p>
+                    <p>WhatsApp: +65 97552990</p>
                     <p>Address: Jurong West Street 64, BLK 677B #02-295, SINGAPORE 642677</p>
                 </div>
                 <div class="social-links">
@@ -1570,8 +2014,8 @@
         </div>
 
         <div class="footer-bottom">
-            <p class="footer-copyright">Copyright &copy; 2025 S4 Automation Singapore Pte Ltd. All rights reserved. | <a
-                    href="#">Privacy Policy</a> | <a href="#">Terms of
+            <p class="footer-copyright">Copyright &copy; <span id="current-year">2025</span> S4 Automation Singapore Pte
+                Ltd. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of
                     Service</a></p>
         </div>
     </footer>
@@ -1745,6 +2189,7 @@
                 updateImage();
             };
 
+            // Swipe Controls (Touch)
             let startTouchX = 0;
             overlay.addEventListener('touchstart', (e) => {
                 startTouchX = e.touches[0].clientX;
@@ -1756,6 +2201,10 @@
                 if (diff > 50) leftBtn.click();
                 else if (diff < -50) rightBtn.click();
             });
+
+            // Mouse Drag Controls
+            let dragStartX = 0;
+            let dragging = false;
 
             overlay.addEventListener('mousedown', (e) => {
                 dragStartX = e.clientX;
@@ -1770,15 +2219,29 @@
                 dragging = false;
             });
 
+            // CLICK outside to close
             overlay.addEventListener('click', (e) => {
-                if (e.target === overlay || e.target === img) overlay.remove();
+                if (e.target === overlay) {
+                    document.body.removeChild(overlay);
+                    window.removeEventListener('keydown', keyHandler);
+                }
             });
 
-            window.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') overlay.remove();
-                if (e.key === 'ArrowLeft') leftBtn.click();
-                if (e.key === 'ArrowRight') rightBtn.click();
-            }, { once: true });
+            // ⭐ FIXED: Keyboard Handler ALWAYS Works ⭐
+            function keyHandler(e) {
+                if (e.key === 'Escape') {
+                    document.body.removeChild(overlay);
+                    window.removeEventListener('keydown', keyHandler);
+                }
+                if (e.key === 'ArrowLeft') {
+                    leftBtn.click();
+                }
+                if (e.key === 'ArrowRight') {
+                    rightBtn.click();
+                }
+            }
+
+            window.addEventListener('keydown', keyHandler);
 
             document.body.appendChild(overlay);
         }
@@ -1810,17 +2273,72 @@
             container.scrollBy({ left: 300, behavior: 'smooth' });
         });
 
-        // service
-        // Lightbox-two feature for image preview
-        document.querySelectorAll('.service-card img').forEach(img => {
-            img.addEventListener('click', function () {
-                document.querySelector('.lightbox-two img').src = this.src;
-                document.querySelector('.lightbox-two').style.display = 'flex';
-            });
-        });
 
-        document.querySelector('.lightbox-two').addEventListener('click', function () {
-            this.style.display = 'none';
+
+
+
+
+
+
+
+
+        // service
+        // Add scroll animations
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelectorAll('.card');
+            const stats = document.querySelectorAll('.stat-item');
+            const button = document.querySelector('.services-btn');
+
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            // Observe each element
+            cards.forEach(card => {
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            stats.forEach(stat => {
+                stat.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(stat);
+            });
+
+            if (button) {
+                button.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(button);
+            }
+
+            // Add staggered animation for cards
+            setTimeout(() => {
+                cards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                    }, index * 200);
+                });
+            }, 300);
+
+            // Add staggered animation for stats
+            setTimeout(() => {
+                stats.forEach((stat, index) => {
+                    setTimeout(() => {
+                        stat.classList.add('visible');
+                    }, index * 200);
+                });
+            }, 900);
+
+            // Animate button last
+            setTimeout(() => {
+                if (button) button.classList.add('visible');
+            }, 1500);
         });
 
 
@@ -1887,6 +2405,10 @@
             'Bangladesh': {
                 coords: [23.685, 90.3563],
                 // ports: ['Port of Chittagong', 'Port of Mongla']
+            },
+            'USA': {
+                coords: [29.7604, -95.3698],
+                // popup: "Support for Major US Gulf/East Coast Ports" 
             }
         };
 
@@ -2005,6 +2527,10 @@
             document.querySelector('[data-country="Singapore"]').classList.add('active');
             highlightCountry('Singapore');
         }, 500);
+
+        // Auto-update year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
     </script>
 </body>
 
