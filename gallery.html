@@ -288,7 +288,12 @@
             right: 20px;
         }
 
-        /* --- Footer Styles (Kept as is) --- */
+
+        /* Footer */
+        .footer-logo img {
+            border-radius: 5px;
+        }
+
         .footer-link {
             position: relative;
             transition: all 0.3s ease;
@@ -460,6 +465,37 @@
                 height: 150px;
             }
         }
+
+        /* back-to-top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary2);
+            transform: translateY(-3px);
+        }
     </style>
 </head>
 
@@ -477,7 +513,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" class="active">About</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="index.html#gallery-section">Gallery</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="index.html#contact">Contact Us</a></li>
             </ul>
         </nav>
@@ -494,7 +530,7 @@
             <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
             <li><a href="about.html" class="active" onclick="toggleMenu()">About</a></li>
             <li><a href="services.html" onclick="toggleMenu()">Services</a></li>
-            <li><a href="index.html#gallery-section" onclick="toggleMenu()">Gallery</a></li>
+            <li><a href="gallery.html" onclick="toggleMenu()">Gallery</a></li>
             <li><a href="index.html#contact" onclick="toggleMenu()">Contact Us</a></li>
         </ul>
     </div>
@@ -547,7 +583,7 @@
                 <div class="lg:col-span-2">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mr-4">
-                            <i class="fas fa-cogs text-white text-xl"></i>
+                            <a class="footer-logo" href="#"><img src="./images/logo.png" alt=""></a>
                         </div>
                         <h3 class="text-2xl font-bold">S4 Automation</h3>
                     </div>
@@ -584,8 +620,7 @@
                                 class="footer-link text-gray-300 hover:text-white flex items-center">
                                 <i class="fas fa-chevron-right text-blue-400 text-xs mr-2"></i>Services</a>
                         </li>
-                        <li><a href="index.html#gallery-section"
-                                class="footer-link text-gray-300 hover:text-white flex items-center">
+                        <li><a href="gallery.html" class="footer-link text-gray-300 hover:text-white flex items-center">
                                 <i class="fas fa-chevron-right text-blue-400 text-xs mr-2"></i>Gallery</a>
                         </li>
                         <li><a href="index.html#contact"
@@ -652,6 +687,13 @@
                 </div>
             </div>
     </footer>
+
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
 
     <script>
         // Header functionality
@@ -766,8 +808,29 @@
             document.body.appendChild(overlay);
         }
 
+
+
         // Auto-update year
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+
+
+        // Back to top functionality
+        window.addEventListener('scroll', function () {
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
 
 </body>
