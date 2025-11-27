@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gallery</title>
+    <title>Gallery - S4 Automation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <script src="https://kit.fontawesome.com/a2e0e6a5b3.js" crossorigin="anonymous"></script>
@@ -278,6 +278,9 @@
             border-radius: 50%;
             width: 50px;
             height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .lightbox .arrow-left {
@@ -332,7 +335,7 @@
         .fas {
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
-            padding-left: 8px;
+            /* padding-left: 8px; */
         }
 
 
@@ -543,7 +546,7 @@
                 Our Project Gallery</h2>
 
             <div class="gallery-wrapper" id="galleryWrapper">
-                <button class="arrow arrow-left">&lsaquo;</button>
+                <!-- <button class="arrow arrow-left">&lsaquo;</button> -->
                 <div class="gallery-container" id="gallery-container">
                     <div class="gallery" id="gallery">
                         <img src="images/gallery1.webp" alt="Image 1" loading="lazy">
@@ -567,7 +570,7 @@
                         <img src="images/gallery19.jpg" alt="Image 19" loading="lazy">
                     </div>
                 </div>
-                <button class="arrow arrow-right">&rsaquo;</button>
+                <!-- <button class="arrow arrow-right">&rsaquo;</button> -->
             </div>
         </div>
 
@@ -589,7 +592,7 @@
                     </div>
                     <p class="text-gray-300 mb-6 leading-relaxed max-w-md">
                         Specializing in marine automation, control systems, and power solutions. We deliver reliable,
-                        cutting-edge technology to keep your vessels operating at peak performance.
+                        update technology to keep your vessels operating at peak performance.
                     </p>
                     <div class="flex space-x-4">
                         <a href="https://www.linkedin.com/in/shimul-k-n-5345236b" target="_blank" aria-label="LinkedIn"
@@ -708,7 +711,7 @@
         });
 
         // ==========================
-        // GALLERY LIGHTBOX WITH ARROWS
+        // GALLERY LIGHTBOX WITH ARROWS + SWIPE
         // ==========================
         const gallery = document.getElementById('gallery');
         const images = [...gallery.querySelectorAll('img')];
@@ -722,26 +725,42 @@
         });
 
         function openLightbox(index) {
+            // Create overlay
             const overlay = document.createElement('div');
             overlay.classList.add('lightbox');
 
+            // Image
             const img = document.createElement('img');
             img.src = images[index].src;
             overlay.appendChild(img);
 
-            // Add navigation arrows
+            // Navigation arrows
             const prevBtn = document.createElement('div');
             const nextBtn = document.createElement('div');
             prevBtn.className = 'arrow left';
             nextBtn.className = 'arrow right';
             prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
             nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
-
             overlay.appendChild(prevBtn);
             overlay.appendChild(nextBtn);
 
-            // Styling for arrows
-            const arrowStyle = `
+            // Add arrow styles once (avoid duplicating every time)
+            if (!document.getElementById('lightbox-arrow-styles')) {
+                const arrowStyle = `
+            .lightbox {
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.9);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 9999;
+            }
+            .lightbox img {
+                max-width: 90%;
+                max-height: 90%;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            }
             .arrow {
                 position: absolute;
                 top: 50%;
@@ -755,18 +774,20 @@
                 transition: background 0.3s ease;
             }
             .arrow:hover {
-                background: rgba(255,255,255,0.2);
+                background: rgba(255,255,255,0.12);
             }
             .arrow.left { left: 30px; }
             .arrow.right { right: 30px; }
-        `;
-            const styleTag = document.createElement('style');
-            styleTag.textContent = arrowStyle;
-            document.head.appendChild(styleTag);
+            `;
+                const styleTag = document.createElement('style');
+                styleTag.id = 'lightbox-arrow-styles';
+                styleTag.textContent = arrowStyle;
+                document.head.appendChild(styleTag);
+            }
 
             // Navigation logic
-            function showImage(index) {
-                img.src = images[index].src;
+            function showImage(i) {
+                img.src = images[i].src;
             }
 
             function nextImage() {
@@ -779,11 +800,11 @@
                 showImage(currentIndex);
             }
 
+            // Button events
             nextBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 nextImage();
             });
-
             prevBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 prevImage();
@@ -791,23 +812,65 @@
 
             // Keyboard controls
             const keyHandler = (e) => {
-                if (e.key === 'Escape') overlay.remove();
+                if (e.key === 'Escape') closeLightbox();
                 if (e.key === 'ArrowRight') nextImage();
                 if (e.key === 'ArrowLeft') prevImage();
             };
             window.addEventListener('keydown', keyHandler);
 
-            // Close on overlay or image click
-            overlay.addEventListener('click', (e) => {
+            // Close on overlay or image click (keeps click on arrows handled above)
+            const overlayClickHandler = (e) => {
                 if (e.target === overlay || e.target === img) {
-                    overlay.remove();
-                    window.removeEventListener('keydown', keyHandler);
+                    closeLightbox();
                 }
-            });
+            };
+            overlay.addEventListener('click', overlayClickHandler);
 
+            // Touch / swipe support
+            let startTouchX = 0;
+            let startTouchY = 0;
+            const touchThreshold = 50; // minimum px to consider swipe
+
+            const touchStartHandler = (e) => {
+                if (!e.touches || e.touches.length === 0) return;
+                startTouchX = e.touches[0].clientX;
+                startTouchY = e.touches[0].clientY;
+            };
+
+            const touchEndHandler = (e) => {
+                const endX = e.changedTouches[0].clientX;
+                const endY = e.changedTouches[0].clientY;
+                const diffX = endX - startTouchX;
+                const diffY = endY - startTouchY;
+                // ignore mostly vertical swipes to avoid conflict with page scroll
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > touchThreshold) {
+                    if (diffX > 0) {
+                        // swipe right -> previous
+                        prevBtn.click();
+                    } else {
+                        // swipe left -> next
+                        nextBtn.click();
+                    }
+                }
+            };
+
+            overlay.addEventListener('touchstart', touchStartHandler, { passive: true });
+            overlay.addEventListener('touchend', touchEndHandler);
+
+            // Append to document
             document.body.appendChild(overlay);
-        }
 
+            // Cleanup function
+            function closeLightbox() {
+                // remove listeners
+                window.removeEventListener('keydown', keyHandler);
+                overlay.removeEventListener('click', overlayClickHandler);
+                overlay.removeEventListener('touchstart', touchStartHandler);
+                overlay.removeEventListener('touchend', touchEndHandler);
+                // remove overlay
+                overlay.remove();
+            }
+        }
 
 
         // Auto-update year
@@ -832,6 +895,7 @@
             });
         });
     </script>
+
 
 </body>
 
